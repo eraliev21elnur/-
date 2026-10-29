@@ -6,7 +6,7 @@ export type Track = {
   title: string;
   status: "draft" | "published";
   src: string; // /media/music/your-track.mp3 or a direct HTTPS audio URL
-  artwork?: string;
+  artwork?: string; // Square cover: /media/music/your-cover.webp (shown in the list and bottom player)
   year?: number;
   description?: string;
   credits?: string;
@@ -43,6 +43,10 @@ export function validateTracks(
     if (!track.title.trim() || !/^(\/(?!\/)|https:\/\/)/.test(track.src))
       throw new Error(
         `Published track requires a title and local or HTTPS audio URL: ${track.id}`,
+      );
+    if (track.artwork && !/^(\/(?!\/)|https:\/\/)/.test(track.artwork))
+      throw new Error(
+        `Track artwork requires a local or HTTPS URL: ${track.id}`,
       );
   }
 }

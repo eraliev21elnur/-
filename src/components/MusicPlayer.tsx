@@ -19,6 +19,7 @@ export function trackText(track: Track, language: Language): Track {
 export function MusicPlayer({ tracks }: { tracks: Track[] }) {
   const { t, language } = useLocale();
   const audio = useRef<HTMLAudioElement>(null);
+  const panel = useRef<HTMLElement>(null);
   const activeId = useRef<string | null>(null);
   const request = useRef(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -28,7 +29,22 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
   const current = selectedTrack ? trackText(selectedTrack, language) : null;
   useEffect(() => {
     const player = audio.current;
+    const root = document.documentElement;
+    const updateSpace = () => {
+      if (panel.current)
+        root.style.setProperty(
+          "--music-player-height",
+          `${Math.ceil(panel.current.getBoundingClientRect().height)}px`,
+        );
+    };
+    document.body.classList.add("has-music-player");
+    updateSpace();
+    const observer = new ResizeObserver(updateSpace);
+    if (panel.current) observer.observe(panel.current);
     return () => {
+      observer.disconnect();
+      document.body.classList.remove("has-music-player");
+      root.style.removeProperty("--music-player-height");
       player?.pause();
       player?.removeAttribute("src");
       player?.load();
@@ -140,16 +156,34 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
           );
         })}
       </div>
-      <div className={`music-player-panel ${current ? "has-track" : ""}`}>
-        <div className="now-playing">
-          <span className="eyebrow">
-            {t(playing ? "Now playing" : "Audio player")}
-          </span>
-          <p aria-live="polite">
-            {current?.title ?? t("Choose a track to listen")}
-          </p>
-        </div>
-        <div className="audio-controls">
+      <aside
+        ref={panel}
+        className={`music-player-panel ${current ? "has-track" : ""}`}
+        aria-label={t("Audio player")}
+      >
+        <div className="music-player-inner wrap">
+          <div className="now-playing">
+            <div className="now-playing-art" aria-hidden="true">
+              {current?.artwork ? (
+                <img
+                  src={safeUrl(current.artwork)}
+                  alt=""
+                  width="56"
+                  height="56"
+                />
+              ) : (
+                <Disc3 size={25} />
+              )}
+            </div>
+            <div className="now-playing-copy">
+              <span className="eyebrow">
+                {t(playing ? "Now playing" : "Audio player")}
+              </span>
+              <p aria-live="polite">
+                {current?.title ?? t("Choose a track to listen")}
+              </p>
+            </div>
+          </div>
           <audio
             ref={audio}
             controls
@@ -186,13 +220,13 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
               <SkipForward size={18} />
             </button>
           </div>
+          {failed && (
+            <p className="audio-error" role="alert">
+              {t("This track could not be played. Please try again.")}
+            </p>
+          )}
         </div>
-        {failed && (
-          <p className="audio-error" role="alert">
-            {t("This track could not be played. Please try again.")}
-          </p>
-        )}
-      </div>
+      </aside>
       <p className="music-listening-note">
         {t(
           "Playback starts only when you press play. Leaving this page stops the music.",

@@ -303,6 +303,10 @@ test("audio collection renders a single lazy player and rejects invalid publishe
     () => validateTracks([{ ...fixture[0], src: "javascript:alert(1)" }]),
     /audio URL/,
   );
+  assert.throws(
+    () => validateTracks([{ ...fixture[0], artwork: "javascript:alert(1)" }]),
+    /artwork/,
+  );
 });
 test("home merges animation/VFX and puts Music after Design without dropping category routes", async () => {
   const { homeCategories, projectsForDiscipline } =
@@ -333,6 +337,14 @@ test("authorized audio demos are labeled and can all be disabled", async () => {
   const { getPublishedTracks } = await import("../src/data/tracks");
   const { demoTracks } = await import("../src/data/demoTracks");
   assert.equal(demoTracks.length, 3);
+  const { existsSync } = await import("node:fs");
+  assert.equal(new Set(demoTracks.map((track) => track.artwork)).size, 3);
+  for (const track of demoTracks) {
+    assert.ok(track.artwork?.startsWith("/media/music/demo/"));
+    assert.ok(
+      existsSync(new URL(`../public${track.artwork}`, import.meta.url)),
+    );
+  }
   assert.ok(
     demoTracks.every(
       (track) => track.demo && track.src.startsWith("/media/music/demo/"),

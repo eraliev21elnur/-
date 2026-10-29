@@ -6,9 +6,10 @@ export const site = {
   brand: "FULL CORE",
   publishEmptyDisciplines: false, // Empty pages are preview-only unless deliberately enabled.
   demoMode: true, // Set false to hide ALL temporary sample cases and sample hero.
-  title: "Film, Motion & Visual Production",
-  tagline: "Visual production.",
-  subtitle: "Filmmaking · Motion Design · 3D / VFX · Graphic Design",
+  title: "Film, Motion & Music Production",
+  tagline: "Visuals & sound.",
+  subtitle:
+    "Filmmaking · Motion Design · 3D / VFX · Graphic Design · Music Production",
   location: "Kazakhstan",
   email: "",
   url: deploymentUrl || "", // e.g. https://your-domain.com — needed for canonical URLs and sitemap

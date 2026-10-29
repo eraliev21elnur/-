@@ -258,9 +258,9 @@ export const messages: Record<string, { ru: string; kk: string }> = {
     ru: "Другие направления",
     kk: "Басқа бағыттар",
   },
-  "Filmmaker / Motion designer / Visual creator": {
-    ru: "Видеограф / Моушн-дизайнер / Визуальный автор",
-    kk: "Видеограф / Моушн-дизайнер / Визуал контент авторы",
+  "Filmmaker / Motion designer / Music producer": {
+    ru: "Видеограф / Моушн-дизайнер / Музыкальный продюсер",
+    kk: "Видеограф / Моушн-дизайнер / Музыка продюсері",
   },
   "Independent /": {
     ru: "Независимый автор /",
@@ -270,13 +270,17 @@ export const messages: Record<string, { ru: string; kk: string }> = {
     ru: "Без ограничений.",
     kk: "Шектеусіз.",
   },
-  "FULL CORE / VISUAL WORKS": {
-    ru: "FULL CORE / ВИЗУАЛЬНЫЕ РАБОТЫ",
-    kk: "FULL CORE / ВИЗУАЛ ЖҰМЫСТАР",
+  "FULL CORE / VISUAL & SOUND": {
+    ru: "FULL CORE / ВИЗУАЛ И ЗВУК",
+    kk: "FULL CORE / ВИЗУАЛ МЕН ДЫБЫС",
   },
-  "FILM — MOTION — FORM": {
-    ru: "ВИДЕО — ДВИЖЕНИЕ — ФОРМА",
-    kk: "БЕЙНЕ — ҚОЗҒАЛЫС — ПІШІН",
+  "FILM — MOTION — MUSIC": {
+    ru: "ВИДЕО — ДВИЖЕНИЕ — МУЗЫКА",
+    kk: "БЕЙНЕ — ҚОЗҒАЛЫС — МУЗЫКА",
+  },
+  "Independent creator": {
+    ru: "Независимый автор",
+    kk: "Тәуелсіз автор",
   },
   "Independent visual creator": {
     ru: "Независимый визуальный автор",
@@ -464,13 +468,13 @@ export const messages: Record<string, { ru: string; kk: string }> = {
     ru: "Авторские видео",
     kk: "Авторлық бейнелер",
   },
-  "Visual production.": {
-    ru: "Визуальный продакшен.",
-    kk: "Визуал продакшн.",
+  "Visuals & sound.": {
+    ru: "Визуал и музыка.",
+    kk: "Визуал мен музыка.",
   },
-  "Filmmaking · Motion Design · 3D / VFX · Graphic Design": {
-    ru: "Видеосъёмка · Моушн-дизайн · 3D / VFX · Графический дизайн",
-    kk: "Бейнетүсірілім · Моушн-дизайн · 3D / VFX · Графикалық дизайн",
+  "Filmmaking · Motion Design · 3D / VFX · Graphic Design · Music Production": {
+    ru: "Видеосъёмка · Моушн-дизайн · 3D / VFX · Графический дизайн · Музыкальный продакшен",
+    kk: "Бейнетүсірілім · Моушн-дизайн · 3D / VFX · Графикалық дизайн · Музыка продакшны",
   },
   Kazakhstan: {
     ru: "Казахстан",
@@ -643,9 +647,9 @@ export const messages: Record<string, { ru: string; kk: string }> = {
     ru: "Лицензия CC BY 3.0",
     kk: "CC BY 3.0 лицензиясы",
   },
-  "Film, Motion & Visual Production": {
-    ru: "Видео, моушн и визуальный продакшен",
-    kk: "Бейне, моушн және визуал продакшн",
+  "Film, Motion & Music Production": {
+    ru: "Видео, моушн и музыкальный продакшен",
+    kk: "Бейне, моушн және музыка продакшны",
   },
   "All Projects — Archive": {
     ru: "Все проекты — архив",
@@ -655,10 +659,10 @@ export const messages: Record<string, { ru: string; kk: string }> = {
     ru: "Страница не найдена",
     kk: "Бет табылмады",
   },
-  "Independent visual creator based in {location}. Filmmaking, video editing, motion design and commercial content production.":
+  "Independent creator based in {location}. Film, motion design, 3D / VFX, graphic design and music production.":
     {
-      ru: "Независимый визуальный автор · {location}. Видеосъёмка, монтаж, моушн-дизайн и коммерческий контент.",
-      kk: "Тәуелсіз визуал контент авторы · {location}. Бейнетүсірілім, монтаж, моушн-дизайн және коммерциялық контент.",
+      ru: "Независимый автор · {location}. Видео, моушн-дизайн, 3D / VFX, графический дизайн и музыкальный продакшен.",
+      kk: "Тәуелсіз автор · {location}. Бейне, моушн-дизайн, 3D / VFX, графикалық дизайн және музыка продакшны.",
     },
   Projects: {
     ru: "Проекты",

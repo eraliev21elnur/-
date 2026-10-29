@@ -7,6 +7,7 @@ export const demoTracks: Track[] = [
     status: "published",
     demo: true,
     src: "/media/music/demo/ambient.mp3",
+    artwork: "/media/music/demo/ambient-cover.webp",
     description: "A soft ambient loop for testing playback and seeking.",
     translations: {
       ru: {
@@ -26,6 +27,7 @@ export const demoTracks: Track[] = [
     status: "published",
     demo: true,
     src: "/media/music/demo/pulse.mp3",
+    artwork: "/media/music/demo/pulse-cover.webp",
     description: "An electronic beat for testing track switching and volume.",
     translations: {
       ru: {
@@ -45,6 +47,7 @@ export const demoTracks: Track[] = [
     status: "published",
     demo: true,
     src: "/media/music/demo/glass.mp3",
+    artwork: "/media/music/demo/glass-cover.webp",
     description: "A bright synth loop for testing the playlist controls.",
     translations: {
       ru: {
