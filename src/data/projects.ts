@@ -7,6 +7,9 @@ export type Media = {
   url: string; // YouTube/Vimeo URL or ID; local files start with /media/
   thumbnail?: string;
   aspectRatio?: AspectRatio;
+  translations?: Partial<
+    Record<"ru" | "kk", { caption?: string; alt?: string }>
+  >;
   caption?: string;
   alt?: string;
 };
@@ -15,6 +18,23 @@ export type Project = {
   demo?: boolean; // Temporary sample; never claim as portfolio work.
   slug: string;
   title: string;
+  translations?: Partial<
+    Record<
+      "ru" | "kk",
+      Partial<
+        Pick<
+          Project,
+          | "title"
+          | "subtitle"
+          | "description"
+          | "role"
+          | "process"
+          | "credits"
+          | "coverAlt"
+        >
+      >
+    >
+  >;
   subtitle?: string;
   category: string;
   tags?: string[];

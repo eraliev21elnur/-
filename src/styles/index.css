@@ -1845,3 +1845,94 @@ figcaption {
     scroll-behavior: auto !important;
   }
 }
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-left: 1px solid var(--line);
+  padding-left: 16px;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+.language-switch button {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  min-width: 34px;
+  min-height: 44px;
+  padding: 7px 5px;
+  color: #aaaab5;
+  position: relative;
+}
+.language-switch button[aria-pressed="true"] {
+  color: #fff;
+}
+.language-switch button[aria-pressed="true"]:after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #d1d7de;
+}
+.mobile-nav .language-switch {
+  border-left: 0;
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+  margin: 0;
+  gap: 12px;
+}
+.mobile-nav .language-switch button {
+  font-size: 13px;
+  min-width: 48px;
+  min-height: 48px;
+}
+html:lang(ru) .home-hero h1,
+html:lang(kk) .home-hero h1 {
+  font-size: clamp(48px, 6.3vw, 100px);
+  letter-spacing: -0.055em;
+}
+html:lang(ru) .hero-composition,
+html:lang(kk) .hero-composition {
+  grid-template-columns: minmax(0, 1fr) 150px;
+}
+html:lang(ru) .desktop-nav,
+html:lang(kk) .desktop-nav {
+  gap: clamp(14px, 1.5vw, 24px);
+}
+@media (max-width: 760px) {
+  html:lang(ru) .hero-composition,
+  html:lang(kk) .hero-composition {
+    grid-template-columns: 1fr;
+  }
+  html:lang(ru) .home-hero h1,
+  html:lang(kk) .home-hero h1 {
+    font-size: 8.7vw;
+  }
+}
+@media (max-width: 540px) {
+  html:lang(ru) .home-hero h1,
+  html:lang(kk) .home-hero h1 {
+    font-size: 11.8vw;
+    overflow-wrap: normal;
+  }
+  html:lang(ru) .tile-copy h3,
+  html:lang(kk) .tile-copy h3 {
+    font-size: 29px;
+  }
+  html:lang(ru) .discipline-heading h1,
+  html:lang(kk) .discipline-heading h1 {
+    font-size: 11vw;
+  }
+  html:lang(ru) .contact-cta h2,
+  html:lang(kk) .contact-cta h2 {
+    font-size: 29px;
+  }
+  .demo-banner {
+    flex-wrap: wrap;
+    gap: 3px 12px;
+    text-align: center;
+  }
+}
+@media(max-width:540px){html:lang(ru) .discipline-video .discipline-heading h1{font-size:8.2vw;letter-spacing:-.05em}}

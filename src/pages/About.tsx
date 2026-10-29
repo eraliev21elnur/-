@@ -1,14 +1,19 @@
+import { useLocale } from "../i18n";
 import { assetUrl } from "../lib/paths";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "../data/site";
 import { ContactCTA } from "../components/UI";
 export function About() {
+  const { t } = useLocale();
   return (
     <>
       <section className="wrap page-top about">
-        <span className="eyebrow">The person behind {site.brand}</span>
+        <span className="eyebrow">
+          {t("The person behind")} {site.brand}
+        </span>
         <h1>
-          Behind the work<span className="heading-dot">.</span>
+          {t("Behind the work")}
+          <span className="heading-dot">.</span>
         </h1>
         <div className="about-story">
           <div className="portrait">
@@ -21,25 +26,33 @@ export function About() {
             ) : (
               <div className="portrait-placeholder">
                 <span className="portrait-monogram">
-                  FC<span>®</span>
+                  {t("FC")}
+                  <span>®</span>
                 </span>
-                <span className="eyebrow">Independent. Hands-on. Curious.</span>
-                <span className="portrait-note">Portrait to be added</span>
+                <span className="eyebrow">
+                  {t("Independent. Hands-on. Curious.")}
+                </span>
+                <span className="portrait-note">
+                  {t("Portrait to be added")}
+                </span>
               </div>
             )}
           </div>
           <div className="about-copy">
-            <span className="eyebrow">Based in {site.location}</span>
+            <span className="eyebrow">
+              {t("Based in")} {t(site.location)}
+            </span>
             <h2>
-              Making visuals.
+              {t("Making visuals.")}
               <br />
-              From idea to final cut.
+              {t("From idea to final cut.")}
             </h2>
-            <p>{site.about}</p>
-            <p>{site.experience}</p>
+            <p>{t(site.about)}</p>
+            <p>{t(site.experience)}</p>
             <p className="small-copy">
-              My existing portfolio is rooted in hands-on production, editing,
-              motion graphics and design.
+              {t(
+                "My existing portfolio is rooted in hands-on production, editing, motion graphics and design.",
+              )}
             </p>
             {site.cv && (
               <a
@@ -48,31 +61,32 @@ export function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Download CV <ArrowUpRight size={18} />
+                {t("Download CV")}
+                <ArrowUpRight size={18} />
               </a>
             )}
           </div>
         </div>
         <div className="about-lists">
           <section>
-            <span className="eyebrow">01 / What I do</span>
+            <span className="eyebrow">{t("01 / What I do")}</span>
             <ul>
               {site.disciplines.map((d, i) => (
                 <li key={d}>
                   <span>0{i + 1}</span>
-                  {d}
+                  {t(d)}
                 </li>
               ))}
             </ul>
           </section>
           <section>
-            <span className="eyebrow">02 / Tools I work with</span>
+            <span className="eyebrow">{t("02 / Tools I work with")}</span>
             <p className="small-copy tools-note">
-              A toolkit shaped by different projects.
+              {t("A toolkit shaped by different projects.")}
             </p>
             <div className="tool-list">
-              {site.tools.map((t) => (
-                <span key={t}>{t}</span>
+              {site.tools.map((tool) => (
+                <span key={tool}>{tool}</span>
               ))}
             </div>
           </section>

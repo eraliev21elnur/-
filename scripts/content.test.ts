@@ -191,3 +191,48 @@ test("base path normalization handles the configure-pages output without a trail
   assert.equal(normalizeBase(""), "/");
   assert.equal(normalizeBase("/"), "/");
 });
+test("Russian and Kazakh translations preserve Unicode and content fallback", async () => {
+  const { translate } = await import("../src/i18n");
+  const { messages } = await import("../src/i18n/messages");
+  const { localizeProject, localizeMedia } =
+    await import("../src/i18n/content");
+  assert.equal(translate("Home", "ru"), "Главная");
+  assert.equal(translate("Home", "kk"), "Басты бет");
+  assert.equal(translate("Kazakhstan", "kk"), "Қазақстан");
+  assert.equal(
+    translate("Untranslated future title", "kk"),
+    "Untranslated future title",
+  );
+  const unicode = "Әә Ғғ Ққ Ңң Өө Ұұ Үү Һһ Іі";
+  assert.equal(
+    new TextDecoder("utf-8", { fatal: true }).decode(
+      new TextEncoder().encode(unicode),
+    ),
+    unicode,
+  );
+  for (const entry of Object.values(messages))
+    for (const value of Object.values(entry)) {
+      assert.ok(value.trim());
+      assert.ok(!value.includes("\uFFFD"));
+      assert.equal(value, value.normalize("NFC"));
+    }
+  const project = {
+    ...projects[0],
+    translations: { ru: { title: "Мой проект" }, kk: { title: "Менің жобам" } },
+  };
+  assert.equal(localizeProject(project, "ru").title, "Мой проект");
+  assert.equal(localizeProject(project, "kk").title, "Менің жобам");
+  assert.equal(localizeProject(project, "en").title, projects[0].title);
+  assert.equal(
+    localizeMedia(
+      {
+        id: "test",
+        type: "image",
+        url: "/media/test.webp",
+        translations: { kk: { alt: "Үлгі сурет" } },
+      },
+      "kk",
+    ).alt,
+    "Үлгі сурет",
+  );
+});

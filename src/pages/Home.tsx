@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUpRight, Play } from "lucide-react";
@@ -12,42 +13,48 @@ import { assetUrl } from "../lib/paths";
 import { ContactCTA, ProjectCard } from "../components/UI";
 import { MediaPlayer } from "../components/MediaPlayer";
 export function Home() {
+  const { t } = useLocale();
   const [reelOpen, setReelOpen] = useState(false);
   return (
     <>
       <section className="home-hero wrap">
         <div className="hero-caption">
           <span className="eyebrow">
-            Filmmaker / Motion designer / Visual creator
+            {t("Filmmaker / Motion designer / Visual creator")}
           </span>
-          <span className="eyebrow">Independent / {site.location}</span>
+          <span className="eyebrow">
+            {t("Independent /")} {t(site.location)}
+          </span>
         </div>
         <div className="hero-composition">
           <h1>
-            {site.tagline}
+            {t(site.tagline)}
             <br />
-            <span>Without limits.</span>
+            <span>{t("Without limits.")}</span>
           </h1>
           <div className="hero-mark" aria-hidden="true">
-            <span className="mark-top">FULL CORE / VISUAL WORKS</span>
+            <span className="mark-top">{t("FULL CORE / VISUAL WORKS")}</span>
             <div className="aperture">
               <i />
               <i />
               <i />
               <i />
             </div>
-            <span className="mark-bottom">FILM — MOTION — FORM</span>
+            <span className="mark-bottom">
+              {t("FILM \u2014 MOTION \u2014 FORM")}
+            </span>
           </div>
         </div>
         <div className="hero-summary">
           <div>
-            <p className="hero-disciplines">{site.subtitle}</p>
+            <p className="hero-disciplines">{t(site.subtitle)}</p>
             <p className="hero-location">
-              Independent visual creator based in {site.location}.
+              {t("Independent visual creator")} · {t(site.location)}
             </p>
           </div>
           <a className="explore-link" href="#explore">
-            Explore my work <ArrowDown size={18} />
+            {t("Explore my work")}
+            <ArrowDown size={18} />
           </a>
         </div>
         {site.showreel && (
@@ -58,7 +65,7 @@ export function Home() {
               onClick={() => setReelOpen(!reelOpen)}
             >
               <Play size={15} />
-              {reelOpen ? "Close showreel" : "Watch showreel"}
+              {reelOpen ? t("Close showreel") : t("Watch showreel")}
             </button>
             {reelOpen && (
               <MediaPlayer
@@ -72,9 +79,10 @@ export function Home() {
       <section className="work-doorways wrap" id="explore">
         <div className="section-heading">
           <h2>
-            Explore my work<span>.</span>
+            {t("Explore my work")}
+            <span>.</span>
           </h2>
-          <span className="eyebrow">Choose a discipline</span>
+          <span className="eyebrow">{t("Choose a discipline")}</span>
         </div>
         <div className="discipline-grid">
           {disciplines
@@ -98,26 +106,33 @@ export function Home() {
                   )}
                   {d.id === "3d-vfx" && (
                     <div className="wire-art" aria-hidden="true">
-                      {Array.from({ length: 7 }, (_, i) => (
-                        <i
-                          key={i}
-                          style={{ transform: `rotate(${i * 25}deg)` }}
-                        />
-                      ))}
+                      {Array.from(
+                        {
+                          length: 7,
+                        },
+                        (_, i) => (
+                          <i
+                            key={i}
+                            style={{
+                              transform: `rotate(${i * 25}deg)`,
+                            }}
+                          />
+                        ),
+                      )}
                     </div>
                   )}
                   <div className="tile-top">
                     <span className="eyebrow">
-                      0{i + 1} / {d.short}
+                      0{i + 1} / {t(d.short)}
                     </span>
                     <ArrowUpRight size={26} />
                   </div>
                   <div className="tile-copy">
-                    <h3>{d.title}</h3>
-                    <p>{d.description}</p>
+                    <h3>{t(d.title)}</h3>
+                    <p>{t(d.description)}</p>
                   </div>
                   {preview?.demo && (
-                    <span className="tile-sample">Sample imagery</span>
+                    <span className="tile-sample">{t("Sample imagery")}</span>
                   )}
                 </Link>
               );
@@ -127,9 +142,10 @@ export function Home() {
       <section className="home-selected wrap">
         <div className="section-heading">
           <h2>
-            Selected works<span>.</span>
+            {t("Selected works")}
+            <span>.</span>
           </h2>
-          <span className="eyebrow">A focused selection</span>
+          <span className="eyebrow">{t("A focused selection")}</span>
         </div>
         {selectedProjects.length ? (
           <div className="selected-grid">
@@ -139,9 +155,11 @@ export function Home() {
           </div>
         ) : (
           <p className="selected-empty">
-            Confirmed projects will appear here.{" "}
+            {t("Confirmed projects will appear here.")}{" "}
             {site.demoMode && (
-              <span>Layout samples are available inside each discipline.</span>
+              <span>
+                {t("Layout samples are available inside each discipline.")}
+              </span>
             )}
           </p>
         )}

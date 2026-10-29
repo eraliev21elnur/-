@@ -1,3 +1,5 @@
+import { localizeProject } from "../i18n/content";
+import { useLocale } from "../i18n";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,9 +18,17 @@ export function Reveal({
     <motion.div
       className={className}
       initial={false}
-      whileInView={{ opacity: [0.75, 1], y: [8, 0] }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.35 }}
+      whileInView={{
+        opacity: [0.75, 1],
+        y: [8, 0],
+      }}
+      viewport={{
+        once: true,
+        amount: 0.1,
+      }}
+      transition={{
+        duration: 0.35,
+      }}
     >
       {children}
     </motion.div>
@@ -42,11 +52,11 @@ export function ArrowLink({
 }
 export function EmptyWork({
   filtered = false,
-  discipline,
 }: {
   filtered?: boolean;
   discipline?: string;
 }) {
+  const { t } = useLocale();
   return (
     <div className="empty-work">
       <span className="empty-marker" aria-hidden="true">
@@ -55,25 +65,27 @@ export function EmptyWork({
       <div>
         <h3>
           {filtered
-            ? "No projects in this filter yet."
-            : `No ${discipline ?? "selected"} projects published yet.`}
+            ? t("No projects in this filter yet.")
+            : t("No published projects yet.")}
         </h3>
         <p>
           {site.demoMode
-            ? "Preview state. Only confirmed work will be added here."
-            : "Projects will appear here once selected and ready to share."}
+            ? t("Preview state. Only confirmed work will be added here.")
+            : t("Projects will appear here once selected and ready to share.")}
         </p>
       </div>
     </div>
   );
 }
 export function ProjectCard({
-  project,
+  project: sourceProject,
   index = 0,
 }: {
   project: Project;
   index?: number;
 }) {
+  const { t, language } = useLocale();
+  const project = localizeProject(sourceProject, language);
   return (
     <Reveal
       className={`project-card ratio-${(project.coverAspectRatio ?? "16/9").replace("/", "-")}`}
@@ -81,7 +93,9 @@ export function ProjectCard({
       <Link to={`/work/${project.slug}`} className="project-card-link">
         <div
           className="project-cover"
-          style={{ aspectRatio: project.coverAspectRatio ?? "16/9" }}
+          style={{
+            aspectRatio: project.coverAspectRatio ?? "16/9",
+          }}
         >
           {project.coverImage ? (
             <img
@@ -90,11 +104,13 @@ export function ProjectCard({
               loading="lazy"
             />
           ) : (
-            <span className="cover-missing">Preview unavailable</span>
+            <span className="cover-missing">{t("Preview unavailable")}</span>
           )}
-          {project.demo && <span className="demo-badge">Sample / Preview</span>}
+          {project.demo && (
+            <span className="demo-badge">{t("Sample / Preview")}</span>
+          )}
           <span className="cover-action">
-            View project
+            {t("View project")}
             <ArrowUpRight size={18} />
           </span>
         </div>
@@ -103,9 +119,9 @@ export function ProjectCard({
             {String(index + 1).padStart(2, "0")}
           </span>
           <div>
-            <h3>{project.title}</h3>
+            <h3>{t(project.title)}</h3>
             <p>
-              {categoryLabel(project.category)}
+              {t(categoryLabel(project.category))}
               {project.year ? ` / ${project.year}` : ""}
             </p>
           </div>
@@ -116,15 +132,16 @@ export function ProjectCard({
   );
 }
 export function ContactCTA() {
+  const { t } = useLocale();
   return (
     <section className="contact-cta wrap">
       <div>
         <span className="eyebrow">
-          Projects / Collaborations / Opportunities
+          {t("Projects / Collaborations / Opportunities")}
         </span>
-        <h2>Let’s make it happen.</h2>
+        <h2>{t("Let\u2019s make it happen.")}</h2>
       </div>
-      <ArrowLink to="/contact">Get in touch</ArrowLink>
+      <ArrowLink to="/contact">{t("Get in touch")}</ArrowLink>
     </section>
   );
 }

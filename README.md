@@ -27,7 +27,7 @@ Production output: `dist/`. Build validates public content and prerenders HTML, 
 
 The site currently runs in **design preview mode** (`site.demoMode: true`). Five clearly labeled sample cases demonstrate landscape/vertical video, product photography, architecture and image galleries. Demo case data lives in `src/data/demo.ts`; six real content-planning records in `projects.ts` remain hidden drafts. All visible samples are labeled and attributed, without FULL CORE production claims. No portrait or fictitious contact details have been added.
 
-Set `demoMode: false` in `src/data/site.ts` to hide all sample cases at once. Add your approved media to the real project records and publish them. See `public/media/demo/CREDITS.md` for sample sources and licenses. The code is ready to populate; a recruiter-ready portfolio requires replacing samples with your work. Nothing has been deployed.
+Set `demoMode: false` in `src/data/site.ts` to hide all sample cases at once. Add your approved media to the real project records and publish them. See `public/media/demo/CREDITS.md` for sample sources and licenses. The code is ready to populate; a recruiter-ready portfolio requires replacing samples with your work. The redesign is tracked in GitHub pull request #1.
 
 ## Structure
 
@@ -58,3 +58,6 @@ VIDEO groups `commercial` and `film` records and filters by `videoType`. MOTION 
 `publishEmptyDisciplines: false` hides empty discipline links and excludes their pages from static generation after demoMode is switched off. While preview mode is enabled all four sections can be reviewed, including the honest 3D empty state. Set publishEmptyDisciplines=true only when intentionally choosing to publish empty pages.
 
 Verified after redesign: eight tests, typecheck, lint, production build, Chromium at 320/390/768/1024/1440 px, all seven primary pages, project navigation, category filters and reload, image dialog and Escape, local video playback, zero eager MP4 requests and no JS errors. The GitHub Pages base path `/-` is normalized to `/-/` for both server-rendered and client URLs. 
+
+## Languages
+EN (default), RU and KZ (language code kk) are available after Contact in desktop/mobile navigation. Selection persists with guarded localStorage. The phrase dictionary is UTF-8 in src/i18n/messages.ts; custom Project/Media translations are documented in CONTENT_GUIDE.md. English prerendering and hydration are retained; localized metadata updates in the browser, without separate localized SEO routes.
