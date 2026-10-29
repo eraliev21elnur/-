@@ -1,13 +1,22 @@
+import { localizeMedia } from "../i18n/content";
+import { useLocale } from "../i18n";
 import { useRef, useState } from "react";
 import { Play, Maximize2, X } from "lucide-react";
 import type { Media } from "../data/projects";
 import { embedUrl, safeUrl } from "../lib/media";
-
-export function MediaPlayer({ media, title }: { media: Media; title: string }) {
+export function MediaPlayer({
+  media: sourceMedia,
+  title,
+}: {
+  media: Media;
+  title: string;
+}) {
+  const { t, language } = useLocale();
+  const media = localizeMedia(sourceMedia, language);
   const [active, setActive] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const ratio = media.aspectRatio ?? "16/9";
-  const label = media.caption ?? title;
+  const label = t(media.caption ?? title);
   if (!media.url) return null;
   if (media.type === "image")
     return (
@@ -15,17 +24,19 @@ export function MediaPlayer({ media, title }: { media: Media; title: string }) {
         <button
           className="image-open"
           onClick={() => dialog.current?.showModal()}
-          aria-label={`Enlarge ${label}`}
+          aria-label={t("Enlarge {title}").replace("{title}", label)}
         >
           <img
             src={safeUrl(media.url)}
-            alt={media.alt ?? label}
+            alt={t(media.alt ?? label)}
             loading="lazy"
-            style={{ aspectRatio: ratio }}
+            style={{
+              aspectRatio: ratio,
+            }}
           />
           <Maximize2 size={20} />
         </button>
-        {media.caption && <figcaption>{media.caption}</figcaption>}
+        {media.caption && <figcaption>{t(media.caption)}</figcaption>}
         <dialog
           ref={dialog}
           className="lightbox"
@@ -36,11 +47,11 @@ export function MediaPlayer({ media, title }: { media: Media; title: string }) {
           <button
             className="icon-button lightbox-close"
             onClick={() => dialog.current?.close()}
-            aria-label="Close image"
+            aria-label={t("Close image")}
           >
             <X />
           </button>
-          <img src={safeUrl(media.url)} alt={media.alt ?? label} />
+          <img src={safeUrl(media.url)} alt={t(media.alt ?? label)} />
         </dialog>
       </figure>
     );
@@ -50,7 +61,12 @@ export function MediaPlayer({ media, title }: { media: Media; title: string }) {
       : null;
   return (
     <figure className={`media-figure ${ratio === "9/16" ? "vertical" : ""}`}>
-      <div className="player" style={{ aspectRatio: ratio }}>
+      <div
+        className="player"
+        style={{
+          aspectRatio: ratio,
+        }}
+      >
         {active ? (
           media.type === "localVideo" ? (
             <video
@@ -59,13 +75,13 @@ export function MediaPlayer({ media, title }: { media: Media; title: string }) {
               autoPlay
               playsInline
               preload="metadata"
-              aria-label={label}
+              aria-label={t(label)}
             />
           ) : (
             embed && (
               <iframe
                 src={embed}
-                title={label}
+                title={t(label)}
                 allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
                 allowFullScreen
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -76,7 +92,7 @@ export function MediaPlayer({ media, title }: { media: Media; title: string }) {
           <button
             className="facade"
             onClick={() => setActive(true)}
-            aria-label={`Play ${label}`}
+            aria-label={t("Play {title}").replace("{title}", label)}
           >
             {media.thumbnail && (
               <img src={safeUrl(media.thumbnail)} alt="" loading="lazy" />
@@ -85,21 +101,26 @@ export function MediaPlayer({ media, title }: { media: Media; title: string }) {
               <Play fill="currentColor" size={22} />
             </span>
             <span className="facade-label">
-              Play film{" "}
+              {t("Play film")}{" "}
               <span>
                 {media.type === "localVideo"
-                  ? "Local video"
-                  : `Loads ${media.type === "youtube" ? "YouTube" : "Vimeo"} player`}
+                  ? t("Local video")
+                  : t("Loads {provider} player").replace(
+                      "{provider}",
+                      media.type === "youtube" ? "YouTube" : "Vimeo",
+                    )}
               </span>
             </span>
           </button>
         ) : (
           <div className="media-error">
-            Video link unavailable. Please check the project configuration.
+            {t(
+              "Video link unavailable. Please check the project configuration.",
+            )}
           </div>
         )}
       </div>
-      {media.caption && <figcaption>{media.caption}</figcaption>}
+      {media.caption && <figcaption>{t(media.caption)}</figcaption>}
     </figure>
   );
 }
@@ -111,6 +132,12 @@ export function VerticalVideoPlayer({
   title: string;
 }) {
   return (
-    <MediaPlayer media={{ ...media, aspectRatio: "9/16" }} title={title} />
+    <MediaPlayer
+      media={{
+        ...media,
+        aspectRatio: "9/16",
+      }}
+      title={title}
+    />
   );
 }

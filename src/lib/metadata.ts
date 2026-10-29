@@ -1,6 +1,7 @@
+import { translate, type Language } from "../i18n";
 import { publishedProjects } from "../data/projects";
 import { site } from "../data/site";
-export function metadata(path: string) {
+export function metadata(path: string, language: Language = "en") {
   path = path.replace(/\/+$/, "") || "/";
   const project = publishedProjects.find((p) => path === `/work/${p.slug}`);
   const titles: Record<string, string> = {
@@ -14,9 +15,11 @@ export function metadata(path: string) {
     "/contact": "Contact",
   };
   return {
-    title: `${project?.title ?? titles[path] ?? "Page not found"} — ${site.brand}`,
-    description:
+    title: `${translate(project?.title ?? titles[path] ?? "Page not found", language)} — ${site.brand}`,
+    description: translate(
       project?.description ??
-      `Independent visual creator based in ${site.location}. Filmmaking, video editing, motion design and commercial content production.`,
+        "Independent visual creator based in {location}. Filmmaking, video editing, motion design and commercial content production.",
+      language,
+    ).replace("{location}", translate(site.location, language)),
   };
 }
