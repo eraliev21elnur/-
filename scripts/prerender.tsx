@@ -1,3 +1,4 @@
+import { validateTracks } from "../src/data/tracks";
 import { disciplines, disciplineVisible } from "../src/data/disciplines";
 import { absoluteSiteUrl, assetUrl, routerBase } from "../src/lib/paths";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -11,6 +12,7 @@ import { metadata } from "../src/lib/metadata";
 import { validateProjects } from "./validate-content";
 
 validateProjects();
+validateTracks();
 const out = resolve("dist");
 const template = await readFile(join(out, "index.html"), "utf8");
 const routes = [
@@ -18,6 +20,7 @@ const routes = [
   "/work",
   "/about",
   "/contact",
+  "/music",
   ...disciplines.filter((d) => disciplineVisible(d.id)).map((d) => `/${d.id}`),
   ...publishedProjects.map((p) => `/work/${p.slug}`),
 ];

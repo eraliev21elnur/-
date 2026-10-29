@@ -236,3 +236,68 @@ test("Russian and Kazakh translations preserve Unicode and content fallback", as
     "Үлгі сурет",
   );
 });
+test("direct contacts replace the channel link and music remains honest before tracks are supplied", async () => {
+  const { site } = await import("../src/data/site");
+  const { publishedTracks } = await import("../src/data/tracks");
+  assert.equal(site.phone.number, "+77085887585");
+  assert.deepEqual(
+    site.socialLinks.map((link) => link.url),
+    [
+      "https://t.me/full_core",
+      "https://www.instagram.com/fulxcore/",
+      "https://wa.me/77085887585",
+    ],
+  );
+  assert.ok(site.tools.includes("FL Studio"));
+  const contact = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/contact"] },
+      createElement(App),
+    ),
+  );
+  assert.match(contact, /tel:\+77085887585/);
+  assert.doesNotMatch(contact, /full_core_portfolio/);
+  const music = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/music"] },
+      createElement(App),
+    ),
+  );
+  assert.match(music, /Original music by FULL CORE/);
+  if (!publishedTracks.length) assert.doesNotMatch(music, /<audio/);
+  assert.doesNotMatch(music, /NOT FOUND/);
+});
+test("audio collection renders a single lazy player and rejects invalid published tracks", async () => {
+  const { MusicPlayer, trackText } =
+    await import("../src/components/MusicPlayer");
+  const { validateTracks } = await import("../src/data/tracks");
+  const fixture = [
+    {
+      id: "test-a",
+      title: "Test A",
+      status: "published" as const,
+      src: "/media/music/test-a.mp3",
+      translations: { kk: { title: "Сынақ A" } },
+    },
+    {
+      id: "test-b",
+      title: "Test B",
+      status: "published" as const,
+      src: "/media/music/test-b.mp3",
+    },
+  ];
+  validateTracks(fixture);
+  const html = renderToString(createElement(MusicPlayer, { tracks: fixture }));
+  assert.equal((html.match(/<audio\b/g) ?? []).length, 1);
+  assert.match(html, /preload="none"/);
+  assert.match(html, /Play track: Test A/);
+  assert.doesNotMatch(html, /<audio[^>]*(src=|autoplay)/i);
+  assert.equal(trackText(fixture[0], "kk").title, "Сынақ A");
+  assert.throws(() => validateTracks([...fixture, fixture[0]]), /Duplicate/);
+  assert.throws(
+    () => validateTracks([{ ...fixture[0], src: "javascript:alert(1)" }]),
+    /audio URL/,
+  );
+});

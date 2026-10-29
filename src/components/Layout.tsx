@@ -87,17 +87,20 @@ export function Layout() {
             ))}
             <LanguageSwitch />
           </nav>
-          <button
-            ref={trigger}
-            className="menu-toggle"
-            aria-label={open ? t("Close navigation") : t("Open navigation")}
-            aria-controls="mobile-nav"
-            aria-expanded={open}
-            onClick={() => setOpen(!open)}
-          >
-            <span>{open ? t("Close") : t("Menu")}</span>
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="mobile-header-actions">
+            <LanguageSwitch />
+            <button
+              ref={trigger}
+              className="menu-toggle"
+              aria-label={open ? t("Close navigation") : t("Open navigation")}
+              aria-controls="mobile-nav"
+              aria-expanded={open}
+              onClick={() => setOpen(!open)}
+            >
+              <span>{open ? t("Close") : t("Menu")}</span>
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
         <AnimatePresence>
           {open && (
@@ -135,7 +138,6 @@ export function Layout() {
                   <ArrowUpRight size={21} />
                 </NavLink>
               ))}
-              <LanguageSwitch />
             </motion.nav>
           )}
         </AnimatePresence>

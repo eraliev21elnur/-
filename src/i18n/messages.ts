@@ -700,4 +700,111 @@ export const messages: Record<string, { ru: string; kk: string }> = {
     ru: "Серебристая абстрактная форма и типографика в вертикальной композиции",
     kk: "Тік композициядағы күміс түсті абстрактілі пішін мен типографика",
   },
+  Music: {
+    ru: "Музыка",
+    kk: "Музыка",
+  },
+  "Phone calls": {
+    ru: "Позвонить",
+    kk: "Қоңырау шалу",
+  },
+  "Explore my music": {
+    ru: "Послушать мою музыку",
+    kk: "Музыкамды тыңдау",
+  },
+  "Composition / Production / Mixing / Mastering": {
+    ru: "Сочинение / Продакшен / Сведение / Мастеринг",
+    kk: "Шығарма жазу / Продакшн / Микс / Мастеринг",
+  },
+  "Original music by FULL CORE. From the first idea to the final master.": {
+    ru: "Авторская музыка FULL CORE. От первой идеи до финального мастера.",
+    kk: "FULL CORE авторлық музыкасы. Алғашқы идеядан дайын мастерге дейін.",
+  },
+  "An independent practice": {
+    ru: "Самостоятельное творчество",
+    kk: "Дербес шығармашылық",
+  },
+  "A different way to tell a story.": {
+    ru: "Ещё один способ рассказать историю.",
+    kk: "Оқиғаны жеткізудің тағы бір жолы.",
+  },
+  "Original tracks will appear here when ready to share.": {
+    ru: "Авторские треки появятся здесь, когда будут готовы к публикации.",
+    kk: "Авторлық тректер жариялауға дайын болғанда осында қосылады.",
+  },
+  "Have a collaboration in mind?": {
+    ru: "Есть идея для сотрудничества?",
+    kk: "Бірге жұмыс істеуге идеяңыз бар ма?",
+  },
+  "Original tracks": {
+    ru: "Авторские треки",
+    kk: "Авторлық тректер",
+  },
+  "Pause {title}": {
+    ru: "Пауза: {title}",
+    kk: "Кідірту: {title}",
+  },
+  "Now playing": {
+    ru: "Сейчас играет",
+    kk: "Қазір ойналып жатыр",
+  },
+  "Audio player": {
+    ru: "Аудиоплеер",
+    kk: "Аудиоойнатқыш",
+  },
+  "Choose a track to listen": {
+    ru: "Выберите трек для прослушивания",
+    kk: "Тыңдау үшін тректі таңдаңыз",
+  },
+  "Previous track": {
+    ru: "Предыдущий трек",
+    kk: "Алдыңғы трек",
+  },
+  "Next track": {
+    ru: "Следующий трек",
+    kk: "Келесі трек",
+  },
+  "This track could not be played. Try again or use its streaming link.": {
+    ru: "Не удалось воспроизвести трек. Попробуйте ещё раз или откройте ссылку на музыкальную площадку.",
+    kk: "Тректі ойнату мүмкін болмады. Қайта көріңіз немесе музыкалық платформадағы сілтемесін ашыңыз.",
+  },
+  "Playback starts only when you press play. Leaving this page stops the music.":
+    {
+      ru: "Музыка запускается только по нажатию. При переходе на другую страницу воспроизведение останавливается.",
+      kk: "Музыка тек ойнату батырмасын басқанда қосылады. Басқа бетке өткенде ойнату тоқтайды.",
+    },
+  "I'm a 21-year-old visual creator from Kazakhstan, born on 21 October 2005. My interest in making videos began in childhood, especially with VFX. Years of exploring videos on YouTube led me to start my own channel and create original content.":
+    {
+      ru: "Мне 21 год, я визуальный автор из Казахстана. Родился 21 октября 2005 года. С детства увлекаюсь созданием видео, особенно VFX. Много лет изучал видеоконтент на YouTube, а недавно запустил собственный канал и начал снимать авторские видео.",
+      kk: "Мен Қазақстаннан шыққан 21 жастағы визуал контент авторымын. 2005 жылғы 21 қазанда дүниеге келдім. Бала кезімнен видео жасауға, әсіресе VFX-ке қызығамын. Көп жыл YouTube-тегі бейнелерді зерттеп, жақында өз арнамды ашып, авторлық контент түсіре бастадым.",
+    },
+  "Over the past year, I've focused on product design, visual content and promotion for YEPO, an electronics and ergonomic chair retailer. Before that, I edited videos for YouTube creators, Instagram experts and other clients.":
+    {
+      ru: "Последний год занимаюсь продуктовым дизайном, визуальным контентом и продвижением YEPO — магазина электроники и эргономичных кресел. До этого монтировал видео для YouTube-авторов, экспертов в Instagram и других заказчиков.",
+      kk: "Соңғы бір жылда электроника мен эргономикалық креслолар сататын YEPO дүкені үшін өнім дизайнымен, визуал контентпен және ілгерілетумен айналысамын. Бұған дейін YouTube авторларына, Instagram сарапшыларына және басқа тапсырыс берушілерге бейне монтаждадым.",
+    },
+  "My experience also includes 3D animation and a collaboration with rapper LOVV66. I enjoy taking an idea through the full creative process, from the first concept to the finished piece.":
+    {
+      ru: "У меня также есть опыт 3D-анимации и сотрудничества с рэп-исполнителем LOVV66. Мне интересно вести идею через весь творческий процесс — от первого замысла до готовой работы.",
+      kk: "3D-анимацияда да тәжірибем бар, рэп орындаушы LOVV66-мен жұмыс істедім. Идеяны алғашқы ойдан дайын жұмысқа дейін жеткізгенді ұнатамын.",
+    },
+  "Music is another part of my creative practice. I develop my own ideas, compose and produce tracks, and handle the mixing and mastering myself.":
+    {
+      ru: "Музыка — ещё одна часть моего творчества. Сам придумываю идеи, сочиняю и создаю треки, занимаюсь сведением и мастерингом.",
+      kk: "Музыка — шығармашылығымның тағы бір бөлігі. Идеяларды өзім ойлап тауып, тректер жазамын, продакшн, микс және мастеринг жұмыстарын да өзім жасаймын.",
+    },
+};
+
+messages["Music production"] = {
+  ru: "Музыкальный продакшен",
+  kk: "Музыкалық продакшн",
+};
+
+messages["Play track: {title}"] = {
+  ru: "Слушать: {title}",
+  kk: "Тыңдау: {title}",
+};
+messages["This track could not be played. Please try again."] = {
+  ru: "Не удалось воспроизвести трек. Попробуйте ещё раз.",
+  kk: "Тректі ойнату мүмкін болмады. Қайта көріңіз.",
 };

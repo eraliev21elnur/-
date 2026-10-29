@@ -70,6 +70,7 @@ export const navigation = [
   ...disciplines
     .filter((d) => disciplineVisible(d.id))
     .map((d) => ({ label: d.nav, to: `/${d.id}` })),
+  { label: "Music", to: "/music" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

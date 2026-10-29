@@ -28,3 +28,10 @@ Preserve direct HOME, VIDEO, MOTION, 3D / VFX, DESIGN, ABOUT, CONTACT routes. Ke
 
 ## Localization
 The owner requested EN / RU / KZ in the header immediately after Contact, and after Contact inside the mobile menu. The locale identifier for Kazakh is kk (KZ is the displayed country-style label). Use src/i18n/messages.ts for explicit reviewed phrase translations and useLocale for UI text. Do not translate URLs, IDs, brands, tool names or rewrite facts. Store files in UTF-8 without BOM, preserve Kazakh letters and test narrow screens with longer Cyrillic text. Persist explicit selection with guarded localStorage; default to English, hydrate English static HTML safely, update document.lang and client metadata. Project and Media translations support ru/kk overrides; missing project translations fall back to original content. Do not claim per-language static SEO pages: current static documents remain English.
+
+## Profile and music requirements
+The owner supplied the updated biography, birth date (2005-10-21), age 21 as of October 2026, YEPO work, a 3D animation collaboration with LOVV66 and independent composition/mixing/mastering. Keep these claims factual and do not invent case media. Direct contacts live in site.ts; do not restore the Telegram channel link. WhatsApp uses wa.me with the supplied phone number, not a guessed username URL.
+
+Music is an explicitly requested separate route `/music`, retained even while there are no supplied songs. Track data lives in src/data/tracks.ts, with published/draft states and optional ru/kk overrides. Do not add fake tracks or ship test tones. Use one native audio element for the playlist, no source requests before Play, no overlapping songs or autoplay next, and pause/unload on leaving the page. Preserve accessible controls and test real playback with temporary fixtures kept outside the release.
+
+The latest mobile-language requirement overrides the older instruction to put the switch inside the mobile menu: mobile EN/RU/KZ must be visible in the header with the menu closed. Keep desktop switching after Contact; do not duplicate mobile controls inside the menu.

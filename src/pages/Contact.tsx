@@ -37,12 +37,19 @@ export function Contact() {
         {site.socialLinks.map((link) => (
           <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
             <span>
-              <small>{t("Find my work / Start a conversation")}</small>
-              {t(link.label)}
+              <small>{t(link.label)}</small>
+              {link.value}
             </span>
             <ArrowUpRight />
           </a>
         ))}
+        <a href={`tel:${site.phone.number}`}>
+          <span>
+            <small>{t("Phone calls")}</small>
+            {site.phone.display}
+          </span>
+          <ArrowUpRight />
+        </a>
       </div>
       <div className="contact-note">
         <span className="eyebrow">{t(site.location)}</span>
