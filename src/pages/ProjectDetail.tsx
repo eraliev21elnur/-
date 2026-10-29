@@ -1,3 +1,8 @@
+import {
+  projectDiscipline,
+  disciplines,
+  projectsForDiscipline,
+} from "../data/disciplines";
 import { ArrowLeft } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { publishedProjects, categoryLabel } from "../data/projects";
@@ -20,17 +25,19 @@ export function ProjectDetail() {
   const { slug } = useParams();
   const project = publishedProjects.find((p) => p.slug === slug);
   if (!project) return <NotFound />;
+  const discipline = projectDiscipline(project);
+  const siblings = projectsForDiscipline(discipline);
+  const section = disciplines.find((d) => d.id === discipline);
+  const backTo = section ? `/${discipline}` : "/work";
   const next =
-    publishedProjects.length > 1
-      ? publishedProjects[
-          (publishedProjects.indexOf(project) + 1) % publishedProjects.length
-        ]
+    siblings.length > 1
+      ? siblings[(siblings.indexOf(project) + 1) % siblings.length]
       : undefined;
   return (
     <article className="wrap page-top project-detail">
-      <Link className="back-link" to="/work">
+      <Link className="back-link" to={backTo}>
         <ArrowLeft size={16} />
-        Back to work
+        Back to {section?.nav ?? "work"}
       </Link>
       <div className="project-kicker eyebrow">
         {categoryLabel(project.category)}
@@ -45,7 +52,7 @@ export function ProjectDetail() {
         </div>
       )}
       {project.subtitle && <p className="page-lead">{project.subtitle}</p>}
-      {project.description && (
+      {project.description && !project.demo && (
         <p className="project-description">{project.description}</p>
       )}
       {project.media[0] && (
@@ -116,7 +123,7 @@ export function ProjectDetail() {
             <ArrowLink to={`/work/${next.slug}`}>{next.title}</ArrowLink>
           </>
         ) : (
-          <ArrowLink to="/work">Back to all work</ArrowLink>
+          <ArrowLink to={backTo}>Back to {section?.nav ?? "work"}</ArrowLink>
         )}
       </div>
     </article>

@@ -13,9 +13,9 @@ export function Contact() {
         )}
       </div>
       <h1>
-        LET’S CREATE
+        Let’s talk
         <br />
-        <span className="muted">SOMETHING.</span>
+        <span className="muted">Make something.</span>
       </h1>
       <p className="page-lead">
         A project, a collaboration, or a new opportunity.

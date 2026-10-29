@@ -5,7 +5,11 @@ export function metadata(path: string) {
   const project = publishedProjects.find((p) => path === `/work/${p.slug}`);
   const titles: Record<string, string> = {
     "/": site.title,
-    "/work": "Selected Work & Archive",
+    "/work": "All Projects — Archive",
+    "/video": "Video Production",
+    "/motion": "Motion Design",
+    "/3d-vfx": "3D / VFX",
+    "/design": "Graphic Design",
     "/about": "About",
     "/contact": "Contact",
   };

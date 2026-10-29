@@ -1,132 +1,152 @@
-import { assetUrl } from "../lib/paths";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { demoShowreel } from "../data/demo";
+import { ArrowDown, ArrowUpRight, Play } from "lucide-react";
 import { site } from "../data/site";
 import { selectedProjects } from "../data/projects";
 import {
-  ArrowLink,
-  ContactCTA,
-  EmptyWork,
-  ProjectCard,
-  Reveal,
-} from "../components/UI";
+  disciplines,
+  disciplineVisible,
+  projectsForDiscipline,
+} from "../data/disciplines";
+import { assetUrl } from "../lib/paths";
+import { ContactCTA, ProjectCard } from "../components/UI";
 import { MediaPlayer } from "../components/MediaPlayer";
 export function Home() {
-  const heroMedia = site.showreel ?? (site.demoMode ? demoShowreel : undefined);
+  const [reelOpen, setReelOpen] = useState(false);
   return (
     <>
-      <section className="hero wrap">
-        <div className="hero-top">
-          <span className="eyebrow">Independent visual creator</span>
-          <span className="eyebrow hero-location">
-            Based in {site.location} / Working everywhere
+      <section className="home-hero wrap">
+        <div className="hero-caption">
+          <span className="eyebrow">
+            Filmmaker / Motion designer / Visual creator
           </span>
+          <span className="eyebrow">Independent / {site.location}</span>
         </div>
-        <h1>{site.tagline}</h1>
-        <div className="hero-bottom">
-          <p>{site.subtitle}</p>
-          <a
-            href="#selected"
-            className="circle-link"
-            aria-label="Scroll to selected work"
-          >
-            <ArrowDown size={21} />
+        <div className="hero-composition">
+          <h1>
+            {site.tagline}
+            <br />
+            <span>Without limits.</span>
+          </h1>
+          <div className="hero-mark" aria-hidden="true">
+            <span className="mark-top">FULL CORE / VISUAL WORKS</span>
+            <div className="aperture">
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+            <span className="mark-bottom">FILM — MOTION — FORM</span>
+          </div>
+        </div>
+        <div className="hero-summary">
+          <div>
+            <p className="hero-disciplines">{site.subtitle}</p>
+            <p className="hero-location">
+              Independent visual creator based in {site.location}.
+            </p>
+          </div>
+          <a className="explore-link" href="#explore">
+            Explore my work <ArrowDown size={18} />
           </a>
         </div>
-        <div className="hero-media">
-          {heroMedia ? (
-            <MediaPlayer
-              media={heroMedia}
-              title={
-                site.demoMode && !site.showreel
-                  ? "Sample motion loop"
-                  : `${site.brand} showreel`
-              }
-            />
-          ) : (
-            <div className="reel-placeholder">
-              <img
-                className="core-art"
-                src={assetUrl("/core-study.svg")}
-                alt=""
-                width="1600"
-                height="800"
-                fetchPriority="high"
+        {site.showreel && (
+          <div className="home-showreel">
+            <button
+              className="text-button"
+              aria-expanded={reelOpen}
+              onClick={() => setReelOpen(!reelOpen)}
+            >
+              <Play size={15} />
+              {reelOpen ? "Close showreel" : "Watch showreel"}
+            </button>
+            {reelOpen && (
+              <MediaPlayer
+                media={site.showreel}
+                title={`${site.brand} showreel`}
               />
-              <div className="media-top">
-                <span className="eyebrow">{site.brand} / Visual identity</span>
-                <span className="crosshair">+</span>
-              </div>
-              <div className="core-caption">
-                <span className="eyebrow">Film. Motion. Form.</span>
-                <p>Ideas take shape.</p>
-              </div>
-              <div className="media-bottom">
-                <span>Abstract identity study — not portfolio footage</span>
-                <span>
-                  Showreel coming later <ArrowUpRight size={14} />
-                </span>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
+        )}
+      </section>
+      <section className="work-doorways wrap" id="explore">
+        <div className="section-heading">
+          <h2>
+            Explore my work<span>.</span>
+          </h2>
+          <span className="eyebrow">Choose a discipline</span>
         </div>
-        <div className="hero-footnote">
-          <span>Image-making, from the ground up.</span>
-          {site.available && (
-            <span className="availability">
-              <i />
-              {site.availability}
-            </span>
-          )}
+        <div className="discipline-grid">
+          {disciplines
+            .filter((d) => disciplineVisible(d.id))
+            .map((d, i) => {
+              const preview = projectsForDiscipline(d.id)[0];
+              const image = preview?.coverImage;
+              return (
+                <Link
+                  className={`discipline-tile tile-${d.id}`}
+                  key={d.id}
+                  to={`/${d.id}`}
+                >
+                  {image && (
+                    <img
+                      className="tile-image"
+                      src={assetUrl(image)}
+                      alt=""
+                      loading="lazy"
+                    />
+                  )}
+                  {d.id === "3d-vfx" && (
+                    <div className="wire-art" aria-hidden="true">
+                      {Array.from({ length: 7 }, (_, i) => (
+                        <i
+                          key={i}
+                          style={{ transform: `rotate(${i * 25}deg)` }}
+                        />
+                      ))}
+                    </div>
+                  )}
+                  <div className="tile-top">
+                    <span className="eyebrow">
+                      0{i + 1} / {d.short}
+                    </span>
+                    <ArrowUpRight size={26} />
+                  </div>
+                  <div className="tile-copy">
+                    <h3>{d.title}</h3>
+                    <p>{d.description}</p>
+                  </div>
+                  {preview?.demo && (
+                    <span className="tile-sample">Sample imagery</span>
+                  )}
+                </Link>
+              );
+            })}
         </div>
       </section>
-      <section className="selected wrap" id="selected">
-        <Reveal className="section-heading">
-          <div>
-            <span className="eyebrow">01 / The portfolio</span>
-            <h2>
-              SELECTED WORK<span className="heading-dot">.</span>
-            </h2>
-          </div>
-          <ArrowLink to="/work">View all work</ArrowLink>
-        </Reveal>
+      <section className="home-selected wrap">
+        <div className="section-heading">
+          <h2>
+            Selected works<span>.</span>
+          </h2>
+          <span className="eyebrow">A focused selection</span>
+        </div>
         {selectedProjects.length ? (
           <div className="selected-grid">
             {selectedProjects.map((p, i) => (
-              <ProjectCard project={p} index={i} key={p.id} />
+              <ProjectCard key={p.id} project={p} index={i} />
             ))}
           </div>
         ) : (
-          <EmptyWork />
+          <p className="selected-empty">
+            Confirmed projects will appear here.{" "}
+            {site.demoMode && (
+              <span>Layout samples are available inside each discipline.</span>
+            )}
+          </p>
         )}
       </section>
-      <section className="intro wrap">
-        <Reveal className="intro-grid">
-          <span className="eyebrow">02 / Behind the visuals</span>
-          <div>
-            <h2>
-              A hands-on approach.
-              <br />
-              <span>A considered result.</span>
-            </h2>
-            <p>{site.approach}</p>
-            <ArrowLink to="/about">More about me</ArrowLink>
-          </div>
-        </Reveal>
-        <div className="discipline-strip">
-          <span>Film & production</span>
-          <span>Video editing</span>
-          <span>Motion design</span>
-          <span>3D & design</span>
-        </div>
-      </section>
       <ContactCTA />
-      <div className="wrap home-end">
-        <Link to="/work">
-          Explore the archive <ArrowUpRight size={15} />
-        </Link>
-      </div>
     </>
   );
 }

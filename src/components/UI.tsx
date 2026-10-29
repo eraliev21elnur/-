@@ -1,9 +1,9 @@
-import { assetUrl } from "../lib/paths";
 import { motion } from "motion/react";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { site } from "../data/site";
 import { categoryLabel, type Project } from "../data/projects";
+import { assetUrl } from "../lib/paths";
 import type { ReactNode } from "react";
 export function Reveal({
   children,
@@ -16,9 +16,9 @@ export function Reveal({
     <motion.div
       className={className}
       initial={false}
-      whileInView={{ opacity: [0.65, 1], y: [12, 0] }}
+      whileInView={{ opacity: [0.75, 1], y: [8, 0] }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.35 }}
     >
       {children}
     </motion.div>
@@ -36,31 +36,34 @@ export function ArrowLink({
   return (
     <Link className={`arrow-link ${className}`} to={to}>
       {children}
-      <ArrowUpRight size={19} />
+      <ArrowUpRight size={18} />
     </Link>
   );
 }
-export function EmptyWork({ filtered = false }: { filtered?: boolean }) {
+export function EmptyWork({
+  filtered = false,
+  discipline,
+}: {
+  filtered?: boolean;
+  discipline?: string;
+}) {
   return (
     <div className="empty-work">
-      <span className="eyebrow">
-        {filtered ? "Nothing here yet" : "Portfolio in progress"}
+      <span className="empty-marker" aria-hidden="true">
+        [ — ]
       </span>
-      <h3>{filtered ? "More work, in time." : "The work comes first."}</h3>
-      <p>
-        {filtered
-          ? "Projects in this discipline will appear here when selected."
-          : "Selected films and visual projects are being prepared for this space. In the meantime, explore my existing work on Telegram."}
-      </p>
-      <a
-        className="arrow-link"
-        href={site.socialLinks[0].url}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Explore Telegram portfolio
-        <ArrowUpRight size={18} />
-      </a>
+      <div>
+        <h3>
+          {filtered
+            ? "No projects in this filter yet."
+            : `No ${discipline ?? "selected"} projects published yet.`}
+        </h3>
+        <p>
+          {site.demoMode
+            ? "Preview state. Only confirmed work will be added here."
+            : "Projects will appear here once selected and ready to share."}
+        </p>
+      </div>
     </div>
   );
 }
@@ -91,7 +94,8 @@ export function ProjectCard({
           )}
           {project.demo && <span className="demo-badge">Sample / Preview</span>}
           <span className="cover-action">
-            View project <ArrowUpRight size={20} />
+            View project
+            <ArrowUpRight size={18} />
           </span>
         </div>
         <div className="project-info">
@@ -105,7 +109,7 @@ export function ProjectCard({
               {project.year ? ` / ${project.year}` : ""}
             </p>
           </div>
-          <ArrowUpRight className="project-arrow" size={24} />
+          <ArrowUpRight size={20} />
         </div>
       </Link>
     </Reveal>
@@ -114,19 +118,13 @@ export function ProjectCard({
 export function ContactCTA() {
   return (
     <section className="contact-cta wrap">
-      <span className="eyebrow">Have something in mind?</span>
-      <Link to="/contact" className="contact-title">
-        LET’S MAKE
-        <br />
-        <span>IT HAPPEN.</span>
-        <ArrowUpRight aria-hidden="true" />
-      </Link>
-      <div className="cta-bottom">
-        <span>Creative projects. New possibilities.</span>
-        <Link to="/contact">
-          Get in touch <ArrowRight size={16} />
-        </Link>
+      <div>
+        <span className="eyebrow">
+          Projects / Collaborations / Opportunities
+        </span>
+        <h2>Let’s make it happen.</h2>
       </div>
+      <ArrowLink to="/contact">Get in touch</ArrowLink>
     </section>
   );
 }

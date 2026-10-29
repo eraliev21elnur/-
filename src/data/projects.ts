@@ -18,6 +18,7 @@ export type Project = {
   subtitle?: string;
   category: string;
   tags?: string[];
+  videoType?: import("./disciplines").VideoType;
   year?: number;
   description?: string;
   role?: string[];
@@ -60,6 +61,7 @@ export const projects: Project[] = [
   {
     id: "chair-01",
     slug: "premium-chair-studio",
+    videoType: "studio-commercials",
     title: "Premium Chair Studio Campaign",
     category: "commercial",
     status: "draft",
@@ -77,6 +79,7 @@ export const projects: Project[] = [
   {
     id: "film-01",
     slug: "independent-youtube-film",
+    videoType: "personal-films",
     title: "Independent YouTube Film",
     category: "film",
     status: "draft",
@@ -89,6 +92,7 @@ export const projects: Project[] = [
   {
     id: "yepo-01",
     slug: "yepo-commercial-production",
+    videoType: "product-reviews",
     title: "YEPO — Commercial Video Production",
     category: "commercial",
     status: "draft",
@@ -100,6 +104,7 @@ export const projects: Project[] = [
   {
     id: "social-01",
     slug: "short-form-commercial",
+    videoType: "reels-ads",
     title: "Short-form Commercial Content",
     category: "commercial",
     tags: ["Social", "Short-form"],
@@ -123,8 +128,9 @@ export const publishedProjects = [
   ...(site.demoMode ? demoProjects : []),
 ];
 export const selectedProjects = publishedProjects
-  .filter((p) => p.featured)
-  .sort((a, b) => (a.featuredOrder ?? 999) - (b.featuredOrder ?? 999));
+  .filter((p) => p.featured && !p.demo)
+  .sort((a, b) => (a.featuredOrder ?? 999) - (b.featuredOrder ?? 999))
+  .slice(0, 4);
 export const categoryLabel = (id: string) =>
   categories.find((c) => c.id === id)?.label ?? id;
 export const filterProjects = (items: Project[], category: string) =>
