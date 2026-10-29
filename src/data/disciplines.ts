@@ -52,7 +52,11 @@ export function projectDiscipline(project: Project): string {
     : project.category;
 }
 export const projectsForDiscipline = (id: string) =>
-  publishedProjects.filter((p) => projectDiscipline(p) === id);
+  publishedProjects.filter((p) =>
+    id === "motion-vfx"
+      ? ["motion", "3d-vfx"].includes(projectDiscipline(p))
+      : projectDiscipline(p) === id,
+  );
 export const videoType = (p: Project): VideoType =>
   p.videoType ??
   (p.category === "film" ? "personal-films" : "studio-commercials");
@@ -73,4 +77,25 @@ export const navigation = [
   { label: "Music", to: "/music" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
+];
+
+// Home groups related disciplines without changing the existing category/case URLs.
+export const motionVfx = {
+  id: "motion-vfx" as const,
+  nav: "Motion & 3D / VFX",
+  title: "Motion & 3D / VFX",
+  description: "2D animation, 3D, CGI and compositing in one place.",
+  short: "Motion / CGI / Compositing",
+};
+export const homeCategories = [
+  disciplines[0],
+  motionVfx,
+  disciplines[3],
+  {
+    id: "music",
+    nav: "Music",
+    title: "Music",
+    description: "Original tracks, composition, mixing and mastering.",
+    short: "Sound / Production / Mastering",
+  },
 ];

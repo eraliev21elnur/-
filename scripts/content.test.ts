@@ -244,7 +244,9 @@ test("direct contacts replace the channel link and music remains honest before t
     site.socialLinks.map((link) => link.url),
     [
       "https://t.me/full_core",
-      "https://www.instagram.com/fulxcore/",
+      "https://www.instagram.com/fullxcore/",
+      "https://www.youtube.com/@Full_Core",
+      "https://www.tiktok.com/@full_core",
       "https://wa.me/77085887585",
     ],
   );
@@ -265,7 +267,8 @@ test("direct contacts replace the channel link and music remains honest before t
       createElement(App),
     ),
   );
-  assert.match(music, /Original music by FULL CORE/);
+  assert.match(music, /Playback demos for testing the music player/);
+  assert.match(music, /They are not FULL CORE releases/);
   if (!publishedTracks.length) assert.doesNotMatch(music, /<audio/);
   assert.doesNotMatch(music, /NOT FOUND/);
 });
@@ -300,4 +303,52 @@ test("audio collection renders a single lazy player and rejects invalid publishe
     () => validateTracks([{ ...fixture[0], src: "javascript:alert(1)" }]),
     /audio URL/,
   );
+});
+test("home merges animation/VFX and puts Music after Design without dropping category routes", async () => {
+  const { homeCategories, projectsForDiscipline } =
+    await import("../src/data/disciplines");
+  assert.deepEqual(
+    homeCategories.map((d) => d.id),
+    ["video", "motion-vfx", "design", "music"],
+  );
+  const combined = projectsForDiscipline("motion-vfx");
+  assert.ok(combined.every((p) => ["motion", "3d-vfx"].includes(p.category)));
+  assert.equal(
+    combined.length,
+    projectsForDiscipline("motion").length +
+      projectsForDiscipline("3d-vfx").length,
+  );
+  for (const path of ["/motion-vfx", "/motion", "/3d-vfx"]) {
+    const html = renderToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: [path] },
+        createElement(App),
+      ),
+    );
+    assert.doesNotMatch(html, /NOT FOUND/);
+  }
+});
+test("authorized audio demos are labeled and can all be disabled", async () => {
+  const { getPublishedTracks } = await import("../src/data/tracks");
+  const { demoTracks } = await import("../src/data/demoTracks");
+  assert.equal(demoTracks.length, 3);
+  assert.ok(
+    demoTracks.every(
+      (track) => track.demo && track.src.startsWith("/media/music/demo/"),
+    ),
+  );
+  assert.deepEqual(getPublishedTracks([], false), []);
+  assert.equal(getPublishedTracks([], true).length, 3);
+  const html = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/music"] },
+      createElement(App),
+    ),
+  );
+  assert.equal((html.match(/<audio\b/g) ?? []).length, 1);
+  assert.doesNotMatch(html, /<audio[^>]*(src=|autoplay)/i);
+  assert.match(html, /Sample audio/);
+  assert.match(html, /Playback demo/);
 });

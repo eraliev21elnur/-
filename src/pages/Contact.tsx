@@ -1,3 +1,4 @@
+import { ContactIcon } from "../components/ContactIcon";
 import { useLocale } from "../i18n";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "../data/site";
@@ -27,7 +28,10 @@ export function Contact() {
       <div className="contact-links">
         {site.email && (
           <a href={`mailto:${site.email}`}>
-            <span>
+            <span className="contact-platform-icon">
+              <ContactIcon platform="Email" />
+            </span>
+            <span className="contact-link-copy">
               <small>{t("Email")}</small>
               {site.email}
             </span>
@@ -36,7 +40,10 @@ export function Contact() {
         )}
         {site.socialLinks.map((link) => (
           <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
-            <span>
+            <span className="contact-platform-icon">
+              <ContactIcon platform={link.label} />
+            </span>
+            <span className="contact-link-copy">
               <small>{t(link.label)}</small>
               {link.value}
             </span>
@@ -44,7 +51,10 @@ export function Contact() {
           </a>
         ))}
         <a href={`tel:${site.phone.number}`}>
-          <span>
+          <span className="contact-platform-icon">
+            <ContactIcon platform="Phone" />
+          </span>
+          <span className="contact-link-copy">
             <small>{t("Phone calls")}</small>
             {site.phone.display}
           </span>

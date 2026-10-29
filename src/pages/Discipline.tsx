@@ -5,6 +5,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import {
   disciplines,
+  motionVfx,
   disciplineVisible,
   filterVideos,
   projectsForDiscipline,
@@ -59,9 +60,10 @@ function ProjectSummary({ project: sourceProject }: { project: Project }) {
     </div>
   );
 }
-export function Discipline({ id }: { id: DisciplineId }) {
+export function Discipline({ id }: { id: DisciplineId | "motion-vfx" }) {
   const { t } = useLocale();
-  const section = disciplines.find((d) => d.id === id)!;
+  const section =
+    id === "motion-vfx" ? motionVfx : disciplines.find((d) => d.id === id)!;
   const projects = projectsForDiscipline(id);
   const [params, setParams] = useSearchParams();
   const hydrated = useSyncExternalStore(
@@ -164,7 +166,8 @@ export function Discipline({ id }: { id: DisciplineId }) {
         <div className="screening-list">
           {items.slice(0, limit).map((p) => {
             const media =
-              id === "motion"
+              id === "motion" ||
+              (id === "motion-vfx" && p.category === "motion")
                 ? p.media.find((m) => m.type !== "image")
                 : p.media[0];
             return (

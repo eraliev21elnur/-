@@ -35,3 +35,8 @@ The owner supplied the updated biography, birth date (2005-10-21), age 21 as of 
 Music is an explicitly requested separate route `/music`, retained even while there are no supplied songs. Track data lives in src/data/tracks.ts, with published/draft states and optional ru/kk overrides. Do not add fake tracks or ship test tones. Use one native audio element for the playlist, no source requests before Play, no overlapping songs or autoplay next, and pause/unload on leaving the page. Preserve accessible controls and test real playback with temporary fixtures kept outside the release.
 
 The latest mobile-language requirement overrides the older instruction to put the switch inside the mobile menu: mobile EN/RU/KZ must be visible in the header with the menu closed. Keep desktop switching after Contact; do not duplicate mobile controls inside the menu.
+
+## Latest home/audio/social revision
+The owner explicitly requested three playable music examples. This supersedes the earlier restriction against shipping test audio for these clearly labeled procedural musical demos only. src/data/demoTracks.ts and public/media/music/demo contain temporary synthesized loops, not FULL CORE releases. Preserve demo:true, the page/row disclaimers and demoMode gating. Real tracks stay in tracks.ts. Do not add outside copyrighted music or attribute these samples to the owner.
+
+Home now has Video → Motion & 3D / VFX → Graphic Design → Music. The combined /motion-vfx route aggregates existing motion and 3d-vfx data; retain the separate existing routes and header entries. Social contacts include Instagram @fullxcore (corrected), YouTube @Full_Core and TikTok @full_core. Contact rows have recognizable SVG platform icons alongside readable labels.

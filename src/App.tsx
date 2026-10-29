@@ -22,6 +22,7 @@ export function App() {
               element={<Discipline key={d.id} id={d.id} />}
             />
           ))}
+          <Route path="motion-vfx" element={<Discipline id="motion-vfx" />} />
           <Route path="work" element={<Work />} />
           <Route path="work/:slug" element={<ProjectDetail />} />
           <Route path="music" element={<Music />} />
