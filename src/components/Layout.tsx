@@ -1,3 +1,4 @@
+import { absoluteSiteUrl } from "../lib/paths";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
@@ -24,7 +25,7 @@ export function Layout() {
         .querySelector(`meta[property="${property}"]`)
         ?.setAttribute("content", content);
     if (site.url) {
-      const canonical = new URL(location.pathname, site.url).href;
+      const canonical = absoluteSiteUrl(location.pathname, site.url);
       document
         .querySelector('link[rel="canonical"]')
         ?.setAttribute("href", canonical);

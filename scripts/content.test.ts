@@ -99,3 +99,26 @@ test("published case renders role and media without eagerly creating iframes", a
     publishedProjects.pop();
   }
 });
+test("deployment URLs retain GitHub Pages repository paths", async () => {
+  const { absoluteSiteUrl, assetUrl, basePath } =
+    await import("../src/lib/paths");
+  assert.equal(
+    absoluteSiteUrl(
+      "/work/demo-form-in-motion",
+      "https://creator.github.io/full-core",
+    ),
+    "https://creator.github.io/full-core/work/demo-form-in-motion",
+  );
+  assert.equal(
+    absoluteSiteUrl(
+      "/social-preview.png",
+      "https://creator.github.io/full-core/",
+    ),
+    "https://creator.github.io/full-core/social-preview.png",
+  );
+  assert.equal(assetUrl("/media/cover.webp"), `${basePath}media/cover.webp`);
+  assert.equal(
+    assetUrl("https://example.com/image.webp"),
+    "https://example.com/image.webp",
+  );
+});

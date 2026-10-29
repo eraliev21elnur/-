@@ -1,3 +1,4 @@
+import { assetUrl } from "../lib/paths";
 import { motion } from "motion/react";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -81,7 +82,7 @@ export function ProjectCard({
         >
           {project.coverImage ? (
             <img
-              src={project.coverImage}
+              src={assetUrl(project.coverImage)}
               alt={project.coverAlt ?? project.title}
               loading="lazy"
             />

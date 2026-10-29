@@ -1,3 +1,4 @@
+import { absoluteSiteUrl, assetUrl, routerBase } from "../src/lib/paths";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { renderToString } from "react-dom/server";
@@ -26,8 +27,8 @@ const escape = (s: string) =>
     .replaceAll(">", "&gt;");
 for (const path of [...routes, "/404"]) {
   const meta = metadata(path);
-  const url = site.url ? new URL(path, site.url).href : "";
-  const tags = `<meta property="og:type" content="website"/><meta property="og:title" content="${escape(meta.title)}"/><meta property="og:description" content="${escape(meta.description)}"/><meta name="twitter:card" content="summary_large_image"/>${url ? `<link rel="canonical" href="${escape(url)}"/><meta property="og:url" content="${escape(url)}"/><meta property="og:image" content="${escape(new URL("/social-preview.png", site.url).href)}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>` : ""}${path === "/404" ? '<meta name="robots" content="noindex"/>' : ""}`;
+  const url = site.url ? absoluteSiteUrl(path, site.url) : "";
+  const tags = `<meta property="og:type" content="website"/><meta property="og:title" content="${escape(meta.title)}"/><meta property="og:description" content="${escape(meta.description)}"/><meta name="twitter:card" content="summary_large_image"/>${url ? `<link rel="canonical" href="${escape(url)}"/><meta property="og:url" content="${escape(url)}"/><meta property="og:image" content="${escape(absoluteSiteUrl("/social-preview.png", site.url))}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>` : ""}${path === "/404" ? '<meta name="robots" content="noindex"/>' : ""}`;
   const html = template
     .replace(/<title>.*?<\/title>/, `<title>${escape(meta.title)}</title>`)
     .replace(
@@ -38,7 +39,7 @@ for (const path of [...routes, "/404"]) {
     .replace(
       '<div id="root"></div>',
       `<div id="root">${renderToString(
-        <MemoryRouter initialEntries={[path]}>
+        <MemoryRouter basename={routerBase} initialEntries={[assetUrl(path)]}>
           <App />
         </MemoryRouter>,
       )}</div>`,
@@ -48,14 +49,15 @@ for (const path of [...routes, "/404"]) {
   await mkdir(resolve(file, ".."), { recursive: true });
   await writeFile(file, html);
 }
+await writeFile(join(out, ".nojekyll"), "");
 await writeFile(
   join(out, "robots.txt"),
-  `User-agent: *\nAllow: /\n${site.url ? `Sitemap: ${new URL("/sitemap.xml", site.url).href}\n` : ""}`,
+  `User-agent: *\nAllow: /\n${site.url ? `Sitemap: ${absoluteSiteUrl("/sitemap.xml", site.url)}\n` : ""}`,
 );
 if (site.url)
   await writeFile(
     join(out, "sitemap.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map((r) => `<url><loc>${escape(new URL(r, site.url).href)}</loc></url>`).join("")}</urlset>`,
+    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map((r) => `<url><loc>${escape(absoluteSiteUrl(r, site.url))}</loc></url>`).join("")}</urlset>`,
   );
 console.log(
   `Prerendered ${routes.length} public routes + 404. ${site.url ? "Sitemap generated." : "Domain unset: canonical URLs, OG image URL and sitemap omitted."}`,

@@ -1,3 +1,6 @@
+const deploymentUrl =
+  import.meta.env?.VITE_SITE_URL ??
+  (typeof process !== "undefined" ? process.env.VITE_SITE_URL : undefined);
 // All personal information lives here. Leave unknown values empty.
 export const site = {
   brand: "FULL CORE",
@@ -7,7 +10,7 @@ export const site = {
   subtitle: "Filmmaking, motion design and visual storytelling.",
   location: "Kazakhstan",
   email: "",
-  url: "", // e.g. https://your-domain.com — needed for canonical URLs and sitemap
+  url: deploymentUrl || "", // e.g. https://your-domain.com — needed for canonical URLs and sitemap
   available: true,
   availability: "Available for opportunities",
   about:

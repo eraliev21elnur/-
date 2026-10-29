@@ -1,3 +1,4 @@
+import { assetUrl } from "../lib/paths";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "../data/site";
 import { ContactCTA } from "../components/UI";
@@ -14,7 +15,11 @@ export function About() {
         <div className="about-story">
           <div className="portrait">
             {site.portrait ? (
-              <img src={site.portrait} alt={site.brand} loading="lazy" />
+              <img
+                src={assetUrl(site.portrait)}
+                alt={site.brand}
+                loading="lazy"
+              />
             ) : (
               <div className="portrait-placeholder">
                 <span className="portrait-monogram">
@@ -41,7 +46,7 @@ export function About() {
             {site.cv && (
               <a
                 className="arrow-link"
-                href={site.cv}
+                href={assetUrl(site.cv)}
                 target="_blank"
                 rel="noreferrer"
               >

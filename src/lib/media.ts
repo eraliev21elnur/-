@@ -1,3 +1,4 @@
+import { assetUrl } from "./paths";
 // Strict provider parsing prevents arbitrary iframe URLs being injected into the site.
 export function embedUrl(
   type: "youtube" | "vimeo",
@@ -56,4 +57,4 @@ export function embedUrl(
     : null;
 }
 export const safeUrl = (url: string) =>
-  /^(https?:\/\/|\/(?!\/))/.test(url) ? url : "#";
+  /^(https?:\/\/|\/(?!\/))/.test(url) ? assetUrl(url) : "#";

@@ -1,3 +1,4 @@
+import { assetUrl } from "../lib/paths";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { demoShowreel } from "../data/demo";
@@ -47,7 +48,7 @@ export function Home() {
             <div className="reel-placeholder">
               <img
                 className="core-art"
-                src="/core-study.svg"
+                src={assetUrl("/core-study.svg")}
                 alt=""
                 width="1600"
                 height="800"

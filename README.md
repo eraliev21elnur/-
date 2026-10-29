@@ -39,6 +39,8 @@ Set `demoMode: false` in `src/data/site.ts` to hide all sample cases and the sam
 - `scripts/`: prerender, content validation and behavioral tests
 - `public/media/`: your approved covers, video files, images, CV
 
+GitHub Pages auto-deployment is included in `.github/workflows/deploy-pages.yml`: choose Settings → Pages → Source: GitHub Actions, then run the workflow or push to main. It automatically handles repository subpaths.
+
 See [CONTENT_GUIDE.md](CONTENT_GUIDE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). No website has been deployed automatically.
 
 ## Verification

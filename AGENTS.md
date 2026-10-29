@@ -19,3 +19,6 @@ The owner explicitly requested sample photos and videos for visual review. `site
 Keep semantic markup, hierarchy, visible focus, alt text, touch targets and no mobile overflow. Preserve 9:16/16:9/1:1/4:3 ratios; do not crop player content. Embed only supported providers; use privacy-enhanced YouTube. No provider requests until Play. Keep media lazy and catalogue paginated. Avoid new dependencies without need.
 
 Run `npm run typecheck`, `npm run lint`, `npm test`, `npm run build` after substantive changes. Test actual media with permission when available. Record verification limitations honestly. Never deploy, connect accounts or purchase services without user authorization. Maintain README, CONTENT_GUIDE and DEPLOYMENT when behavior changes.
+
+## Static hosting paths
+GitHub Pages is supported via `.github/workflows/deploy-pages.yml`. Preserve SITE_BASE/VITE_SITE_URL support and src/lib/paths.ts helpers. Prefix local assets with assetUrl; React Router uses routerBase. Prerendered links use the same basename as the browser. Do not hardcode a repository name into content paths. Keep root deployments working.

@@ -8,7 +8,7 @@
 
 ## Личная информация
 
-Редактируйте `src/data/site.ts`: бренд, tagline, subtitle, location, about, approach, tools, disciplines, ссылки, email, available и availability. Пустые email, portrait и cv не создают неработающих кнопок. `url` — реальный HTTPS-домен, без пути. После его добавления пересоберите сайт.
+Редактируйте `src/data/site.ts`: бренд, tagline, subtitle, location, about, approach, tools, disciplines, ссылки, email, available и availability. Пустые email, portrait и cv не создают неработающих кнопок. `url` — реальный HTTPS-адрес сайта, включая подпапку при необходимости. На GitHub Pages адрес автоматически задаёт workflow через VITE_SITE_URL. После его добавления пересоберите сайт.
 
 `public/core-study.svg` — абстрактная графика интерфейса, не пример вашей работы. Для showreel задайте `showreel` как объект Media (см. ниже). Он заменит графику и будет запускаться только по клику. Для фотографии: `portrait: '/media/portrait.webp'`. Для CV: `cv: '/media/full-core-cv.pdf'`.
 
