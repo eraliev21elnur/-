@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { MotionConfig } from "motion/react";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
+import { Music } from "./pages/Music";
 import { Work } from "./pages/Work";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
@@ -23,6 +24,7 @@ export function App() {
           ))}
           <Route path="work" element={<Work />} />
           <Route path="work/:slug" element={<ProjectDetail />} />
+          <Route path="music" element={<Music />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

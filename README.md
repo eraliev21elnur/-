@@ -61,3 +61,9 @@ Verified after redesign: eight tests, typecheck, lint, production build, Chromiu
 
 ## Languages
 EN (default), RU and KZ (language code kk) are available after Contact in desktop/mobile navigation. Selection persists with guarded localStorage. The phrase dictionary is UTF-8 in src/i18n/messages.ts; custom Project/Media translations are documented in CONTENT_GUIDE.md. English prerendering and hydration are retained; localized metadata updates in the browser, without separate localized SEO routes.
+
+## Profile, contacts and music update
+
+Direct Telegram/Instagram/WhatsApp contacts and a telephone link are configured in site.ts. The Telegram channel is no longer linked. About now includes the owner's supplied biography and music practice; FL Studio is in the tool list. All new copy has English, Russian and Kazakh versions. Mobile language controls remain visible outside the menu.
+
+The `/music` route reads `src/data/tracks.ts`. It currently contains no songs, so visitors see an honest empty state. A reusable single-instance audio player supports lazy loading, native seek/volume controls, play/pause, explicit previous/next selection, error recovery and cleanup on leaving the page. No autoplay, automatic next song or persistent background playback. See CONTENT_GUIDE for adding original tracks.

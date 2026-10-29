@@ -1,4 +1,5 @@
 import { useLocale } from "../i18n";
+import { Link } from "react-router-dom";
 import { assetUrl } from "../lib/paths";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "../data/site";
@@ -49,11 +50,12 @@ export function About() {
             </h2>
             <p>{t(site.about)}</p>
             <p>{t(site.experience)}</p>
-            <p className="small-copy">
-              {t(
-                "My existing portfolio is rooted in hands-on production, editing, motion graphics and design.",
-              )}
-            </p>
+            <p>{t(site.creativeBackground)}</p>
+            <p>{t(site.musicAbout)}</p>
+            <Link className="arrow-link" to="/music">
+              {t("Explore my music")}
+              <ArrowUpRight size={18} />
+            </Link>
             {site.cv && (
               <a
                 className="arrow-link"
