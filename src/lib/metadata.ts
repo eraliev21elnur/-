@@ -22,7 +22,7 @@ export function metadata(path: string, language: Language = "en") {
       (path === "/music"
         ? "Original music by FULL CORE. From the first idea to the final master."
         : project?.description) ??
-        "Independent visual creator based in {location}. Filmmaking, video editing, motion design and commercial content production.",
+        "Independent creator based in {location}. Film, motion design, 3D / VFX, graphic design and music production.",
       language,
     ).replace("{location}", translate(site.location, language)),
   };

@@ -20,7 +20,7 @@ export function Home() {
       <section className="home-hero wrap">
         <div className="hero-caption">
           <span className="eyebrow">
-            {t("Filmmaker / Motion designer / Visual creator")}
+            {t("Filmmaker / Motion designer / Music producer")}
           </span>
           <span className="eyebrow">
             {t("Independent /")} {t(site.location)}
@@ -33,7 +33,7 @@ export function Home() {
             <span>{t("Without limits.")}</span>
           </h1>
           <div className="hero-mark" aria-hidden="true">
-            <span className="mark-top">{t("FULL CORE / VISUAL WORKS")}</span>
+            <span className="mark-top">{t("FULL CORE / VISUAL & SOUND")}</span>
             <div className="aperture">
               <i />
               <i />
@@ -41,7 +41,7 @@ export function Home() {
               <i />
             </div>
             <span className="mark-bottom">
-              {t("FILM \u2014 MOTION \u2014 FORM")}
+              {t("FILM \u2014 MOTION \u2014 MUSIC")}
             </span>
           </div>
         </div>
@@ -49,7 +49,7 @@ export function Home() {
           <div>
             <p className="hero-disciplines">{t(site.subtitle)}</p>
             <p className="hero-location">
-              {t("Independent visual creator")} · {t(site.location)}
+              {t("Independent creator")} · {t(site.location)}
             </p>
           </div>
           <a className="explore-link" href="#explore">
