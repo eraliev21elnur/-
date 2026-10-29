@@ -1,3 +1,4 @@
+import { videoFilters } from "../src/data/disciplines";
 import { categories, projects } from "../src/data/projects";
 import { embedUrl } from "../src/lib/media";
 import { demoProjects } from "../src/data/demo";
@@ -16,7 +17,13 @@ export function validateProjects() {
       throw new Error(`Invalid slug: ${p.slug}`);
     if (!categories.some((c) => c.id === p.category))
       throw new Error(`Unknown category: ${p.category}`);
+    if (p.videoType && !videoFilters.some((f) => f.id === p.videoType))
+      throw new Error(`Unknown video filter: ${p.videoType}`);
     if (p.status !== "published") continue;
+    if (p.category === "design" && !p.media.some((m) => m.type === "image"))
+      throw new Error(`Design projects require images: ${p.slug}`);
+    if (p.category === "motion" && !p.media.some((m) => m.type !== "image"))
+      throw new Error(`Motion projects require video: ${p.slug}`);
     if (!p.title.trim() || !p.media.length)
       throw new Error(
         `Published project requires a title and media: ${p.slug}`,

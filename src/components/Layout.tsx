@@ -1,16 +1,17 @@
-import { absoluteSiteUrl } from "../lib/paths";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { site } from "../data/site";
+import { navigation } from "../data/disciplines";
 import { metadata } from "../lib/metadata";
+import { absoluteSiteUrl } from "../lib/paths";
 export function Layout() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const main = useRef<HTMLElement>(null);
-  const menuButton = useRef<HTMLButtonElement>(null);
-  const previousPath = useRef(location.pathname);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const previous = useRef(location.pathname);
   useEffect(() => {
     const meta = metadata(location.pathname);
     document.title = meta.title;
@@ -33,22 +34,22 @@ export function Layout() {
         .querySelector('meta[property="og:url"]')
         ?.setAttribute("content", canonical);
     }
-    if (previousPath.current !== location.pathname) {
+    if (previous.current !== location.pathname) {
       window.scrollTo(0, 0);
       main.current?.focus({ preventScroll: true });
-      previousPath.current = location.pathname;
+      previous.current = location.pathname;
     }
   }, [location.pathname]);
   useEffect(() => {
     if (!open) return;
-    const close = (e: KeyboardEvent) => {
+    const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpen(false);
-        menuButton.current?.focus();
+        trigger.current?.focus();
       }
     };
-    document.addEventListener("keydown", close);
-    return () => document.removeEventListener("keydown", close);
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
   }, [open]);
   return (
     <>
@@ -58,85 +59,89 @@ export function Layout() {
       {site.demoMode && (
         <div className="demo-banner">
           DESIGN PREVIEW{" "}
-          <span>Sample media — not FULL CORE portfolio work.</span>
+          <span>Sample media. Not FULL CORE portfolio credits.</span>
         </div>
       )}
-      <header className="header wrap">
-        <Link
-          to="/"
-          className="brand"
-          aria-label={`${site.brand} home`}
-          onClick={() => setOpen(false)}
-        >
-          {site.brand}
-          <sup>®</sup>
-        </Link>
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {["Work", "About", "Contact"].map((label) => (
-            <NavLink key={label} to={`/${label.toLowerCase()}`}>
-              {label}
-            </NavLink>
-          ))}
-        </nav>
-        <button
-          ref={menuButton}
-          className="icon-button menu-toggle"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
-      </header>
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            id="mobile-nav"
-            className="mobile-nav"
-            aria-label="Mobile navigation"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+      <header className="site-header">
+        <div className="header-inner wrap">
+          <Link
+            className="brand"
+            to="/"
+            aria-label={`${site.brand} home`}
+            onClick={() => setOpen(false)}
           >
-            {["Work", "About", "Contact"].map((label, i) => (
-              <NavLink
-                key={label}
-                to={`/${label.toLowerCase()}`}
-                onClick={() => setOpen(false)}
-              >
-                <span>0{i + 1}</span>
-                {label}
-                <ArrowUpRight />
+            {site.brand}
+            <sup>®</sup>
+          </Link>
+          <nav className="desktop-nav" aria-label="Main navigation">
+            {navigation.map((item) => (
+              <NavLink key={item.to} to={item.to} end={item.to === "/"}>
+                {item.label}
               </NavLink>
             ))}
-          </motion.nav>
-        )}
-      </AnimatePresence>
-      <main id="main" tabIndex={-1} ref={main}>
+          </nav>
+          <button
+            ref={trigger}
+            className="menu-toggle"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-controls="mobile-nav"
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+          >
+            <span>{open ? "Close" : "Menu"}</span>
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+        <AnimatePresence>
+          {open && (
+            <motion.nav
+              className="mobile-nav wrap"
+              id="mobile-nav"
+              aria-label="Mobile navigation"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {navigation.map((item, i) => (
+                <NavLink
+                  to={item.to}
+                  end={item.to === "/"}
+                  key={item.to}
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="nav-index">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  {item.label}
+                  <ArrowUpRight size={21} />
+                </NavLink>
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </header>
+      <main ref={main} id="main" tabIndex={-1}>
         <Outlet />
       </main>
       <footer className="footer wrap">
-        <Link to="/" className="brand">
+        <Link className="brand" to="/">
           {site.brand}
           <sup>®</sup>
         </Link>
         <div>
+          <Link to="/contact">
+            Contact <ArrowUpRight size={14} />
+          </Link>
           {site.socialLinks.map((link) => (
-            <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
+            <a href={link.url} key={link.url} target="_blank" rel="noreferrer">
               {link.label}
               <ArrowUpRight size={14} />
             </a>
           ))}
-          {site.email && (
-            <a href={`mailto:${site.email}`}>
-              Email
-              <ArrowUpRight size={14} />
-            </a>
-          )}
         </div>
         <span>
-          © {new Date().getFullYear()} {site.brand}
+          © {new Date().getFullYear()} {site.brand} / {site.location}
         </span>
       </footer>
     </>

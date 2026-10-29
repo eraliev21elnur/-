@@ -27,7 +27,7 @@ Production output: `dist/`. Build validates public content and prerenders HTML, 
 
 The site currently runs in **design preview mode** (`site.demoMode: true`). Five clearly labeled sample cases demonstrate landscape/vertical video, product photography, architecture and image galleries. Demo case data lives in `src/data/demo.ts`; six real content-planning records in `projects.ts` remain hidden drafts. All visible samples are labeled and attributed, without FULL CORE production claims. No portrait or fictitious contact details have been added.
 
-Set `demoMode: false` in `src/data/site.ts` to hide all sample cases and the sample hero at once. Add your approved media to the real project records and publish them. See `public/media/demo/CREDITS.md` for sample sources and licenses. The code is ready to populate; a recruiter-ready portfolio requires replacing samples with your work. Nothing has been deployed.
+Set `demoMode: false` in `src/data/site.ts` to hide all sample cases at once. Add your approved media to the real project records and publish them. See `public/media/demo/CREDITS.md` for sample sources and licenses. The code is ready to populate; a recruiter-ready portfolio requires replacing samples with your work. Nothing has been deployed.
 
 ## Structure
 
@@ -45,6 +45,16 @@ See [CONTENT_GUIDE.md](CONTENT_GUIDE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). No 
 
 ## Verification
 
-TypeScript, ESLint, production build and four behavioral tests passed. Chromium checks covered 375 / 390 / 768 / 1440 px layouts, navigation, mobile menu/Escape, URL-backed filters and reload, prerendered page hydration and horizontal overflow. Static HTML and HTTP 404 were checked through the production preview. Screenshots are saved in `review/`. Actual owner media, YouTube/Vimeo playback on a production domain and Lighthouse scores have not been verified. Temporary local MP4 files are provided for preview. Simulated viewport testing does not replace testing on physical devices.
+TypeScript, ESLint, production build and eight behavioral tests passed. Chromium checks covered 375 / 390 / 768 / 1440 px layouts, navigation, mobile menu/Escape, URL-backed filters and reload, prerendered page hydration and horizontal overflow. Static HTML and HTTP 404 were checked through the production preview. Screenshots are saved in `review/`. Actual owner media, YouTube/Vimeo playback on a production domain and Lighthouse scores have not been verified. Temporary local MP4 files are provided for preview. Simulated viewport testing does not replace testing on physical devices.
 
 Design-preview update: five sample cases are enabled. Chromium verified playback of the procedural horizontal loop, vertical loop and licensed Sintel excerpt, no video requests before Play, image-dialog opening, working category filtering and no overflow at the four viewport widths above. All sample media remains clearly labeled and can be disabled centrally.
+
+## Navigation redesign
+
+The primary routes are `/`, `/video`, `/motion`, `/3d-vfx`, `/design`, `/about`, `/contact`. Sticky navigation and four homepage tiles lead directly to the work. `/work` and `/work/:slug` are preserved for archive/backward compatibility. Project pages link back to their discipline.
+
+VIDEO groups `commercial` and `film` records and filters by `videoType`. MOTION shows playable films inline. DESIGN shows image galleries only. HOME shows up to four real, featured projects; samples never enter Selected Works. Existing samples remain clearly marked in their sections.
+
+`publishEmptyDisciplines: false` hides empty discipline links and excludes their pages from static generation after demoMode is switched off. While preview mode is enabled all four sections can be reviewed, including the honest 3D empty state. Set publishEmptyDisciplines=true only when intentionally choosing to publish empty pages.
+
+Verified after redesign: eight tests, typecheck, lint, production build, Chromium at 320/390/768/1024/1440 px, all seven primary pages, project navigation, category filters and reload, image dialog and Escape, local video playback, zero eager MP4 requests and no JS errors. The GitHub Pages base path `/-` is normalized to `/-/` for both server-rendered and client URLs. 

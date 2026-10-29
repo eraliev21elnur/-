@@ -8,9 +8,7 @@ export function About() {
       <section className="wrap page-top about">
         <span className="eyebrow">The person behind {site.brand}</span>
         <h1>
-          CRAFT OVER
-          <br />
-          <span className="muted">SHORTCUTS.</span>
+          Behind the work<span className="heading-dot">.</span>
         </h1>
         <div className="about-story">
           <div className="portrait">
@@ -38,7 +36,7 @@ export function About() {
               From idea to final cut.
             </h2>
             <p>{site.about}</p>
-            <p>{site.approach}</p>
+            <p>{site.experience}</p>
             <p className="small-copy">
               My existing portfolio is rooted in hands-on production, editing,
               motion graphics and design.

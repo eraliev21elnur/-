@@ -1,3 +1,4 @@
+import { disciplines, disciplineVisible } from "../src/data/disciplines";
 import { absoluteSiteUrl, assetUrl, routerBase } from "../src/lib/paths";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
@@ -17,6 +18,7 @@ const routes = [
   "/work",
   "/about",
   "/contact",
+  ...disciplines.filter((d) => disciplineVisible(d.id)).map((d) => `/${d.id}`),
   ...publishedProjects.map((p) => `/work/${p.slug}`),
 ];
 const escape = (s: string) =>

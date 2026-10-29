@@ -4,10 +4,11 @@ const deploymentUrl =
 // All personal information lives here. Leave unknown values empty.
 export const site = {
   brand: "FULL CORE",
+  publishEmptyDisciplines: false, // Empty pages are preview-only unless deliberately enabled.
   demoMode: true, // Set false to hide ALL temporary sample cases and sample hero.
   title: "Film, Motion & Visual Production",
-  tagline: "I make ideas visible.",
-  subtitle: "Filmmaking, motion design and visual storytelling.",
+  tagline: "Visual production.",
+  subtitle: "Filmmaking · Motion Design · 3D / VFX · Graphic Design",
   location: "Kazakhstan",
   email: "",
   url: deploymentUrl || "", // e.g. https://your-domain.com — needed for canonical URLs and sitemap
@@ -15,6 +16,8 @@ export const site = {
   availability: "Available for opportunities",
   about:
     "I am an independent visual creator from Kazakhstan, working across filmmaking, video editing, motion design and commercial content production. My work combines hands-on production, visual storytelling and post-production.",
+  experience:
+    "For YEPO, I create commercial video and product visuals. For ergonomic chair shoots on a white cyclorama, I independently organized the scene, set the lighting, filmed and edited the videos.",
   approach:
     "From setting the light to shaping the final cut. I work across the production process to build clear, considered visuals — with an eye for composition, rhythm and detail.",
   socialLinks: [

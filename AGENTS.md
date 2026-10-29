@@ -13,7 +13,7 @@ React + Vite + TypeScript; Tailwind 4 and component CSS; Motion for restrained i
 Never fabricate projects, awards, clients, metrics, dates, experience, faces, email or AI usage. Existing production is traditional unless explicitly confirmed otherwise. Six initial records are planning drafts; do not automatically publish them. Public content must have approved media. Files in public are publicly accessible even if referenced only by drafts. Do not scrape/download/reuse YEPO or other creators' materials without explicit authorization. Do not pretend to have watched videos.
 
 ## Authorized design preview
-The owner explicitly requested sample photos and videos for visual review. `site.demoMode` currently enables five temporary sample cases from `src/data/demo.ts`, a sample hero and clear preview labels. Actual client-project drafts remain unpublished. Preserve sample attribution (`public/media/demo/CREDITS.md`) and do not turn sample media into claimed personal work. Setting demoMode=false must remove all sample routes/cards and the sample hero. Do not substitute stock portraits for the owner.
+The owner explicitly requested sample photos and videos for visual review. `site.demoMode` currently enables five temporary sample cases from `src/data/demo.ts` and clear preview labels. Actual client-project drafts remain unpublished. Preserve sample attribution (`public/media/demo/CREDITS.md`) and do not turn sample media into claimed personal work. Setting demoMode=false must remove all sample routes/cards. Do not substitute stock portraits for the owner.
 
 ## Quality
 Keep semantic markup, hierarchy, visible focus, alt text, touch targets and no mobile overflow. Preserve 9:16/16:9/1:1/4:3 ratios; do not crop player content. Embed only supported providers; use privacy-enhanced YouTube. No provider requests until Play. Keep media lazy and catalogue paginated. Avoid new dependencies without need.
@@ -22,3 +22,6 @@ Run `npm run typecheck`, `npm run lint`, `npm test`, `npm run build` after subst
 
 ## Static hosting paths
 GitHub Pages is supported via `.github/workflows/deploy-pages.yml`. Preserve SITE_BASE/VITE_SITE_URL support and src/lib/paths.ts helpers. Prefix local assets with assetUrl; React Router uses routerBase. Prerendered links use the same basename as the browser. Do not hardcode a repository name into content paths. Keep root deployments working.
+
+## Clarity-first navigation
+Preserve direct HOME, VIDEO, MOTION, 3D / VFX, DESIGN, ABOUT, CONTACT routes. Keep HOME concise: positioning, four discipline tiles, at most four real selected projects, short contact CTA. Samples must never appear in Selected Works. VIDEO combines commercial/film and uses the four videoType subfilters. MOTION must allow playback immediately on the page; DESIGN must be an image gallery, not video players. Keep legacy archive/case URLs valid. Empty disciplines are preview-only unless publishEmptyDisciplines is explicitly true. Normalize SITE_BASE with a trailing slash, since configure-pages may omit it.

@@ -122,3 +122,72 @@ test("deployment URLs retain GitHub Pages repository paths", async () => {
     "https://example.com/image.webp",
   );
 });
+test("discipline routes provide direct access with the right media types", async () => {
+  const {
+    projectsForDiscipline,
+    projectDiscipline,
+    filterVideos,
+    videoFilters,
+  } = await import("../src/data/disciplines");
+  for (const path of [
+    "/video",
+    "/motion",
+    "/3d-vfx",
+    "/design",
+    "/about",
+    "/contact",
+  ]) {
+    const html = renderToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: [path] },
+        createElement(App),
+      ),
+    );
+    assert.doesNotMatch(html, /NOT FOUND/);
+    assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
+    assert.doesNotMatch(html, /<iframe/);
+    assert.doesNotMatch(html, /<video/);
+  }
+  const html = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/design"] },
+      createElement(App),
+    ),
+  );
+  assert.match(html, /image-open/);
+  assert.doesNotMatch(html, /class="player"/);
+  assert.ok(
+    projectsForDiscipline("video").every(
+      (p) => projectDiscipline(p) === "video",
+    ),
+  );
+  const videoDrafts = projects.filter((p) => projectDiscipline(p) === "video");
+  for (const filter of videoFilters.slice(1))
+    assert.ok(filterVideos(videoDrafts, filter.id).length > 0);
+});
+test("home selection excludes samples and empty disciplines need an explicit publishing decision", async () => {
+  const { selectedProjects } = await import("../src/data/projects");
+  const { disciplineVisible } = await import("../src/data/disciplines");
+  const { site } = await import("../src/data/site");
+  assert.ok(selectedProjects.length <= 4);
+  assert.ok(selectedProjects.every((p) => !p.demo));
+  const before = site.demoMode;
+  site.demoMode = false;
+  try {
+    assert.equal(disciplineVisible("3d-vfx"), false);
+    site.publishEmptyDisciplines = true;
+    assert.equal(disciplineVisible("3d-vfx"), true);
+  } finally {
+    site.demoMode = before;
+    site.publishEmptyDisciplines = false;
+  }
+});
+test("base path normalization handles the configure-pages output without a trailing slash", async () => {
+  const { normalizeBase } = await import("../src/lib/paths");
+  assert.equal(normalizeBase("/-"), "/-/");
+  assert.equal(normalizeBase("/full-core/"), "/full-core/");
+  assert.equal(normalizeBase(""), "/");
+  assert.equal(normalizeBase("/"), "/");
+});
