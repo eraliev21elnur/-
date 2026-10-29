@@ -103,9 +103,12 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
                 )}
               </div>
               <div className="track-info">
+                {track.demo && (
+                  <span className="track-demo-badge">{t("Sample audio")}</span>
+                )}
                 <h2>{track.title}</h2>
                 <p>
-                  {site.brand}
+                  {track.demo ? t("Playback demo") : site.brand}
                   {track.year ? ` / ${track.year}` : ""}
                 </p>
                 {track.description && <p>{track.description}</p>}

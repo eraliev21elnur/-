@@ -31,8 +31,18 @@ export const site = {
     { label: "Telegram", value: "@full_core", url: "https://t.me/full_core" },
     {
       label: "Instagram",
-      value: "@fulxcore",
-      url: "https://www.instagram.com/fulxcore/",
+      value: "@fullxcore",
+      url: "https://www.instagram.com/fullxcore/",
+    },
+    {
+      label: "YouTube",
+      value: "@Full_Core",
+      url: "https://www.youtube.com/@Full_Core",
+    },
+    {
+      label: "TikTok",
+      value: "@full_core",
+      url: "https://www.tiktok.com/@full_core",
     },
     // WhatsApp opens reliably by phone; the supplied handle is displayed as contact information.
     {

@@ -6,6 +6,8 @@ import { MusicPlayer } from "../components/MusicPlayer";
 import { site } from "../data/site";
 export function Music() {
   const { t } = useLocale();
+  const hasDemos = publishedTracks.some((track) => track.demo);
+  const demosOnly = hasDemos && publishedTracks.every((track) => track.demo);
   return (
     <div className="discipline-page music-page wrap">
       <div className="breadcrumb">
@@ -25,10 +27,19 @@ export function Music() {
         </div>
         <p>
           {t(
-            "Original music by FULL CORE. From the first idea to the final master.",
+            demosOnly
+              ? "Playback demos for testing the music player."
+              : "Original music by FULL CORE. From the first idea to the final master.",
           )}
         </p>
       </header>
+      {hasDemos && (
+        <p className="music-demo-note">
+          {t(
+            "These procedural music samples are for testing. They are not FULL CORE releases.",
+          )}
+        </p>
+      )}
       {publishedTracks.length ? (
         <MusicPlayer tracks={publishedTracks} />
       ) : (

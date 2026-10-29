@@ -9,6 +9,7 @@ export function metadata(path: string, language: Language = "en") {
     "/work": "All Projects — Archive",
     "/video": "Video Production",
     "/motion": "Motion Design",
+    "/motion-vfx": "Motion & 3D / VFX",
     "/3d-vfx": "3D / VFX",
     "/design": "Graphic Design",
     "/about": "About",

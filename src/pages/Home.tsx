@@ -1,11 +1,11 @@
 import { useLocale } from "../i18n";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowUpRight, Play } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Play, Disc3 } from "lucide-react";
 import { site } from "../data/site";
 import { selectedProjects } from "../data/projects";
 import {
-  disciplines,
+  homeCategories,
   disciplineVisible,
   projectsForDiscipline,
 } from "../data/disciplines";
@@ -85,8 +85,8 @@ export function Home() {
           <span className="eyebrow">{t("Choose a discipline")}</span>
         </div>
         <div className="discipline-grid">
-          {disciplines
-            .filter((d) => disciplineVisible(d.id))
+          {homeCategories
+            .filter((d) => d.id === "music" || disciplineVisible(d.id))
             .map((d, i) => {
               const preview = projectsForDiscipline(d.id)[0];
               const image = preview?.coverImage;
@@ -104,21 +104,9 @@ export function Home() {
                       loading="lazy"
                     />
                   )}
-                  {d.id === "3d-vfx" && (
-                    <div className="wire-art" aria-hidden="true">
-                      {Array.from(
-                        {
-                          length: 7,
-                        },
-                        (_, i) => (
-                          <i
-                            key={i}
-                            style={{
-                              transform: `rotate(${i * 25}deg)`,
-                            }}
-                          />
-                        ),
-                      )}
+                  {d.id === "music" && (
+                    <div className="tile-music-art" aria-hidden="true">
+                      <Disc3 strokeWidth={0.6} />
                     </div>
                   )}
                   <div className="tile-top">

@@ -21,6 +21,7 @@ const routes = [
   "/about",
   "/contact",
   "/music",
+  ...(disciplineVisible("motion-vfx") ? ["/motion-vfx"] : []),
   ...disciplines.filter((d) => disciplineVisible(d.id)).map((d) => `/${d.id}`),
   ...publishedProjects.map((p) => `/work/${p.slug}`),
 ];

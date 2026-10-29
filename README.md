@@ -66,4 +66,10 @@ EN (default), RU and KZ (language code kk) are available after Contact in deskto
 
 Direct Telegram/Instagram/WhatsApp contacts and a telephone link are configured in site.ts. The Telegram channel is no longer linked. About now includes the owner's supplied biography and music practice; FL Studio is in the tool list. All new copy has English, Russian and Kazakh versions. Mobile language controls remain visible outside the menu.
 
-The `/music` route reads `src/data/tracks.ts`. It currently contains no songs, so visitors see an honest empty state. A reusable single-instance audio player supports lazy loading, native seek/volume controls, play/pause, explicit previous/next selection, error recovery and cleanup on leaving the page. No autoplay, automatic next song or persistent background playback. See CONTENT_GUIDE for adding original tracks.
+The `/music` route reads `src/data/tracks.ts`. No owner-supplied songs are present; explicitly requested listening demos are now enabled in preview mode. A reusable single-instance audio player supports lazy loading, native seek/volume controls, play/pause, explicit previous/next selection, error recovery and cleanup on leaving the page. No autoplay, automatic next song or persistent background playback. See CONTENT_GUIDE for adding original tracks.
+
+## Home and listening demos
+
+Home groups Motion and 3D/VFX at `/motion-vfx`, followed by Design and Music. Existing category routes remain available. Contact icons accompany the supplied social profiles, including corrected Instagram, YouTube and TikTok.
+
+Three short procedural MP3 listening examples are enabled by demoMode. They are clearly labeled samples, not FULL CORE releases, with provenance beside the files. Original track data remains separate and can replace them without player changes. npm build uses the committed MP3 assets; Python/NumPy/FFmpeg are optional regeneration tools only.
