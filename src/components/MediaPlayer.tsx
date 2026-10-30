@@ -90,6 +90,7 @@ export function MediaPlayer({
             <video
               ref={video}
               src={safeUrl(media.url)}
+              poster={media.thumbnail ? safeUrl(media.thumbnail) : undefined}
               controls
               autoPlay
               playsInline
