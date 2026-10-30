@@ -607,16 +607,16 @@ export const projects: Project[] = [
         title: "Vetements × Alpha Industries — Цифровая мода",
         description:
           "Цифровой fashion-визуал: Blender, симуляция ткани в Marvelous Designer и обработка в Photoshop.",
-        role: ["3D-моделирование", "Симуляция ткани", "Постобработка"],
+        role: ["3D-визуализация", "Симуляция ткани", "Постобработка"],
       },
       kk: {
         title: "Vetements × Alpha Industries — Цифрлық сән",
         description:
           "Blender, Marvelous Designer-дегі мата симуляциясы және Photoshop өңдеуі біріктірілген цифрлық сән визуалы.",
-        role: ["3D-модельдеу", "Мата симуляциясы", "Суретті өңдеу"],
+        role: ["3D-визуализация", "Мата симуляциясы", "Суретті өңдеу"],
       },
     },
-    role: ["3D modeling", "Cloth simulation", "Image finishing"],
+    role: ["3D visualization", "Cloth simulation", "Image finishing"],
     tools: ["Blender", "Marvelous Designer", "Photoshop"],
   },
   {
@@ -773,16 +773,16 @@ export const projects: Project[] = [
         title: "Where are U? — Обложка трека",
         description:
           "Обложка моего трека Where are U? и моя первая 3D-визуализация в стиле аниме, созданная в Blender и Photoshop.",
-        role: ["3D-моделирование", "Графический дизайн"],
+        role: ["3D-визуализация", "Графический дизайн"],
       },
       kk: {
         title: "Where are U? — Трек мұқабасы",
         description:
           "Where are U? трегімнің мұқабасы және аниме стиліндегі алғашқы 3D-визуализациям. Blender мен Photoshop-та жасалған.",
-        role: ["3D-модельдеу", "Графикалық дизайн"],
+        role: ["3D-визуализация", "Графикалық дизайн"],
       },
     },
-    role: ["3D modeling", "Graphic design"],
+    role: ["3D visualization", "Graphic design"],
     tools: ["Blender", "Photoshop"],
   },
   {
@@ -1102,7 +1102,7 @@ export const projects: Project[] = [
       ru: {
         title: "Автоматчики — Университетский фильм",
         description:
-          "Короткий фильм для университетской кафедры КИПиА, самостоятельно снятый на iPhone и смонтированный в DaVinci Resolve за сутки.",
+          "Короткий фильм для университетской кафедры KIPI, самостоятельно снятый на iPhone и смонтированный в DaVinci Resolve за сутки.",
         role: ["Видеосъёмка", "Видеомонтаж"],
       },
       kk: {
