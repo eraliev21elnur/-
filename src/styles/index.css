@@ -731,7 +731,8 @@ main:focus {
   letter-spacing: 0.07em;
   margin-top: 7px;
 }
-.ratio-9-16 {
+.ratio-9-16,
+.portrait-card {
   max-width: 350px;
   width: 70%;
   justify-self: center;
@@ -1626,7 +1627,8 @@ figcaption {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .ratio-9-16 {
+  .ratio-9-16,
+  .portrait-card {
     width: 82%;
     max-width: 300px;
   }
@@ -2407,4 +2409,22 @@ html {
   font-size: 10px;
   line-height: 1.5;
   overflow-wrap: anywhere;
+}
+
+.facade-youtube > img {
+  object-fit: cover;
+}
+.instagram-player {
+  min-height: 660px;
+}
+.media-source {
+  margin-top: 12px;
+  font-size: 11px;
+}
+.tile-music .tile-image {
+  object-position: center;
+}
+
+.tile-video .tile-image {
+  object-position: center 25%;
 }

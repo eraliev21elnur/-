@@ -10,6 +10,10 @@ import {
   filterVideos,
   projectsForDiscipline,
   videoFilters,
+  threeDFilters,
+  motionVfxFilters,
+  filterVisualProjects,
+  isIllustrationProject,
   type DisciplineId,
 } from "../data/disciplines";
 import type { Project } from "../data/projects";
@@ -75,7 +79,23 @@ export function Discipline({ id }: { id: DisciplineId | "motion-vfx" }) {
     hydrated && videoFilters.some((f) => f.id === params.get("type"))
       ? params.get("type")!
       : "all";
-  const items = id === "video" ? filterVideos(projects, filter) : projects;
+  const visualFilters =
+    id === "3d-vfx"
+      ? threeDFilters
+      : id === "motion-vfx"
+        ? motionVfxFilters
+        : null;
+  const format =
+    hydrated &&
+    visualFilters?.some((option) => option.id === params.get("format"))
+      ? params.get("format")!
+      : "all";
+  const items =
+    id === "video"
+      ? filterVideos(projects, filter)
+      : visualFilters
+        ? filterVisualProjects(projects, format)
+        : projects;
   if (!disciplineVisible(id)) return <NotFound />;
   return (
     <div className={`discipline-page discipline-${id} wrap`}>
@@ -124,12 +144,34 @@ export function Discipline({ id }: { id: DisciplineId | "motion-vfx" }) {
           ))}
         </div>
       )}
+      {visualFilters && (
+        <div className="filters" role="group" aria-label={t("Filter 3D work")}>
+          {visualFilters.map((option) => (
+            <button
+              key={option.id}
+              aria-pressed={format === option.id}
+              onClick={() => {
+                setParams(option.id === "all" ? {} : { format: option.id }, {
+                  replace: true,
+                });
+                setLimit(12);
+              }}
+            >
+              {t(option.label)}
+              <span>{filterVisualProjects(projects, option.id).length}</span>
+            </button>
+          ))}
+        </div>
+      )}
       <div className="sr-only" aria-live="polite">
         {t("Projects")}: {items.length}
       </div>
       {!items.length ? (
         <EmptyWork
-          filtered={id === "video" && filter !== "all"}
+          filtered={
+            (id === "video" && filter !== "all") ||
+            (visualFilters !== null && format !== "all")
+          }
           discipline={section.nav.toLowerCase()}
         />
       ) : id === "video" ? (
@@ -164,7 +206,19 @@ export function Discipline({ id }: { id: DisciplineId | "motion-vfx" }) {
                 : p.media[0];
             return (
               <section className="screening-project" key={p.id}>
-                {media && <MediaPlayer media={media} title={t(p.title)} />}
+                {isIllustrationProject(p) ? (
+                  <div className="design-gallery">
+                    {p.media.slice(0, 4).map((image) => (
+                      <MediaPlayer
+                        key={image.id}
+                        media={image}
+                        title={t(p.title)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  media && <MediaPlayer media={media} title={t(p.title)} />
+                )}
                 <ProjectSummary project={p} />
               </section>
             );

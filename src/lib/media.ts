@@ -58,3 +58,17 @@ export function embedUrl(
 }
 export const safeUrl = (url: string) =>
   /^(https?:\/\/|\/(?!\/))/.test(url) ? assetUrl(url) : "#";
+
+export function instagramEmbedUrl(input: string): string | null {
+  try {
+    const url = new URL(input);
+    if (!["instagram.com", "www.instagram.com"].includes(url.hostname))
+      return null;
+    const match = url.pathname.match(
+      /^\/(?:p|reel|reels)\/([A-Za-z0-9_-]+)\/?$/,
+    );
+    return match ? `https://www.instagram.com/p/${match[1]}/embed/` : null;
+  } catch {
+    return null;
+  }
+}

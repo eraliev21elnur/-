@@ -137,7 +137,7 @@ export const tracks: Track[] = [
     artist: "Full Core",
     status: "published",
     src: "/media/music/tracks/where-are-u.mp3",
-    artwork: "/media/music/tracks/where-are-u.svg",
+    artwork: "/media/portfolio/where-are-u-artwork.webp",
     duration: 124.682,
     year: 2023,
   },
