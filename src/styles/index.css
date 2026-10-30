@@ -2479,3 +2479,60 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+/* Restrained motion: visible by default, no scroll interception or media autoplay. */
+.discipline-reveal > .discipline-tile {
+  height: 100%;
+}
+.about-alias {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.42em;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+}
+.about-copy .about-tagline {
+  color: #f5f5f5;
+  margin-top: 18px;
+  font-size: 16px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .page-top > h1,
+  .discipline-heading h1,
+  .project-heading h1 {
+    animation: title-in 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .tile-image,
+  .project-cover > img {
+    transition:
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.6s ease;
+  }
+  .tile-top > svg,
+  .project-info > svg,
+  .cover-action,
+  .arrow-link svg {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .project-card-link:is(:hover, :focus-visible) .project-info > svg {
+    transform: translate(3px, -3px);
+  }
+  .project-card-link:is(:hover, :focus-visible) .cover-action {
+    transform: translateY(-3px);
+  }
+  .discipline-tile:focus-visible .tile-image {
+    transform: scale(1.045);
+  }
+  .desktop-nav a {
+    transition: color 0.25s ease;
+  }
+  .mobile-nav a {
+    animation: title-in 0.35s ease-out;
+  }
+  .explore-link svg {
+    transition: transform 0.35s ease;
+  }
+  .explore-link:is(:hover, :focus-visible) svg {
+    transform: translateY(4px);
+  }
+}

@@ -1,5 +1,33 @@
 // Hand-edited UTF-8 translations. Keep names, credits and licenses factual.
 export const messages: Record<string, { ru: string; kk: string }> = {
+  "Eraliev Elnur": {
+    ru: "Ералиев Елнур",
+    kk: "Ералиев Елнур",
+  },
+  "From the first idea to the final frame.": {
+    ru: "От первой идеи до финального кадра.",
+    kk: "Алғашқы идеядан соңғы кадрға дейін.",
+  },
+  "I’m Eraliev Elnur, an independent visual creator from Kazakhstan and the person behind FULL CORE. I work across video production, editing, motion design, 3D/VFX and graphic design.":
+    {
+      ru: "Меня зовут Ералиев Елнур. Я независимый визуальный автор из Казахстана, работаю под именем FULL CORE. Занимаюсь видеопроизводством, монтажом, моушн-дизайном, 3D/VFX и графическим дизайном.",
+      kk: "Менің атым — Ералиев Елнур. Қазақстаннан шыққан тәуелсіз визуал контент авторымын, FULL CORE шығармашылық есімімен жұмыс істеймін. Бейнеөндіріс, монтаж, моушн-дизайн, 3D/VFX және графикалық дизайнмен айналысамын.",
+    },
+  "My interest in visual effects started in childhood. What began with watching and exploring videos on YouTube grew into creating my own — and helping other creators bring their ideas to the screen.":
+    {
+      ru: "Визуальными эффектами я увлёкся ещё в детстве. Интерес к роликам на YouTube постепенно перерос в создание собственных видео и работу с авторами — теперь я помогаю воплощать их идеи на экране.",
+      kk: "Визуал эффектілерге бала кезімнен қызығамын. YouTube-тегі видеоларды көріп, зерттеуден басталған қызығушылығым өз бейнелерімді жасауға және басқа авторлардың идеяларын экранда іске асыруға ұласты.",
+    },
+  "For YEPO, I create product visuals and commercial content, handling everything from studio lighting and filming to editing and post-production. My experience also includes editing for YouTube creators and Instagram professionals, alongside 3D animation work for rapper LOVV66.":
+    {
+      ru: "Для YEPO создаю визуалы продуктов и коммерческий контент: от постановки студийного света и съёмки до монтажа и постпродакшена. В моём опыте также монтаж для YouTube-авторов и экспертов в Instagram, а ещё работа над 3D-анимацией для рэп-исполнителя LOVV66.",
+      kk: "YEPO үшін өнім визуалдары мен коммерциялық контент жасаймын: студиялық жарық қою мен түсірілімнен бастап монтаж бен постпродакшнға дейін. Сондай-ақ YouTube авторлары мен Instagram мамандарына видео монтаждадым, рэп орындаушы LOVV66 үшін 3D-анимация жасадым.",
+    },
+  "Music is another part of my creative practice. I write and produce my own tracks, taking them from the initial idea through to mixing and mastering.":
+    {
+      ru: "Музыка — ещё одна часть моего творчества. Сам пишу и создаю треки, проходя весь путь от первой идеи до сведения и мастеринга.",
+      kk: "Музыка — шығармашылығымның тағы бір бөлігі. Өз тректерімді жазып, алғашқы идеядан бастап микс пен мастерингке дейінгі барлық кезеңін өзім атқарамын.",
+    },
   "View gallery ({count})": {
     ru: "Смотреть галерею ({count})",
     kk: "Галереяны ашу ({count})",

@@ -1,7 +1,7 @@
 import { Artwork } from "./Artwork";
 import { localizeProject } from "../i18n/content";
 import { useLocale } from "../i18n";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { categoryLabel, type Project } from "../data/projects";
@@ -9,24 +9,28 @@ import type { ReactNode } from "react";
 export function Reveal({
   children,
   className = "",
+  delay = 0,
 }: {
   children: ReactNode;
   className?: string;
+  delay?: number;
 }) {
+  const reducedMotion = useReducedMotion();
   return (
     <motion.div
       className={className}
       initial={false}
-      whileInView={{
-        opacity: [0.75, 1],
-        y: [8, 0],
-      }}
+      whileInView={
+        reducedMotion ? undefined : { opacity: [0.75, 1], y: [16, 0] }
+      }
       viewport={{
         once: true,
         amount: 0.1,
       }}
       transition={{
-        duration: 0.35,
+        duration: reducedMotion ? 0 : 0.65,
+        delay: reducedMotion ? 0 : delay,
+        ease: [0.22, 1, 0.36, 1],
       }}
     >
       {children}
@@ -89,6 +93,7 @@ export function ProjectCard({
   const portrait = coverWidth / coverHeight < 0.85;
   return (
     <Reveal
+      delay={Math.min(index * 0.04, 0.12)}
       className={`project-card ratio-${(project.coverAspectRatio ?? "16/9").replace("/", "-")} ${portrait ? "portrait-card" : ""}`}
     >
       <Link to={`/work/${project.slug}`} className="project-card-link">

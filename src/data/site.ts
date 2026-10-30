@@ -4,10 +4,12 @@ const deploymentUrl =
 // All personal information lives here. Leave unknown values empty.
 export const site = {
   brand: "FULL CORE",
+  name: "Eraliev Elnur",
+  aboutTagline: "From the first idea to the final frame.",
   publishEmptyDisciplines: false, // Empty pages are preview-only unless deliberately enabled.
   demoMode: false, // Legacy flag: all temporary sample projects/media have been removed.
   homeCovers: {
-    video: "/media/portfolio/Ddrq_lMufJh.webp",
+    video: "/media/portfolio/obshaga-530.webp",
     "motion-vfx": "/media/portfolio/vash-product.webp",
     design: "/media/portfolio/gta-vi-scene.webp",
     music: "/media/portfolio/where-are-u-artwork.webp",
@@ -24,13 +26,13 @@ export const site = {
   // Age reflects the biography supplied in October 2026; review it when updating the bio.
   birthDate: "2005-10-21",
   about:
-    "I'm a 21-year-old visual creator from Kazakhstan, born on 21 October 2005. My interest in making videos began in childhood, especially with VFX. Years of exploring videos on YouTube led me to start my own channel and create original content.",
+    "I’m Eraliev Elnur, an independent visual creator from Kazakhstan and the person behind FULL CORE. I work across video production, editing, motion design, 3D/VFX and graphic design.",
   experience:
-    "Over the past year, I've focused on product design, visual content and promotion for YEPO, an electronics and ergonomic chair retailer. Before that, I edited videos for YouTube creators, Instagram experts and other clients.",
+    "For YEPO, I create product visuals and commercial content, handling everything from studio lighting and filming to editing and post-production. My experience also includes editing for YouTube creators and Instagram professionals, alongside 3D animation work for rapper LOVV66.",
   creativeBackground:
-    "My experience also includes 3D animation and a collaboration with rapper LOVV66. I enjoy taking an idea through the full creative process, from the first concept to the finished piece.",
+    "My interest in visual effects started in childhood. What began with watching and exploring videos on YouTube grew into creating my own — and helping other creators bring their ideas to the screen.",
   musicAbout:
-    "Music is another part of my creative practice. I develop my own ideas, compose and produce tracks, and handle the mixing and mastering myself.",
+    "Music is another part of my creative practice. I write and produce my own tracks, taking them from the initial idea through to mixing and mastering.",
   approach:
     "From setting the light to shaping the final cut. I work across the production process to build clear, considered visuals — with an eye for composition, rhythm and detail.",
   phone: { number: "+77085887585", display: "+7 708 588 75 85" },

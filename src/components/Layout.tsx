@@ -2,7 +2,7 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import { useLocale } from "../i18n";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { site } from "../data/site";
 import { navigation } from "../data/disciplines";
@@ -10,6 +10,7 @@ import { metadata } from "../lib/metadata";
 import { absoluteSiteUrl } from "../lib/paths";
 export function Layout() {
   const { t, language } = useLocale();
+  const reducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const main = useRef<HTMLElement>(null);
@@ -115,7 +116,8 @@ export function Layout() {
                 opacity: 0,
               }}
               transition={{
-                duration: 0.2,
+                duration: reducedMotion ? 0 : 0.3,
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
               {navigation.map((item, i) => (

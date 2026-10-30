@@ -10,7 +10,7 @@ import {
   projectsForDiscipline,
 } from "../data/disciplines";
 import { assetUrl } from "../lib/paths";
-import { ContactCTA, ProjectCard } from "../components/UI";
+import { ContactCTA, ProjectCard, Reveal } from "../components/UI";
 import { MediaPlayer } from "../components/MediaPlayer";
 export function Home() {
   const { t } = useLocale();
@@ -91,38 +91,43 @@ export function Home() {
               const preview = projectsForDiscipline(d.id)[0];
               const image = site.homeCovers[d.id] || preview?.coverImage;
               return (
-                <Link
-                  className={`discipline-tile tile-${d.id}`}
+                <Reveal
                   key={d.id}
-                  to={`/${d.id}`}
+                  className="discipline-reveal"
+                  delay={i * 0.05}
                 >
-                  {image && (
-                    <img
-                      className="tile-image"
-                      src={assetUrl(image)}
-                      alt=""
-                      loading="lazy"
-                    />
-                  )}
-                  {d.id === "music" && !image && (
-                    <div className="tile-music-art" aria-hidden="true">
-                      <Disc3 strokeWidth={0.6} />
+                  <Link
+                    className={`discipline-tile tile-${d.id}`}
+                    to={`/${d.id}`}
+                  >
+                    {image && (
+                      <img
+                        className="tile-image"
+                        src={assetUrl(image)}
+                        alt=""
+                        loading="lazy"
+                      />
+                    )}
+                    {d.id === "music" && !image && (
+                      <div className="tile-music-art" aria-hidden="true">
+                        <Disc3 strokeWidth={0.6} />
+                      </div>
+                    )}
+                    <div className="tile-top">
+                      <span className="eyebrow">
+                        0{i + 1} / {t(d.short)}
+                      </span>
+                      <ArrowUpRight size={26} />
                     </div>
-                  )}
-                  <div className="tile-top">
-                    <span className="eyebrow">
-                      0{i + 1} / {t(d.short)}
-                    </span>
-                    <ArrowUpRight size={26} />
-                  </div>
-                  <div className="tile-copy">
-                    <h3>{t(d.title)}</h3>
-                    <p>{t(d.description)}</p>
-                  </div>
-                  {preview?.demo && (
-                    <span className="tile-sample">{t("Sample imagery")}</span>
-                  )}
-                </Link>
+                    <div className="tile-copy">
+                      <h3>{t(d.title)}</h3>
+                      <p>{t(d.description)}</p>
+                    </div>
+                    {preview?.demo && (
+                      <span className="tile-sample">{t("Sample imagery")}</span>
+                    )}
+                  </Link>
+                </Reveal>
               );
             })}
         </div>

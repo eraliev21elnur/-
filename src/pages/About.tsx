@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { assetUrl } from "../lib/paths";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "../data/site";
-import { ContactCTA } from "../components/UI";
+import { ContactCTA, Reveal } from "../components/UI";
 export function About() {
   const { t } = useLocale();
   return (
@@ -17,7 +17,7 @@ export function About() {
           <span className="heading-dot">.</span>
         </h1>
         <div className="about-story">
-          <div className="portrait">
+          <Reveal className="portrait">
             {site.portrait ? (
               <img
                 src={assetUrl(site.portrait)}
@@ -40,19 +40,19 @@ export function About() {
                 </span>
               </div>
             )}
-          </div>
-          <div className="about-copy">
+          </Reveal>
+          <Reveal className="about-copy" delay={0.08}>
             <span className="eyebrow">
               {t("Based in")} {t(site.location)}
             </span>
             <h2>
-              {t("Making visuals.")}
-              <br />
-              {t("From idea to final cut.")}
+              {t(site.name)}
+              <span className="about-alias">{site.brand}</span>
             </h2>
+            <p className="about-tagline">{t(site.aboutTagline)}</p>
             <p>{t(site.about)}</p>
-            <p>{t(site.experience)}</p>
             <p>{t(site.creativeBackground)}</p>
+            <p>{t(site.experience)}</p>
             <p>{t(site.musicAbout)}</p>
             <Link className="arrow-link" to="/music">
               {t("Explore my music")}
@@ -69,7 +69,7 @@ export function About() {
                 <ArrowUpRight size={18} />
               </a>
             )}
-          </div>
+          </Reveal>
         </div>
         <div className="about-lists">
           <section>
