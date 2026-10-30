@@ -104,7 +104,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     videoType: "reels-ads",
     featured: true,
-    featuredOrder: 1,
+    featuredOrder: 3,
   },
   {
     id: "narrative-motion-edit",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     category: "motion",
     status: "published",
     featured: true,
-    featuredOrder: 2,
+    featuredOrder: 1,
     coverImage: "https://i.ytimg.com/vi/1IZ8-IW16t0/maxresdefault.jpg",
     coverAlt: "YouTube thumbnail for the Crypto Heist editing project",
     coverAspectRatio: "16/9",
@@ -209,6 +209,7 @@ export const projects: Project[] = [
       },
     },
     tools: ["Blender", "After Effects"],
+    featured: false,
   },
   {
     id: "vash-product",
@@ -247,7 +248,7 @@ export const projects: Project[] = [
     role: ["3D animation", "Compositing"],
     tools: ["Blender", "After Effects"],
     featured: true,
-    featuredOrder: 3,
+    featuredOrder: 4,
   },
   {
     id: "independent-youtube-film",
@@ -288,19 +289,19 @@ export const projects: Project[] = [
     role: ["Concept", "Scriptwriting", "Videography", "Video editing"],
     videoType: "personal-films",
     featured: true,
-    featuredOrder: 4,
+    featuredOrder: 2,
   },
   {
     id: "chair-01",
     slug: "premium-chair-studio",
-    title: "YEPO — White Cyclorama Campaign",
+    title: "YEPO LS-1000 — Studio Commercial",
     category: "commercial",
     status: "published",
     description:
-      "A studio campaign for premium ergonomic chairs, built around controlled lighting, clean composition and a white paper cyclorama.",
+      "A studio commercial for the YEPO LS-1000 ergonomic chair, produced on a white paper cyclorama with controlled lighting and clean composition.",
     coverImage: "/media/portfolio/Dcl2VgRsbX_.webp",
     coverAspectRatio: "9/16",
-    coverAlt: "YEPO — White Cyclorama Campaign",
+    coverAlt: "YEPO LS-1000 — Studio Commercial",
     media: [
       {
         id: "Dcl2VgRsbX_",
@@ -310,36 +311,12 @@ export const projects: Project[] = [
         aspectRatio: "9/16",
         caption: "YEPO LS-1000",
       },
-      {
-        id: "DcJJEresebU",
-        type: "instagram",
-        url: "https://www.instagram.com/p/DcJJEresebU/",
-        thumbnail: "/media/portfolio/DcJJEresebU.webp",
-        aspectRatio: "9/16",
-        caption: "YEPO LS-901",
-      },
-      {
-        id: "Db-6ST6sVZK",
-        type: "instagram",
-        url: "https://www.instagram.com/p/Db-6ST6sVZK/",
-        thumbnail: "/media/portfolio/Db-6ST6sVZK.webp",
-        aspectRatio: "9/16",
-        caption: "YEPO LS-919",
-      },
-      {
-        id: "Dci7X5Ls9XW",
-        type: "instagram",
-        url: "https://www.instagram.com/p/Dci7X5Ls9XW/",
-        thumbnail: "/media/portfolio/Dci7X5Ls9XW.webp",
-        aspectRatio: "9/16",
-        caption: "YEPO LS-999",
-      },
     ],
     translations: {
       ru: {
-        title: "YEPO — Кампания на белой циклораме",
+        title: "YEPO LS-1000 — Студийный ролик",
         description:
-          "Студийная кампания премиальных эргономичных кресел: контролируемый свет, чистая композиция и белая бумажная циклорама.",
+          "Студийный ролик эргономичного кресла YEPO LS-1000: белая бумажная циклорама, выверенный свет и чистая композиция.",
         role: [
           "Идея",
           "Сценарий",
@@ -352,9 +329,9 @@ export const projects: Project[] = [
         credits: "Озвучка и работа актёра предоставлены другими участниками.",
       },
       kk: {
-        title: "YEPO — Ақ циклорамадағы түсірілім",
+        title: "YEPO LS-1000 — Студиялық бейне",
         description:
-          "Премиум эргономикалық креслоларға арналған студиялық науқан: дәл қойылған жарық, таза композиция және ақ қағаз циклорама.",
+          "YEPO LS-1000 эргономикалық креслосының студиялық бейнесі: ақ қағаз циклорама, дәл қойылған жарық және таза композиция.",
         role: [
           "Идея",
           "Сценарий",
@@ -380,8 +357,214 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "studio-commercials",
-    featured: true,
-    featuredOrder: 5,
+    featured: false,
+    credits: "Voiceover and on-screen talent provided separately.",
+  },
+  {
+    id: "yepo-ls-901-studio",
+    slug: "yepo-ls-901-studio",
+    title: "YEPO LS-901 — Studio Commercial",
+    category: "commercial",
+    status: "published",
+    description:
+      "A studio commercial for the YEPO LS-901 ergonomic chair, produced on a white paper cyclorama with controlled lighting and clean composition.",
+    coverImage: "/media/portfolio/DcJJEresebU.webp",
+    coverAspectRatio: "9/16",
+    coverAlt: "YEPO LS-901 — Studio Commercial",
+    media: [
+      {
+        id: "DcJJEresebU",
+        type: "instagram",
+        url: "https://www.instagram.com/p/DcJJEresebU/",
+        thumbnail: "/media/portfolio/DcJJEresebU.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO LS-901",
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-901 — Студийный ролик",
+        description:
+          "Студийный ролик эргономичного кресла YEPO LS-901: белая бумажная циклорама, выверенный свет и чистая композиция.",
+        role: [
+          "Идея",
+          "Сценарий",
+          "Свет",
+          "Видеосъёмка",
+          "Режиссура",
+          "Видеомонтаж",
+          "Цветокоррекция",
+        ],
+        credits: "Озвучка и работа актёра предоставлены другими участниками.",
+      },
+      kk: {
+        title: "YEPO LS-901 — Студиялық бейне",
+        description:
+          "YEPO LS-901 эргономикалық креслосының студиялық бейнесі: ақ қағаз циклорама, дәл қойылған жарық және таза композиция.",
+        role: [
+          "Идея",
+          "Сценарий",
+          "Жарық қою",
+          "Бейнетүсірілім",
+          "Режиссура",
+          "Бейнемонтаж",
+          "Түс өңдеу",
+        ],
+        credits:
+          "Дыбыстау мен кадрдағы актерлік жұмысты басқа қатысушылар орындады.",
+      },
+    },
+    role: [
+      "Concept",
+      "Scriptwriting",
+      "Lighting",
+      "Videography",
+      "Direction",
+      "Video editing",
+      "Color grading",
+    ],
+    tools: ["Sony ZV-E10", "DaVinci Resolve"],
+    client: "YEPO",
+    videoType: "studio-commercials",
+    featured: false,
+    credits: "Voiceover and on-screen talent provided separately.",
+  },
+  {
+    id: "yepo-ls-919-studio",
+    slug: "yepo-ls-919-studio",
+    title: "YEPO LS-919 — Studio Commercial",
+    category: "commercial",
+    status: "published",
+    description:
+      "A studio commercial for the YEPO LS-919 ergonomic chair, produced on a white paper cyclorama with controlled lighting and clean composition.",
+    coverImage: "/media/portfolio/Db-6ST6sVZK.webp",
+    coverAspectRatio: "9/16",
+    coverAlt: "YEPO LS-919 — Studio Commercial",
+    media: [
+      {
+        id: "Db-6ST6sVZK",
+        type: "instagram",
+        url: "https://www.instagram.com/p/Db-6ST6sVZK/",
+        thumbnail: "/media/portfolio/Db-6ST6sVZK.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO LS-919",
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-919 — Студийный ролик",
+        description:
+          "Студийный ролик эргономичного кресла YEPO LS-919: белая бумажная циклорама, выверенный свет и чистая композиция.",
+        role: [
+          "Идея",
+          "Сценарий",
+          "Свет",
+          "Видеосъёмка",
+          "Режиссура",
+          "Видеомонтаж",
+          "Цветокоррекция",
+        ],
+        credits: "Озвучка и работа актёра предоставлены другими участниками.",
+      },
+      kk: {
+        title: "YEPO LS-919 — Студиялық бейне",
+        description:
+          "YEPO LS-919 эргономикалық креслосының студиялық бейнесі: ақ қағаз циклорама, дәл қойылған жарық және таза композиция.",
+        role: [
+          "Идея",
+          "Сценарий",
+          "Жарық қою",
+          "Бейнетүсірілім",
+          "Режиссура",
+          "Бейнемонтаж",
+          "Түс өңдеу",
+        ],
+        credits:
+          "Дыбыстау мен кадрдағы актерлік жұмысты басқа қатысушылар орындады.",
+      },
+    },
+    role: [
+      "Concept",
+      "Scriptwriting",
+      "Lighting",
+      "Videography",
+      "Direction",
+      "Video editing",
+      "Color grading",
+    ],
+    tools: ["Sony ZV-E10", "DaVinci Resolve"],
+    client: "YEPO",
+    videoType: "studio-commercials",
+    featured: false,
+    credits: "Voiceover and on-screen talent provided separately.",
+  },
+  {
+    id: "yepo-ls-999-studio",
+    slug: "yepo-ls-999-studio",
+    title: "YEPO LS-999 — Studio Commercial",
+    category: "commercial",
+    status: "published",
+    description:
+      "A studio commercial for the YEPO LS-999 ergonomic chair, produced on a white paper cyclorama with controlled lighting and clean composition.",
+    coverImage: "/media/portfolio/Dci7X5Ls9XW.webp",
+    coverAspectRatio: "9/16",
+    coverAlt: "YEPO LS-999 — Studio Commercial",
+    media: [
+      {
+        id: "Dci7X5Ls9XW",
+        type: "instagram",
+        url: "https://www.instagram.com/p/Dci7X5Ls9XW/",
+        thumbnail: "/media/portfolio/Dci7X5Ls9XW.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO LS-999",
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-999 — Студийный ролик",
+        description:
+          "Студийный ролик эргономичного кресла YEPO LS-999: белая бумажная циклорама, выверенный свет и чистая композиция.",
+        role: [
+          "Идея",
+          "Сценарий",
+          "Свет",
+          "Видеосъёмка",
+          "Режиссура",
+          "Видеомонтаж",
+          "Цветокоррекция",
+        ],
+        credits: "Озвучка и работа актёра предоставлены другими участниками.",
+      },
+      kk: {
+        title: "YEPO LS-999 — Студиялық бейне",
+        description:
+          "YEPO LS-999 эргономикалық креслосының студиялық бейнесі: ақ қағаз циклорама, дәл қойылған жарық және таза композиция.",
+        role: [
+          "Идея",
+          "Сценарий",
+          "Жарық қою",
+          "Бейнетүсірілім",
+          "Режиссура",
+          "Бейнемонтаж",
+          "Түс өңдеу",
+        ],
+        credits:
+          "Дыбыстау мен кадрдағы актерлік жұмысты басқа қатысушылар орындады.",
+      },
+    },
+    role: [
+      "Concept",
+      "Scriptwriting",
+      "Lighting",
+      "Videography",
+      "Direction",
+      "Video editing",
+      "Color grading",
+    ],
+    tools: ["Sony ZV-E10", "DaVinci Resolve"],
+    client: "YEPO",
+    videoType: "studio-commercials",
+    featured: false,
     credits: "Voiceover and on-screen talent provided separately.",
   },
   {
@@ -420,6 +603,7 @@ export const projects: Project[] = [
     },
     role: ["3D modeling", "3D animation", "Video editing"],
     tools: ["Blender", "DaVinci Resolve"],
+    featured: false,
   },
   {
     id: "gambling-motion",
@@ -457,6 +641,7 @@ export const projects: Project[] = [
     },
     role: ["Animation"],
     tools: ["After Effects"],
+    featured: false,
   },
   {
     id: "make-love-not-war",
@@ -495,6 +680,7 @@ export const projects: Project[] = [
     role: ["Animation"],
     tools: ["After Effects"],
     year: 2022,
+    featured: false,
   },
   {
     id: "memecoins-edit",
@@ -534,6 +720,7 @@ export const projects: Project[] = [
     coverFallback: "https://i.ytimg.com/vi/jZAG4In4EbI/hqdefault.jpg",
     role: ["Video editing"],
     tools: ["CapCut"],
+    featured: false,
   },
   {
     id: "xrp-edit",
@@ -573,6 +760,7 @@ export const projects: Project[] = [
     coverFallback: "https://i.ytimg.com/vi/d1TssDehd5I/hqdefault.jpg",
     role: ["Video editing"],
     tools: ["CapCut"],
+    featured: false,
   },
   {
     id: "digital-fashion",
@@ -618,6 +806,7 @@ export const projects: Project[] = [
     },
     role: ["3D visualization", "Cloth simulation", "Image finishing"],
     tools: ["Blender", "Marvelous Designer", "Photoshop"],
+    featured: false,
   },
   {
     id: "the-down-product-art",
@@ -694,6 +883,7 @@ export const projects: Project[] = [
     role: ["3D modeling", "Scene design", "Image finishing"],
     tools: ["Blender", "Cinema 4D", "Photoshop"],
     year: 2022,
+    featured: false,
   },
   {
     id: "gta-vi-environment",
@@ -739,6 +929,7 @@ export const projects: Project[] = [
     },
     role: ["Scene design", "Image finishing"],
     tools: ["Blender", "Photoshop"],
+    featured: false,
   },
   {
     id: "where-are-u-cover-art",
@@ -784,239 +975,272 @@ export const projects: Project[] = [
     },
     role: ["3D visualization", "Graphic design"],
     tools: ["Blender", "Photoshop"],
+    featured: false,
   },
   {
     id: "design-01",
     slug: "graphic-design-product-visuals",
-    title: "YEPO — Product Visuals",
+    title: "YEPO Primebook 15 — Product Infographics",
     category: "design",
     status: "published",
     description:
-      "Product listing graphics for YEPO, developed from the initial visual concept using Photoshop and Photocraft.",
-    coverImage: "/media/portfolio/yepo-product-00.webp",
-    coverAspectRatio: "640/413",
-    coverAlt: "YEPO — Product Visuals",
+      "Product listing visuals and infographics for YEPO Primebook 15, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/b13862f30254cac8.webp",
+    coverAspectRatio: "800/517",
+    coverAlt: "YEPO Primebook 15 — Product Infographics",
     media: [
       {
-        id: "product-0",
+        id: "product-00-image-01",
         type: "image",
-        url: "/media/portfolio/yepo-product-00.webp",
-        alt: "YEPO Primebook 15 product listing visual",
-        caption: "YEPO Primebook 15",
-        aspectRatio: "640/413",
+        url: "/media/portfolio/kaspi/b13862f30254cac8.webp",
+        aspectRatio: "800/517",
+        caption: "YEPO Primebook 15 / 01",
+        alt: "YEPO Primebook 15 product visual 01",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 01",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 01",
           },
         },
       },
       {
-        id: "product-1",
+        id: "product-00-image-02",
         type: "image",
-        url: "/media/portfolio/yepo-product-01.webp",
-        alt: "YEPO A95 product listing visual",
-        caption: "YEPO A95",
-        aspectRatio: "640/387",
+        url: "/media/portfolio/kaspi/d03951e7dcfafe9d.webp",
+        aspectRatio: "800/419",
+        caption: "YEPO Primebook 15 / 02",
+        alt: "YEPO Primebook 15 product visual 02",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 02",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 02",
           },
         },
       },
       {
-        id: "product-2",
+        id: "product-00-image-03",
         type: "image",
-        url: "/media/portfolio/yepo-product-02.webp",
-        alt: "YEPO WM13 product listing visual",
-        caption: "YEPO WM13",
+        url: "/media/portfolio/kaspi/ab4db372d6570e9a.webp",
+        aspectRatio: "379/360",
+        caption: "YEPO Primebook 15 / 03",
+        alt: "YEPO Primebook 15 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 15 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO Primebook 15 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-00-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/29ae9c49e11475ce.webp",
         aspectRatio: "1/1",
+        caption: "YEPO Primebook 15 / 04",
+        alt: "YEPO Primebook 15 product visual 04",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 04",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 04",
           },
         },
       },
       {
-        id: "product-3",
+        id: "product-00-image-05",
         type: "image",
-        url: "/media/portfolio/yepo-product-03.webp",
-        alt: "YEPO LS-919 / Grey product listing visual",
-        caption: "YEPO LS-919 / Grey",
+        url: "/media/portfolio/kaspi/f68bf4c81fca6ba6.webp",
+        aspectRatio: "83/72",
+        caption: "YEPO Primebook 15 / 05",
+        alt: "YEPO Primebook 15 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 15 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO Primebook 15 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-00-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/ffa5d5b7da589f80.webp",
+        aspectRatio: "10/9",
+        caption: "YEPO Primebook 15 / 06",
+        alt: "YEPO Primebook 15 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 15 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO Primebook 15 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-00-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/d0e67f460a88f02c.webp",
+        aspectRatio: "1169/1080",
+        caption: "YEPO Primebook 15 / 07",
+        alt: "YEPO Primebook 15 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 15 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO Primebook 15 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-00-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/66cbac6cd22a6ffb.webp",
         aspectRatio: "1/1",
+        caption: "YEPO Primebook 15 / 08",
+        alt: "YEPO Primebook 15 product visual 08",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 08",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 08",
           },
         },
       },
       {
-        id: "product-4",
+        id: "product-00-image-09",
         type: "image",
-        url: "/media/portfolio/yepo-product-04.webp",
-        alt: "YEPO Baby Travel product listing visual",
-        caption: "YEPO Baby Travel",
-        aspectRatio: "1/1",
+        url: "/media/portfolio/kaspi/7f27f4ef2f7ec302.webp",
+        aspectRatio: "39/38",
+        caption: "YEPO Primebook 15 / 09",
+        alt: "YEPO Primebook 15 product visual 09",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 09",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 09",
           },
         },
       },
       {
-        id: "product-5",
+        id: "product-00-image-10",
         type: "image",
-        url: "/media/portfolio/yepo-product-05.webp",
-        alt: "YEPO LS-919 / Black product listing visual",
-        caption: "YEPO LS-919 / Black",
-        aspectRatio: "1/1",
+        url: "/media/portfolio/kaspi/f6ed3c48f721d377.webp",
+        aspectRatio: "55/54",
+        caption: "YEPO Primebook 15 / 10",
+        alt: "YEPO Primebook 15 product visual 10",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 10",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 10",
           },
         },
       },
       {
-        id: "product-6",
+        id: "product-00-image-11",
         type: "image",
-        url: "/media/portfolio/yepo-product-06.webp",
-        alt: "YEPO LS-401 product listing visual",
-        caption: "YEPO LS-401",
-        aspectRatio: "1/1",
+        url: "/media/portfolio/kaspi/272015ba140703a3.webp",
+        aspectRatio: "800/489",
+        caption: "YEPO Primebook 15 / 11",
+        alt: "YEPO Primebook 15 product visual 11",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 11",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 11",
           },
         },
       },
       {
-        id: "product-7",
+        id: "product-00-image-12",
         type: "image",
-        url: "/media/portfolio/yepo-product-07.webp",
-        alt: "YEPO LS-901 / Grey product listing visual",
-        caption: "YEPO LS-901 / Grey",
-        aspectRatio: "1/1",
+        url: "/media/portfolio/kaspi/4b81a3a7dcea3060.webp",
+        aspectRatio: "379/269",
+        caption: "YEPO Primebook 15 / 12",
+        alt: "YEPO Primebook 15 product visual 12",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 12",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 12",
           },
         },
       },
       {
-        id: "product-8",
+        id: "product-00-image-13",
         type: "image",
-        url: "/media/portfolio/yepo-product-08.webp",
-        alt: "YEPO Pulse 2 product listing visual",
-        caption: "YEPO Pulse 2",
-        aspectRatio: "1/1",
+        url: "/media/portfolio/kaspi/5971421f8d858edf.webp",
+        aspectRatio: "800/193",
+        caption: "YEPO Primebook 15 / 13",
+        alt: "YEPO Primebook 15 product visual 13",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 13",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 13",
           },
         },
       },
       {
-        id: "product-9",
+        id: "product-00-image-14",
         type: "image",
-        url: "/media/portfolio/yepo-product-09.webp",
-        alt: "YEPO LS-901 / Black product listing visual",
-        caption: "YEPO LS-901 / Black",
-        aspectRatio: "1/1",
+        url: "/media/portfolio/kaspi/7d0e828ac667cc89.webp",
+        aspectRatio: "180/187",
+        caption: "YEPO Primebook 15 / 14",
+        alt: "YEPO Primebook 15 product visual 14",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 14",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 14",
           },
         },
       },
       {
-        id: "product-10",
+        id: "product-00-image-15",
         type: "image",
-        url: "/media/portfolio/yepo-product-10.webp",
-        alt: "YEPO Primebook 17 product listing visual",
-        caption: "YEPO Primebook 17",
-        aspectRatio: "1273/1080",
+        url: "/media/portfolio/kaspi/17c19c6e13d8a4bf.webp",
+        aspectRatio: "270/311",
+        caption: "YEPO Primebook 15 / 15",
+        alt: "YEPO Primebook 15 product visual 15",
         translations: {
           ru: {
-            alt: "YEPO — Визуалы товаров",
+            alt: "YEPO Primebook 15 — визуал товара 15",
           },
           kk: {
-            alt: "YEPO — Өнім визуалдары",
-          },
-        },
-      },
-      {
-        id: "product-11",
-        type: "image",
-        url: "/media/portfolio/yepo-product-11.webp",
-        alt: "YEPO A77 product listing visual",
-        caption: "YEPO A77",
-        aspectRatio: "577/540",
-        translations: {
-          ru: {
-            alt: "YEPO — Визуалы товаров",
-          },
-          kk: {
-            alt: "YEPO — Өнім визуалдары",
-          },
-        },
-      },
-      {
-        id: "product-12",
-        type: "image",
-        url: "/media/portfolio/yepo-product-12.webp",
-        alt: "YEPO LS-999 product listing visual",
-        caption: "YEPO LS-999",
-        aspectRatio: "1/1",
-        translations: {
-          ru: {
-            alt: "YEPO — Визуалы товаров",
-          },
-          kk: {
-            alt: "YEPO — Өнім визуалдары",
+            alt: "YEPO Primebook 15 — өнім визуалы 15",
           },
         },
       },
     ],
     translations: {
       ru: {
-        title: "YEPO — Визуалы товаров",
+        title: "YEPO Primebook 15 — Инфографика товара",
         description:
-          "Карточки товаров YEPO: самостоятельно разработанные идеи и визуалы, созданные в Photoshop и Photocraft.",
+          "Визуалы и инфографика карточки товара YEPO Primebook 15, созданные в Photoshop и Photocraft.",
         role: ["Идея", "Графический дизайн"],
       },
       kk: {
-        title: "YEPO — Өнім визуалдары",
+        title: "YEPO Primebook 15 — Өнім инфографикасы",
         description:
-          "YEPO өнім карточкалары: Photoshop пен Photocraft-та өзім ойлап, жасаған идеялар мен визуалдар.",
+          "Photoshop пен Photocraft-та жасалған YEPO Primebook 15 өнім карточкасының визуалдары мен инфографикасы.",
         role: ["Идея", "Графикалық дизайн"],
       },
     },
@@ -1025,58 +1249,3539 @@ export const projects: Project[] = [
     client: "YEPO",
     externalLinks: [
       {
-        label: "YEPO Primebook 15",
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/yepo-primebook-15-15-6-intel-core-i5-1030g7-16-gb-ssd-512-gb-iris-plus-win-11-pro-primebook-15-seryi-164706498/",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-a95-infographics",
+    slug: "yepo-a95-infographics",
+    title: "YEPO A95 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO A95, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/54a415288b35a3c3.webp",
+    coverAspectRatio: "800/483",
+    coverAlt: "YEPO A95 — Product Infographics",
+    media: [
       {
-        label: "YEPO A95",
+        id: "product-01-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/54a415288b35a3c3.webp",
+        aspectRatio: "800/483",
+        caption: "YEPO A95 / 01",
+        alt: "YEPO A95 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-01-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/31b1323661022bc5.webp",
+        aspectRatio: "1447/1080",
+        caption: "YEPO A95 / 02",
+        alt: "YEPO A95 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-01-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/1fe4cfb4d9f2438d.webp",
+        aspectRatio: "133/120",
+        caption: "YEPO A95 / 03",
+        alt: "YEPO A95 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-01-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/0f732352f6339e18.webp",
+        aspectRatio: "1433/1080",
+        caption: "YEPO A95 / 04",
+        alt: "YEPO A95 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-01-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/6880042c044cb822.webp",
+        aspectRatio: "541/540",
+        caption: "YEPO A95 / 05",
+        alt: "YEPO A95 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-01-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/c0210210dbebba2a.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO A95 / 06",
+        alt: "YEPO A95 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-01-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/5277cce35ad2537b.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO A95 / 07",
+        alt: "YEPO A95 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-01-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/ff946666ff636369.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO A95 / 08",
+        alt: "YEPO A95 product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-01-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/c73254a9cb48e4a0.webp",
+        aspectRatio: "617/540",
+        caption: "YEPO A95 / 09",
+        alt: "YEPO A95 product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-01-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/fd8914d86e4f4c24.webp",
+        aspectRatio: "540/551",
+        caption: "YEPO A95 / 10",
+        alt: "YEPO A95 product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-01-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/d4cd881d412c8ea7.webp",
+        aspectRatio: "1511/1080",
+        caption: "YEPO A95 / 11",
+        alt: "YEPO A95 product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-01-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/af55e1c8e06001d2.webp",
+        aspectRatio: "149/108",
+        caption: "YEPO A95 / 12",
+        alt: "YEPO A95 product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 12",
+          },
+        },
+      },
+      {
+        id: "product-01-image-13",
+        type: "image",
+        url: "/media/portfolio/kaspi/6db670f2d8610670.webp",
+        aspectRatio: "263/180",
+        caption: "YEPO A95 / 13",
+        alt: "YEPO A95 product visual 13",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 13",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 13",
+          },
+        },
+      },
+      {
+        id: "product-01-image-14",
+        type: "image",
+        url: "/media/portfolio/kaspi/34a65ae3fc1b2098.webp",
+        aspectRatio: "800/219",
+        caption: "YEPO A95 / 14",
+        alt: "YEPO A95 product visual 14",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 14",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 14",
+          },
+        },
+      },
+      {
+        id: "product-01-image-15",
+        type: "image",
+        url: "/media/portfolio/kaspi/df709f374aa570db.webp",
+        aspectRatio: "800/173",
+        caption: "YEPO A95 / 15",
+        alt: "YEPO A95 product visual 15",
+        translations: {
+          ru: {
+            alt: "YEPO A95 — визуал товара 15",
+          },
+          kk: {
+            alt: "YEPO A95 — өнім визуалы 15",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO A95 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO A95, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO A95 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO A95 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/yepo-a95-15-6-16-gb-ssd-512-gb-win-11-a95-112611919/",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-wm13-infographics",
+    slug: "yepo-wm13-infographics",
+    title: "YEPO WM13 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO WM13, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/0a697899d0bade27.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO WM13 — Product Infographics",
+    media: [
       {
-        label: "YEPO WM13",
+        id: "product-02-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/0a697899d0bade27.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO WM13 / 01",
+        alt: "YEPO WM13 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-02-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/45a4bb28b863fd58.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO WM13 / 02",
+        alt: "YEPO WM13 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-02-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/b4679f00e01c90fd.webp",
+        aspectRatio: "283/270",
+        caption: "YEPO WM13 / 03",
+        alt: "YEPO WM13 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-02-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/a7c4d46782b4d613.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO WM13 / 04",
+        alt: "YEPO WM13 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-02-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/2436e57dfecbf5cb.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO WM13 / 05",
+        alt: "YEPO WM13 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-02-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/707720b117673efb.webp",
+        aspectRatio: "73/72",
+        caption: "YEPO WM13 / 06",
+        alt: "YEPO WM13 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-02-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/d991843096bf6f7c.webp",
+        aspectRatio: "37/36",
+        caption: "YEPO WM13 / 07",
+        alt: "YEPO WM13 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO WM13 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO WM13 — өнім визуалы 07",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO WM13 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO WM13, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO WM13 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO WM13 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/mikrofon-yepo-wm13-chernyi-172911858/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-ls-919-grey-infographics",
+    slug: "yepo-ls-919-grey-infographics",
+    title: "YEPO LS-919 / Grey — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO LS-919 / Grey, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/6e3f7596f866d5bb.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO LS-919 / Grey — Product Infographics",
+    media: [
       {
-        label: "YEPO LS-919 / Grey",
+        id: "product-03-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/6e3f7596f866d5bb.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 01",
+        alt: "YEPO LS-919 / Grey product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-03-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/f02a30666b1786fc.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 02",
+        alt: "YEPO LS-919 / Grey product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-03-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/cddbdf46348e4777.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 03",
+        alt: "YEPO LS-919 / Grey product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-03-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/d20f4e2d3e0c1921.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 04",
+        alt: "YEPO LS-919 / Grey product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-03-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/5e084c8096acc6f2.webp",
+        aspectRatio: "60/61",
+        caption: "YEPO LS-919 / Grey / 05",
+        alt: "YEPO LS-919 / Grey product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-03-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/386248ce9cb80b94.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 06",
+        alt: "YEPO LS-919 / Grey product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-03-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/92cd9ce5fa18061f.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 07",
+        alt: "YEPO LS-919 / Grey product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-03-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/99d3e51e63668d2b.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 08",
+        alt: "YEPO LS-919 / Grey product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-03-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/d066a59bd69cc87f.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 09",
+        alt: "YEPO LS-919 / Grey product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-03-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/133c8483427c0c17.webp",
+        aspectRatio: "540/551",
+        caption: "YEPO LS-919 / Grey / 10",
+        alt: "YEPO LS-919 / Grey product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-03-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/2d7e0d95f295364e.webp",
+        aspectRatio: "54/55",
+        caption: "YEPO LS-919 / Grey / 11",
+        alt: "YEPO LS-919 / Grey product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-03-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/1ba5581848ef8ca6.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 12",
+        alt: "YEPO LS-919 / Grey product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 12",
+          },
+        },
+      },
+      {
+        id: "product-03-image-13",
+        type: "image",
+        url: "/media/portfolio/kaspi/8e541b1cb13048f2.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 13",
+        alt: "YEPO LS-919 / Grey product visual 13",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 13",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 13",
+          },
+        },
+      },
+      {
+        id: "product-03-image-14",
+        type: "image",
+        url: "/media/portfolio/kaspi/24a9207233048736.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 14",
+        alt: "YEPO LS-919 / Grey product visual 14",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 14",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 14",
+          },
+        },
+      },
+      {
+        id: "product-03-image-15",
+        type: "image",
+        url: "/media/portfolio/kaspi/ca5f4de91992437e.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 15",
+        alt: "YEPO LS-919 / Grey product visual 15",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 15",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 15",
+          },
+        },
+      },
+      {
+        id: "product-03-image-16",
+        type: "image",
+        url: "/media/portfolio/kaspi/103996df957ca54f.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 16",
+        alt: "YEPO LS-919 / Grey product visual 16",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 16",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 16",
+          },
+        },
+      },
+      {
+        id: "product-03-image-17",
+        type: "image",
+        url: "/media/portfolio/kaspi/cd31a71d8a82b64c.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 17",
+        alt: "YEPO LS-919 / Grey product visual 17",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 17",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 17",
+          },
+        },
+      },
+      {
+        id: "product-03-image-18",
+        type: "image",
+        url: "/media/portfolio/kaspi/3a17d51c6000b487.webp",
+        aspectRatio: "800/533",
+        caption: "YEPO LS-919 / Grey / 18",
+        alt: "YEPO LS-919 / Grey product visual 18",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 18",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 18",
+          },
+        },
+      },
+      {
+        id: "product-03-image-19",
+        type: "image",
+        url: "/media/portfolio/kaspi/95226d024250363e.webp",
+        aspectRatio: "36/55",
+        caption: "YEPO LS-919 / Grey / 19",
+        alt: "YEPO LS-919 / Grey product visual 19",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 19",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 19",
+          },
+        },
+      },
+      {
+        id: "product-03-image-20",
+        type: "image",
+        url: "/media/portfolio/kaspi/9fdd1bf5c406b982.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 20",
+        alt: "YEPO LS-919 / Grey product visual 20",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 20",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 20",
+          },
+        },
+      },
+      {
+        id: "product-03-image-21",
+        type: "image",
+        url: "/media/portfolio/kaspi/4502a6f6b43a402f.webp",
+        aspectRatio: "5/7",
+        caption: "YEPO LS-919 / Grey / 21",
+        alt: "YEPO LS-919 / Grey product visual 21",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 21",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 21",
+          },
+        },
+      },
+      {
+        id: "product-03-image-22",
+        type: "image",
+        url: "/media/portfolio/kaspi/3458971ee2257f1d.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Grey / 22",
+        alt: "YEPO LS-919 / Grey product visual 22",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 22",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 22",
+          },
+        },
+      },
+      {
+        id: "product-03-image-23",
+        type: "image",
+        url: "/media/portfolio/kaspi/06cc62f44e56acf8.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 23",
+        alt: "YEPO LS-919 / Grey product visual 23",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 23",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 23",
+          },
+        },
+      },
+      {
+        id: "product-03-image-24",
+        type: "image",
+        url: "/media/portfolio/kaspi/f353e67e33453e20.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 24",
+        alt: "YEPO LS-919 / Grey product visual 24",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 24",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 24",
+          },
+        },
+      },
+      {
+        id: "product-03-image-25",
+        type: "image",
+        url: "/media/portfolio/kaspi/d85e4effa22365a7.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 25",
+        alt: "YEPO LS-919 / Grey product visual 25",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 25",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 25",
+          },
+        },
+      },
+      {
+        id: "product-03-image-26",
+        type: "image",
+        url: "/media/portfolio/kaspi/86bba9e261896051.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Grey / 26",
+        alt: "YEPO LS-919 / Grey product visual 26",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Серый — визуал товара 26",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Сұр — өнім визуалы 26",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-919 / Серый — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO LS-919 / Серый, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO LS-919 / Сұр — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO LS-919 / Сұр өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/komp-juternoe-kreslo-yepo-ls-919-seryi-136112165/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-baby-travel-infographics",
+    slug: "yepo-baby-travel-infographics",
+    title: "YEPO Baby Travel — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO Baby Travel, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/3f46ac6dae9b1d79.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO Baby Travel — Product Infographics",
+    media: [
       {
-        label: "YEPO Baby Travel",
+        id: "product-04-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/3f46ac6dae9b1d79.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 01",
+        alt: "YEPO Baby Travel product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-04-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/dcaecfe23708bfb6.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 02",
+        alt: "YEPO Baby Travel product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-04-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/13e7b113a53f6901.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 03",
+        alt: "YEPO Baby Travel product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-04-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/b5c98d6d7d2ce051.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 04",
+        alt: "YEPO Baby Travel product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-04-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/ed5b47089fdab2cd.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 05",
+        alt: "YEPO Baby Travel product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-04-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/7c694bf8c38b37c4.webp",
+        aspectRatio: "135/137",
+        caption: "YEPO Baby Travel / 06",
+        alt: "YEPO Baby Travel product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-04-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/286dd82640a9b39c.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 07",
+        alt: "YEPO Baby Travel product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-04-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/57bb5a7d16a02581.webp",
+        aspectRatio: "541/540",
+        caption: "YEPO Baby Travel / 08",
+        alt: "YEPO Baby Travel product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-04-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/875f6e970f97956a.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 09",
+        alt: "YEPO Baby Travel product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-04-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/695dc50eb47d48f3.webp",
+        aspectRatio: "396/469",
+        caption: "YEPO Baby Travel / 10",
+        alt: "YEPO Baby Travel product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-04-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/7c9f4e8d1aeead58.webp",
+        aspectRatio: "401/476",
+        caption: "YEPO Baby Travel / 11",
+        alt: "YEPO Baby Travel product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-04-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/c06dece25976013d.webp",
+        aspectRatio: "387/481",
+        caption: "YEPO Baby Travel / 12",
+        alt: "YEPO Baby Travel product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 12",
+          },
+        },
+      },
+      {
+        id: "product-04-image-13",
+        type: "image",
+        url: "/media/portfolio/kaspi/106bf681a96e87bd.webp",
+        aspectRatio: "221/478",
+        caption: "YEPO Baby Travel / 13",
+        alt: "YEPO Baby Travel product visual 13",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 13",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 13",
+          },
+        },
+      },
+      {
+        id: "product-04-image-14",
+        type: "image",
+        url: "/media/portfolio/kaspi/d819dd4e5342841e.webp",
+        aspectRatio: "47/93",
+        caption: "YEPO Baby Travel / 14",
+        alt: "YEPO Baby Travel product visual 14",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 14",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 14",
+          },
+        },
+      },
+      {
+        id: "product-04-image-15",
+        type: "image",
+        url: "/media/portfolio/kaspi/b50a3ea790be4637.webp",
+        aspectRatio: "737/910",
+        caption: "YEPO Baby Travel / 15",
+        alt: "YEPO Baby Travel product visual 15",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 15",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 15",
+          },
+        },
+      },
+      {
+        id: "product-04-image-16",
+        type: "image",
+        url: "/media/portfolio/kaspi/7151cc17c72544c6.webp",
+        aspectRatio: "1129/1080",
+        caption: "YEPO Baby Travel / 16",
+        alt: "YEPO Baby Travel product visual 16",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 16",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 16",
+          },
+        },
+      },
+      {
+        id: "product-04-image-17",
+        type: "image",
+        url: "/media/portfolio/kaspi/846f416847dfbb25.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 17",
+        alt: "YEPO Baby Travel product visual 17",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 17",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 17",
+          },
+        },
+      },
+      {
+        id: "product-04-image-18",
+        type: "image",
+        url: "/media/portfolio/kaspi/d40129f32c246456.webp",
+        aspectRatio: "619/1036",
+        caption: "YEPO Baby Travel / 18",
+        alt: "YEPO Baby Travel product visual 18",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 18",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 18",
+          },
+        },
+      },
+      {
+        id: "product-04-image-19",
+        type: "image",
+        url: "/media/portfolio/kaspi/a425802b27899819.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 19",
+        alt: "YEPO Baby Travel product visual 19",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 19",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 19",
+          },
+        },
+      },
+      {
+        id: "product-04-image-20",
+        type: "image",
+        url: "/media/portfolio/kaspi/b4fe7436eca75f81.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Baby Travel / 20",
+        alt: "YEPO Baby Travel product visual 20",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 20",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 20",
+          },
+        },
+      },
+      {
+        id: "product-04-image-21",
+        type: "image",
+        url: "/media/portfolio/kaspi/e4b4026f1aa85ae2.webp",
+        aspectRatio: "600/481",
+        caption: "YEPO Baby Travel / 21",
+        alt: "YEPO Baby Travel product visual 21",
+        translations: {
+          ru: {
+            alt: "YEPO Baby Travel — визуал товара 21",
+          },
+          kk: {
+            alt: "YEPO Baby Travel — өнім визуалы 21",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO Baby Travel — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO Baby Travel, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO Baby Travel — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO Baby Travel өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/koljaska-progulochnaja-yepo-baby-travel-seryi-168998940/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-ls-919-black-infographics",
+    slug: "yepo-ls-919-black-infographics",
+    title: "YEPO LS-919 / Black — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO LS-919 / Black, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/83fee4a72165267f.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO LS-919 / Black — Product Infographics",
+    media: [
       {
-        label: "YEPO LS-919 / Black",
+        id: "product-05-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/83fee4a72165267f.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 01",
+        alt: "YEPO LS-919 / Black product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-05-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/d21f888c3076d2e9.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 02",
+        alt: "YEPO LS-919 / Black product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-05-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/90d295ab5d47bec8.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 03",
+        alt: "YEPO LS-919 / Black product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-05-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/11449c19ac78b461.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 04",
+        alt: "YEPO LS-919 / Black product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-05-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/844e6de9eda4d30f.webp",
+        aspectRatio: "60/61",
+        caption: "YEPO LS-919 / Black / 05",
+        alt: "YEPO LS-919 / Black product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-05-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/b7479b48114fc201.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 06",
+        alt: "YEPO LS-919 / Black product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-05-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/7fe25d951b25e58a.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 07",
+        alt: "YEPO LS-919 / Black product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-05-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/8ec2bb94ced26c10.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 08",
+        alt: "YEPO LS-919 / Black product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-05-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/3b3967ddd312e376.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 09",
+        alt: "YEPO LS-919 / Black product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-05-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/92352bd182d2e178.webp",
+        aspectRatio: "54/55",
+        caption: "YEPO LS-919 / Black / 10",
+        alt: "YEPO LS-919 / Black product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-05-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/fa339b88267ae716.webp",
+        aspectRatio: "54/55",
+        caption: "YEPO LS-919 / Black / 11",
+        alt: "YEPO LS-919 / Black product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-05-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/42546578064f8881.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 12",
+        alt: "YEPO LS-919 / Black product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 12",
+          },
+        },
+      },
+      {
+        id: "product-05-image-13",
+        type: "image",
+        url: "/media/portfolio/kaspi/c38560fd9e45a16d.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 13",
+        alt: "YEPO LS-919 / Black product visual 13",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 13",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 13",
+          },
+        },
+      },
+      {
+        id: "product-05-image-14",
+        type: "image",
+        url: "/media/portfolio/kaspi/d1952d47acacd021.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 14",
+        alt: "YEPO LS-919 / Black product visual 14",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 14",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 14",
+          },
+        },
+      },
+      {
+        id: "product-05-image-15",
+        type: "image",
+        url: "/media/portfolio/kaspi/17136f40fdcb43db.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 15",
+        alt: "YEPO LS-919 / Black product visual 15",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 15",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 15",
+          },
+        },
+      },
+      {
+        id: "product-05-image-16",
+        type: "image",
+        url: "/media/portfolio/kaspi/6981b00458c6c141.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 16",
+        alt: "YEPO LS-919 / Black product visual 16",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 16",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 16",
+          },
+        },
+      },
+      {
+        id: "product-05-image-17",
+        type: "image",
+        url: "/media/portfolio/kaspi/d47144d34f1f508d.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 17",
+        alt: "YEPO LS-919 / Black product visual 17",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 17",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 17",
+          },
+        },
+      },
+      {
+        id: "product-05-image-18",
+        type: "image",
+        url: "/media/portfolio/kaspi/6cc43ff3d471cec4.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 18",
+        alt: "YEPO LS-919 / Black product visual 18",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 18",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 18",
+          },
+        },
+      },
+      {
+        id: "product-05-image-19",
+        type: "image",
+        url: "/media/portfolio/kaspi/b86dbe1e47c10745.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 19",
+        alt: "YEPO LS-919 / Black product visual 19",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 19",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 19",
+          },
+        },
+      },
+      {
+        id: "product-05-image-20",
+        type: "image",
+        url: "/media/portfolio/kaspi/578235141ee893d7.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 20",
+        alt: "YEPO LS-919 / Black product visual 20",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 20",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 20",
+          },
+        },
+      },
+      {
+        id: "product-05-image-21",
+        type: "image",
+        url: "/media/portfolio/kaspi/93284944a13bc12b.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 21",
+        alt: "YEPO LS-919 / Black product visual 21",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 21",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 21",
+          },
+        },
+      },
+      {
+        id: "product-05-image-22",
+        type: "image",
+        url: "/media/portfolio/kaspi/95dc5c525fc82f9d.webp",
+        aspectRatio: "2/3",
+        caption: "YEPO LS-919 / Black / 22",
+        alt: "YEPO LS-919 / Black product visual 22",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 22",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 22",
+          },
+        },
+      },
+      {
+        id: "product-05-image-23",
+        type: "image",
+        url: "/media/portfolio/kaspi/c13258424cd5d5b2.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 23",
+        alt: "YEPO LS-919 / Black product visual 23",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 23",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 23",
+          },
+        },
+      },
+      {
+        id: "product-05-image-24",
+        type: "image",
+        url: "/media/portfolio/kaspi/80d5eb3e77d63c87.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-919 / Black / 24",
+        alt: "YEPO LS-919 / Black product visual 24",
+        translations: {
+          ru: {
+            alt: "YEPO LS-919 / Чёрный — визуал товара 24",
+          },
+          kk: {
+            alt: "YEPO LS-919 / Қара — өнім визуалы 24",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-919 / Чёрный — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO LS-919 / Чёрный, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO LS-919 / Қара — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO LS-919 / Қара өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/komp-juternoe-kreslo-yepo-ls-919-chernyi-133313460/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-ls-401-infographics",
+    slug: "yepo-ls-401-infographics",
+    title: "YEPO LS-401 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO LS-401, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/e1f1bef9c2496bc3.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO LS-401 — Product Infographics",
+    media: [
       {
-        label: "YEPO LS-401",
+        id: "product-06-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/e1f1bef9c2496bc3.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-401 / 01",
+        alt: "YEPO LS-401 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-06-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/714bdf70e11e8f83.webp",
+        aspectRatio: "553/540",
+        caption: "YEPO LS-401 / 02",
+        alt: "YEPO LS-401 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-06-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/053b4bdaa2a9924a.webp",
+        aspectRatio: "1097/1080",
+        caption: "YEPO LS-401 / 03",
+        alt: "YEPO LS-401 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-06-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/c237d5fb3cf32968.webp",
+        aspectRatio: "135/139",
+        caption: "YEPO LS-401 / 04",
+        alt: "YEPO LS-401 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-06-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/7d0c8607d7c9a842.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-401 / 05",
+        alt: "YEPO LS-401 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-06-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/43813b435001439a.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-401 / 06",
+        alt: "YEPO LS-401 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-06-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/dfdef8d1d6de7ef1.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-401 / 07",
+        alt: "YEPO LS-401 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-06-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/61efd755edb24981.webp",
+        aspectRatio: "224/299",
+        caption: "YEPO LS-401 / 08",
+        alt: "YEPO LS-401 product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-06-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/2c340bdf8665d6af.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-401 / 09",
+        alt: "YEPO LS-401 product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-06-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/7a2b4867d4421395.webp",
+        aspectRatio: "224/299",
+        caption: "YEPO LS-401 / 10",
+        alt: "YEPO LS-401 product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-06-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/57746967767a8f35.webp",
+        aspectRatio: "391/421",
+        caption: "YEPO LS-401 / 11",
+        alt: "YEPO LS-401 product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-06-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/b1c407af30e8ed56.webp",
+        aspectRatio: "224/299",
+        caption: "YEPO LS-401 / 12",
+        alt: "YEPO LS-401 product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO LS-401 — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO LS-401 — өнім визуалы 12",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-401 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO LS-401, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO LS-401 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO LS-401 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/ofisnoe-kreslo-yepo-ls-401-chernyi-167629490/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-ls-901-grey-infographics",
+    slug: "yepo-ls-901-grey-infographics",
+    title: "YEPO LS-901 / Grey — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO LS-901 / Grey, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/f3314b1f6ea1d6c9.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO LS-901 / Grey — Product Infographics",
+    media: [
       {
-        label: "YEPO LS-901 / Grey",
+        id: "product-07-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/f3314b1f6ea1d6c9.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Grey / 01",
+        alt: "YEPO LS-901 / Grey product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-07-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/4c3362d10f8ca17d.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Grey / 02",
+        alt: "YEPO LS-901 / Grey product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-07-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/62688ca653bf02d2.webp",
+        aspectRatio: "540/553",
+        caption: "YEPO LS-901 / Grey / 03",
+        alt: "YEPO LS-901 / Grey product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-07-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/1b6dc221419b0184.webp",
+        aspectRatio: "90/91",
+        caption: "YEPO LS-901 / Grey / 04",
+        alt: "YEPO LS-901 / Grey product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-07-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/d7fa3fccd10ec68f.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Grey / 05",
+        alt: "YEPO LS-901 / Grey product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-07-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/1abe2d47fca21b80.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Grey / 06",
+        alt: "YEPO LS-901 / Grey product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-07-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/13ea6d0d4504a811.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Grey / 07",
+        alt: "YEPO LS-901 / Grey product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-07-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/ed2910d56f9b9b9c.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Grey / 08",
+        alt: "YEPO LS-901 / Grey product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-07-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/9afd79d9a347ebb8.webp",
+        aspectRatio: "540/761",
+        caption: "YEPO LS-901 / Grey / 09",
+        alt: "YEPO LS-901 / Grey product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-07-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/7543fbc8b1edee09.webp",
+        aspectRatio: "540/721",
+        caption: "YEPO LS-901 / Grey / 10",
+        alt: "YEPO LS-901 / Grey product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-07-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/0df2e27daa0ffe40.webp",
+        aspectRatio: "540/721",
+        caption: "YEPO LS-901 / Grey / 11",
+        alt: "YEPO LS-901 / Grey product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-07-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/3f7b521f24ef7e62.webp",
+        aspectRatio: "540/721",
+        caption: "YEPO LS-901 / Grey / 12",
+        alt: "YEPO LS-901 / Grey product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Серый — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Сұр — өнім визуалы 12",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-901 / Серый — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO LS-901 / Серый, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO LS-901 / Сұр — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO LS-901 / Сұр өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/ofisnoe-kreslo-yepo-ls-901-seryi-167370785/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-pulse-2-infographics",
+    slug: "yepo-pulse-2-infographics",
+    title: "YEPO Pulse 2 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO Pulse 2, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/7edfdb9a395f5576.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO Pulse 2 — Product Infographics",
+    media: [
       {
-        label: "YEPO Pulse 2",
+        id: "product-08-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/7edfdb9a395f5576.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Pulse 2 / 01",
+        alt: "YEPO Pulse 2 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-08-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/95275b859a3f9e25.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 02",
+        alt: "YEPO Pulse 2 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-08-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/7dc38fb0ce15d720.webp",
+        aspectRatio: "150/193",
+        caption: "YEPO Pulse 2 / 03",
+        alt: "YEPO Pulse 2 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-08-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/cc1f12f89a5c0be6.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 04",
+        alt: "YEPO Pulse 2 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-08-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/325c05c80e2fdc9a.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 05",
+        alt: "YEPO Pulse 2 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-08-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/89480e77a634de39.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 06",
+        alt: "YEPO Pulse 2 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-08-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/ef3aeecbcf389243.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 07",
+        alt: "YEPO Pulse 2 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-08-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/2a9a56ca8e44e1a2.webp",
+        aspectRatio: "225/289",
+        caption: "YEPO Pulse 2 / 08",
+        alt: "YEPO Pulse 2 product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-08-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/fc501fab96b48a2c.webp",
+        aspectRatio: "293/382",
+        caption: "YEPO Pulse 2 / 09",
+        alt: "YEPO Pulse 2 product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-08-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/74238e3c8d56758d.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 10",
+        alt: "YEPO Pulse 2 product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-08-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/c8b11540f949d61e.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO Pulse 2 / 11",
+        alt: "YEPO Pulse 2 product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-08-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/0b7c4239ddd7cf96.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO Pulse 2 / 12",
+        alt: "YEPO Pulse 2 product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 12",
+          },
+        },
+      },
+      {
+        id: "product-08-image-13",
+        type: "image",
+        url: "/media/portfolio/kaspi/96d6674a8827dec3.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO Pulse 2 / 13",
+        alt: "YEPO Pulse 2 product visual 13",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 13",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 13",
+          },
+        },
+      },
+      {
+        id: "product-08-image-14",
+        type: "image",
+        url: "/media/portfolio/kaspi/835830b2e5bccc6c.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO Pulse 2 / 14",
+        alt: "YEPO Pulse 2 product visual 14",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 14",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 14",
+          },
+        },
+      },
+      {
+        id: "product-08-image-15",
+        type: "image",
+        url: "/media/portfolio/kaspi/1e995fb7b7849c5c.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO Pulse 2 / 15",
+        alt: "YEPO Pulse 2 product visual 15",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 15",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 15",
+          },
+        },
+      },
+      {
+        id: "product-08-image-16",
+        type: "image",
+        url: "/media/portfolio/kaspi/db8db24100b4ae19.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO Pulse 2 / 16",
+        alt: "YEPO Pulse 2 product visual 16",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 16",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 16",
+          },
+        },
+      },
+      {
+        id: "product-08-image-17",
+        type: "image",
+        url: "/media/portfolio/kaspi/48b807c826aec7a1.webp",
+        aspectRatio: "9/16",
+        caption: "YEPO Pulse 2 / 17",
+        alt: "YEPO Pulse 2 product visual 17",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 17",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 17",
+          },
+        },
+      },
+      {
+        id: "product-08-image-18",
+        type: "image",
+        url: "/media/portfolio/kaspi/ed438261622436da.webp",
+        aspectRatio: "572/393",
+        caption: "YEPO Pulse 2 / 18",
+        alt: "YEPO Pulse 2 product visual 18",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 18",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 18",
+          },
+        },
+      },
+      {
+        id: "product-08-image-19",
+        type: "image",
+        url: "/media/portfolio/kaspi/5a73a57674c1e09f.webp",
+        aspectRatio: "21/40",
+        caption: "YEPO Pulse 2 / 19",
+        alt: "YEPO Pulse 2 product visual 19",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 19",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 19",
+          },
+        },
+      },
+      {
+        id: "product-08-image-20",
+        type: "image",
+        url: "/media/portfolio/kaspi/b158587708cca62e.webp",
+        aspectRatio: "400/193",
+        caption: "YEPO Pulse 2 / 20",
+        alt: "YEPO Pulse 2 product visual 20",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 20",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 20",
+          },
+        },
+      },
+      {
+        id: "product-08-image-21",
+        type: "image",
+        url: "/media/portfolio/kaspi/127148a370defabb.webp",
+        aspectRatio: "400/211",
+        caption: "YEPO Pulse 2 / 21",
+        alt: "YEPO Pulse 2 product visual 21",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 21",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 21",
+          },
+        },
+      },
+      {
+        id: "product-08-image-22",
+        type: "image",
+        url: "/media/portfolio/kaspi/e1dcbd776309a716.webp",
+        aspectRatio: "135/191",
+        caption: "YEPO Pulse 2 / 22",
+        alt: "YEPO Pulse 2 product visual 22",
+        translations: {
+          ru: {
+            alt: "YEPO Pulse 2 — визуал товара 22",
+          },
+          kk: {
+            alt: "YEPO Pulse 2 — өнім визуалы 22",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO Pulse 2 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO Pulse 2, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO Pulse 2 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO Pulse 2 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/portativnaja-kolonka-yepo-pulse-2-chernyi-143104336/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-ls-901-black-infographics",
+    slug: "yepo-ls-901-black-infographics",
+    title: "YEPO LS-901 / Black — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO LS-901 / Black, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/3a87e78fd5377d59.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO LS-901 / Black — Product Infographics",
+    media: [
       {
-        label: "YEPO LS-901 / Black",
+        id: "product-09-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/3a87e78fd5377d59.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Black / 01",
+        alt: "YEPO LS-901 / Black product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-09-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/b1fc1be41cffc5b6.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Black / 02",
+        alt: "YEPO LS-901 / Black product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-09-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/933f9d27171ea99a.webp",
+        aspectRatio: "540/553",
+        caption: "YEPO LS-901 / Black / 03",
+        alt: "YEPO LS-901 / Black product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-09-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/758a934a7842123b.webp",
+        aspectRatio: "135/137",
+        caption: "YEPO LS-901 / Black / 04",
+        alt: "YEPO LS-901 / Black product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-09-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/4f3d42ec504749b5.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Black / 05",
+        alt: "YEPO LS-901 / Black product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-09-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/315b2f5087e14c31.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Black / 06",
+        alt: "YEPO LS-901 / Black product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-09-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/21fbd30619fdacf0.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Black / 07",
+        alt: "YEPO LS-901 / Black product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-09-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/8c1338879fb66316.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-901 / Black / 08",
+        alt: "YEPO LS-901 / Black product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-09-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/51e5cc367099d70a.webp",
+        aspectRatio: "540/721",
+        caption: "YEPO LS-901 / Black / 09",
+        alt: "YEPO LS-901 / Black product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-09-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/e15e43a9039b8c5c.webp",
+        aspectRatio: "540/721",
+        caption: "YEPO LS-901 / Black / 10",
+        alt: "YEPO LS-901 / Black product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-09-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/c27989c749d3bd2f.webp",
+        aspectRatio: "224/299",
+        caption: "YEPO LS-901 / Black / 11",
+        alt: "YEPO LS-901 / Black product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-09-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/749e90e30d5c9366.webp",
+        aspectRatio: "540/721",
+        caption: "YEPO LS-901 / Black / 12",
+        alt: "YEPO LS-901 / Black product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO LS-901 / Чёрный — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO LS-901 / Қара — өнім визуалы 12",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-901 / Чёрный — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO LS-901 / Чёрный, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO LS-901 / Қара — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO LS-901 / Қара өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/ofisnoe-kreslo-yepo-ls-901-chernyi-167370781/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-primebook-17-infographics",
+    slug: "yepo-primebook-17-infographics",
+    title: "YEPO Primebook 17 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO Primebook 17, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/36ee03f536e7897c.webp",
+    coverAspectRatio: "1273/1080",
+    coverAlt: "YEPO Primebook 17 — Product Infographics",
+    media: [
       {
-        label: "YEPO Primebook 17",
+        id: "product-10-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/36ee03f536e7897c.webp",
+        aspectRatio: "1273/1080",
+        caption: "YEPO Primebook 17 / 01",
+        alt: "YEPO Primebook 17 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-10-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/47c599ee8da604b3.webp",
+        aspectRatio: "287/270",
+        caption: "YEPO Primebook 17 / 02",
+        alt: "YEPO Primebook 17 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-10-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/5c67b978fcdf7882.webp",
+        aspectRatio: "28/27",
+        caption: "YEPO Primebook 17 / 03",
+        alt: "YEPO Primebook 17 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-10-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/c774b9f1cd11fd28.webp",
+        aspectRatio: "1117/1080",
+        caption: "YEPO Primebook 17 / 04",
+        alt: "YEPO Primebook 17 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-10-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/607fa307d8fc8d79.webp",
+        aspectRatio: "289/270",
+        caption: "YEPO Primebook 17 / 05",
+        alt: "YEPO Primebook 17 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-10-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/e009d579a2b22ca6.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO Primebook 17 / 06",
+        alt: "YEPO Primebook 17 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-10-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/ad0e5da55dd8c3f7.webp",
+        aspectRatio: "1183/1080",
+        caption: "YEPO Primebook 17 / 07",
+        alt: "YEPO Primebook 17 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-10-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/bf4802b10f7b2b42.webp",
+        aspectRatio: "1223/1080",
+        caption: "YEPO Primebook 17 / 08",
+        alt: "YEPO Primebook 17 product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-10-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/cd5da4d8022af93e.webp",
+        aspectRatio: "449/360",
+        caption: "YEPO Primebook 17 / 09",
+        alt: "YEPO Primebook 17 product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-10-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/ccc89b95a165acc3.webp",
+        aspectRatio: "71/54",
+        caption: "YEPO Primebook 17 / 10",
+        alt: "YEPO Primebook 17 product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO Primebook 17 — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO Primebook 17 — өнім визуалы 10",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO Primebook 17 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO Primebook 17, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO Primebook 17 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO Primebook 17 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/yepo-primebook-17-15-6-intel-core-i7-5500u-8-gb-ssd-512-gb-hd-graphics-win-11-pro-primebook-17-seryi-182361242/?c=591010000&m=18349113&ms=true",
       },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-a77-infographics",
+    slug: "yepo-a77-infographics",
+    title: "YEPO A77 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO A77, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/633f08cc049e0229.webp",
+    coverAspectRatio: "577/540",
+    coverAlt: "YEPO A77 — Product Infographics",
+    media: [
       {
-        label: "YEPO A77",
-        url: "https://kaspi.kz/shop/p/yepo-a77-15-6-intel-core-i7-6500u-16-gb-ssd-512-gb-hd-graphics-win-11-pro-a77-seryi-182359355/?c=591010000&m=18349113&ms=true",
+        id: "product-11-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/633f08cc049e0229.webp",
+        aspectRatio: "577/540",
+        caption: "YEPO A77 / 01",
+        alt: "YEPO A77 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 01",
+          },
+        },
       },
       {
-        label: "YEPO LS-999",
+        id: "product-11-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/49d41ac4992b55b0.webp",
+        aspectRatio: "540/593",
+        caption: "YEPO A77 / 02",
+        alt: "YEPO A77 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-11-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/9128a869f3bc35fc.webp",
+        aspectRatio: "287/270",
+        caption: "YEPO A77 / 03",
+        alt: "YEPO A77 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-11-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/bd3ff17f57bd14df.webp",
+        aspectRatio: "1157/1080",
+        caption: "YEPO A77 / 04",
+        alt: "YEPO A77 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-11-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/19371a293a66e1f7.webp",
+        aspectRatio: "221/216",
+        caption: "YEPO A77 / 05",
+        alt: "YEPO A77 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-11-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/57882afaa618c604.webp",
+        aspectRatio: "1139/1080",
+        caption: "YEPO A77 / 06",
+        alt: "YEPO A77 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-11-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/cb506766e3546036.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO A77 / 07",
+        alt: "YEPO A77 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-11-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/2edec5681448f124.webp",
+        aspectRatio: "83/72",
+        caption: "YEPO A77 / 08",
+        alt: "YEPO A77 product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-11-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/502a090c995c93ca.webp",
+        aspectRatio: "1487/1080",
+        caption: "YEPO A77 / 09",
+        alt: "YEPO A77 product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-11-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/89396bca5a29a378.webp",
+        aspectRatio: "1507/1080",
+        caption: "YEPO A77 / 10",
+        alt: "YEPO A77 product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-11-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/aa2004d9d97fd3c3.webp",
+        aspectRatio: "200/127",
+        caption: "YEPO A77 / 11",
+        alt: "YEPO A77 product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-11-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/2d96e701afeca163.webp",
+        aspectRatio: "200/91",
+        caption: "YEPO A77 / 12",
+        alt: "YEPO A77 product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO A77 — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO A77 — өнім визуалы 12",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO A77 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO A77, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO A77 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO A77 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
+        url: "https://kaspi.kz/shop/p/yepo-a77-15-6-intel-core-i7-6500u-16-gb-ssd-512-gb-hd-graphics-win-11-pro-a77-seryi-182359355/?c=591010000&m=18349113&ms=true",
+      },
+    ],
+    featured: false,
+  },
+  {
+    id: "yepo-ls-999-infographics",
+    slug: "yepo-ls-999-infographics",
+    title: "YEPO LS-999 — Product Infographics",
+    category: "design",
+    status: "published",
+    description:
+      "Product listing visuals and infographics for YEPO LS-999, developed with Photoshop and Photocraft.",
+    coverImage: "/media/portfolio/kaspi/ddaad48077d93e3c.webp",
+    coverAspectRatio: "1/1",
+    coverAlt: "YEPO LS-999 — Product Infographics",
+    media: [
+      {
+        id: "product-12-image-01",
+        type: "image",
+        url: "/media/portfolio/kaspi/ddaad48077d93e3c.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 01",
+        alt: "YEPO LS-999 product visual 01",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 01",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 01",
+          },
+        },
+      },
+      {
+        id: "product-12-image-02",
+        type: "image",
+        url: "/media/portfolio/kaspi/959065bef6235e0f.webp",
+        aspectRatio: "559/540",
+        caption: "YEPO LS-999 / 02",
+        alt: "YEPO LS-999 product visual 02",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 02",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 02",
+          },
+        },
+      },
+      {
+        id: "product-12-image-03",
+        type: "image",
+        url: "/media/portfolio/kaspi/0481f708b7e46808.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 03",
+        alt: "YEPO LS-999 product visual 03",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 03",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 03",
+          },
+        },
+      },
+      {
+        id: "product-12-image-04",
+        type: "image",
+        url: "/media/portfolio/kaspi/bed00f288ab4850d.webp",
+        aspectRatio: "540/541",
+        caption: "YEPO LS-999 / 04",
+        alt: "YEPO LS-999 product visual 04",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 04",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 04",
+          },
+        },
+      },
+      {
+        id: "product-12-image-05",
+        type: "image",
+        url: "/media/portfolio/kaspi/97d3d7efa0ca1f36.webp",
+        aspectRatio: "541/540",
+        caption: "YEPO LS-999 / 05",
+        alt: "YEPO LS-999 product visual 05",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 05",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 05",
+          },
+        },
+      },
+      {
+        id: "product-12-image-06",
+        type: "image",
+        url: "/media/portfolio/kaspi/cd95cb34da9fbac4.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 06",
+        alt: "YEPO LS-999 product visual 06",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 06",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 06",
+          },
+        },
+      },
+      {
+        id: "product-12-image-07",
+        type: "image",
+        url: "/media/portfolio/kaspi/640e4c51d95866c9.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 07",
+        alt: "YEPO LS-999 product visual 07",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 07",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 07",
+          },
+        },
+      },
+      {
+        id: "product-12-image-08",
+        type: "image",
+        url: "/media/portfolio/kaspi/e0e653a57b156b5d.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 08",
+        alt: "YEPO LS-999 product visual 08",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 08",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 08",
+          },
+        },
+      },
+      {
+        id: "product-12-image-09",
+        type: "image",
+        url: "/media/portfolio/kaspi/9124a0616f474ee0.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 09",
+        alt: "YEPO LS-999 product visual 09",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 09",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 09",
+          },
+        },
+      },
+      {
+        id: "product-12-image-10",
+        type: "image",
+        url: "/media/portfolio/kaspi/702b98c88cf98ae6.webp",
+        aspectRatio: "1/1",
+        caption: "YEPO LS-999 / 10",
+        alt: "YEPO LS-999 product visual 10",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 10",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 10",
+          },
+        },
+      },
+      {
+        id: "product-12-image-11",
+        type: "image",
+        url: "/media/portfolio/kaspi/d7b37cd87c6ff0ef.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 11",
+        alt: "YEPO LS-999 product visual 11",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 11",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 11",
+          },
+        },
+      },
+      {
+        id: "product-12-image-12",
+        type: "image",
+        url: "/media/portfolio/kaspi/b964e7b039f3338c.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 12",
+        alt: "YEPO LS-999 product visual 12",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 12",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 12",
+          },
+        },
+      },
+      {
+        id: "product-12-image-13",
+        type: "image",
+        url: "/media/portfolio/kaspi/ccdf991e8bcefbe1.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 13",
+        alt: "YEPO LS-999 product visual 13",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 13",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 13",
+          },
+        },
+      },
+      {
+        id: "product-12-image-14",
+        type: "image",
+        url: "/media/portfolio/kaspi/0a3d8c59a2d62f32.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 14",
+        alt: "YEPO LS-999 product visual 14",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 14",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 14",
+          },
+        },
+      },
+      {
+        id: "product-12-image-15",
+        type: "image",
+        url: "/media/portfolio/kaspi/397e33269ae047a5.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 15",
+        alt: "YEPO LS-999 product visual 15",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 15",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 15",
+          },
+        },
+      },
+      {
+        id: "product-12-image-16",
+        type: "image",
+        url: "/media/portfolio/kaspi/6609a75178f9e5de.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 16",
+        alt: "YEPO LS-999 product visual 16",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 16",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 16",
+          },
+        },
+      },
+      {
+        id: "product-12-image-17",
+        type: "image",
+        url: "/media/portfolio/kaspi/300d3b8135868651.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 17",
+        alt: "YEPO LS-999 product visual 17",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 17",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 17",
+          },
+        },
+      },
+      {
+        id: "product-12-image-18",
+        type: "image",
+        url: "/media/portfolio/kaspi/c987230635ece360.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 18",
+        alt: "YEPO LS-999 product visual 18",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 18",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 18",
+          },
+        },
+      },
+      {
+        id: "product-12-image-19",
+        type: "image",
+        url: "/media/portfolio/kaspi/928dd5770088e56d.webp",
+        aspectRatio: "3/4",
+        caption: "YEPO LS-999 / 19",
+        alt: "YEPO LS-999 product visual 19",
+        translations: {
+          ru: {
+            alt: "YEPO LS-999 — визуал товара 19",
+          },
+          kk: {
+            alt: "YEPO LS-999 — өнім визуалы 19",
+          },
+        },
+      },
+    ],
+    translations: {
+      ru: {
+        title: "YEPO LS-999 — Инфографика товара",
+        description:
+          "Визуалы и инфографика карточки товара YEPO LS-999, созданные в Photoshop и Photocraft.",
+        role: ["Идея", "Графический дизайн"],
+      },
+      kk: {
+        title: "YEPO LS-999 — Өнім инфографикасы",
+        description:
+          "Photoshop пен Photocraft-та жасалған YEPO LS-999 өнім карточкасының визуалдары мен инфографикасы.",
+        role: ["Идея", "Графикалық дизайн"],
+      },
+    },
+    role: ["Concept", "Graphic design"],
+    tools: ["Photoshop", "Photocraft"],
+    client: "YEPO",
+    externalLinks: [
+      {
+        label: "View on Kaspi",
         url: "https://kaspi.kz/shop/p/ofisnoe-kreslo-yepo-ls-999-seryi-168961304/?c=591010000&m=18349113&ms=true",
       },
     ],
+    featured: false,
   },
   {
     id: "university-short-film",
@@ -1115,6 +4820,7 @@ export const projects: Project[] = [
     role: ["Videography", "Video editing"],
     tools: ["iPhone", "DaVinci Resolve"],
     videoType: "personal-films",
+    featured: false,
   },
   {
     id: "obshaga-530",
@@ -1153,6 +4859,7 @@ export const projects: Project[] = [
     role: ["Videography", "Video editing"],
     tools: ["iPhone 15 Pro"],
     videoType: "personal-films",
+    featured: false,
   },
   {
     id: "yepo-a95",
@@ -1212,6 +4919,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-babytravel",
@@ -1253,6 +4961,7 @@ export const projects: Project[] = [
     tools: ["DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-ls-1000-review",
@@ -1312,6 +5021,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-ls-500",
@@ -1371,6 +5081,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-ls-901-instructions",
@@ -1422,6 +5133,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-ls-901-review",
@@ -1481,6 +5193,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-primebook-15",
@@ -1540,6 +5253,7 @@ export const projects: Project[] = [
     tools: ["iPhone 15 Pro", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-wm13",
@@ -1599,6 +5313,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "product-reviews",
+    featured: false,
   },
   {
     id: "yepo-creator-reel",
@@ -1643,6 +5358,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "yepo-brand-collaborations",
@@ -1682,6 +5398,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "yepo-bogachie",
@@ -1721,6 +5438,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "iPhone 15 Pro", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "yepo-stroller-reel",
@@ -1760,6 +5478,7 @@ export const projects: Project[] = [
     tools: ["Sony ZV-E10", "DaVinci Resolve"],
     client: "YEPO",
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-008",
@@ -1791,6 +5510,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-01-2",
@@ -1822,6 +5542,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-askar-01",
@@ -1853,6 +5574,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-askar-02",
@@ -1884,6 +5606,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-askar-03",
@@ -1915,6 +5638,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-1-f",
@@ -1946,6 +5670,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-1029",
@@ -1977,6 +5702,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-12-1",
@@ -2008,6 +5734,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-2",
@@ -2039,6 +5766,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-3",
@@ -2070,6 +5798,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-4",
@@ -2101,6 +5830,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-5",
@@ -2132,6 +5862,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-6-2",
@@ -2163,6 +5894,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-9-1",
@@ -2194,6 +5926,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-img-2692",
@@ -2225,6 +5958,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-adil",
@@ -2256,6 +5990,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "reel-archive-17",
@@ -2287,6 +6022,7 @@ export const projects: Project[] = [
       },
     },
     videoType: "reels-ads",
+    featured: false,
   },
   {
     id: "instagram-expert-ad",

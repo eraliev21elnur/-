@@ -63,7 +63,11 @@ export function MediaPlayer({
           >
             <X />
           </button>
-          <img src={safeUrl(media.url)} alt={t(media.alt ?? label)} />
+          <img
+            src={safeUrl(media.url)}
+            alt={t(media.alt ?? label)}
+            loading="lazy"
+          />
         </dialog>
       </figure>
     );

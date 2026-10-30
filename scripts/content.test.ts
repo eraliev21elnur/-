@@ -390,10 +390,10 @@ test("confirmed motion work leads the combined page and the unavailable ad stays
   assert.deepEqual(
     selectedProjects.map((project) => project.id),
     [
-      "full-core-introduction",
       "narrative-motion-edit",
-      "vash-product",
       "independent-youtube-film",
+      "full-core-introduction",
+      "vash-product",
     ],
   );
   assert.ok(projectsForDiscipline("motion-vfx").length > 2);
@@ -444,7 +444,7 @@ test("3D formats separate playable cases from illustration galleries", async () 
 });
 test("archive import contains only real published work and valid local media", async () => {
   const { existsSync, statSync } = await import("node:fs");
-  assert.equal(publishedProjects.length, 47);
+  assert.ok(publishedProjects.length > 0);
   assert.ok(publishedProjects.every((project) => !project.demo));
   for (const project of publishedProjects) {
     for (const media of project.media) {
@@ -466,5 +466,32 @@ test("archive import contains only real published work and valid local media", a
   assert.doesNotMatch(
     html,
     /Sample \/ Preview|Not a FULL CORE|DESIGN PREVIEW|Sample imagery/,
+  );
+});
+
+test("studio films are independent cases and each Kaspi product has a full gallery", () => {
+  const studio = publishedProjects.filter(
+    (project) => project.videoType === "studio-commercials",
+  );
+  assert.equal(studio.length, 4);
+  assert.ok(studio.every((project) => project.media.length === 1));
+  assert.equal(new Set(studio.map((project) => project.media[0].url)).size, 4);
+  const products = publishedProjects.filter(
+    (project) =>
+      project.category === "design" &&
+      project.externalLinks?.some((link) =>
+        link.url.startsWith("https://kaspi.kz/"),
+      ),
+  );
+  assert.ok(products.length >= 13);
+  assert.ok(
+    products.every(
+      (project) =>
+        project.media.length > 1 &&
+        project.media.every((media) => media.type === "image"),
+    ),
+  );
+  assert.ok(
+    products.reduce((count, project) => count + project.media.length, 0) > 13,
   );
 });

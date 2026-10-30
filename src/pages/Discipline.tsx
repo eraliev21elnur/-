@@ -24,6 +24,9 @@ const subscribeHydration = () => () => {};
 function ProjectSummary({ project: sourceProject }: { project: Project }) {
   const { t, language } = useLocale();
   const project = localizeProject(sourceProject, language);
+  const imageCount = project.media.filter(
+    (media) => media.type === "image",
+  ).length;
   return (
     <div className="inline-project-info">
       <div>
@@ -40,7 +43,14 @@ function ProjectSummary({ project: sourceProject }: { project: Project }) {
           </p>
         )}
         <Link className="arrow-link" to={`/work/${project.slug}`}>
-          {project.demo ? t("View sample & credits") : t("View project")}
+          {project.demo
+            ? t("View sample & credits")
+            : isIllustrationProject(project) && imageCount > 1
+              ? t("View gallery ({count})").replace(
+                  "{count}",
+                  String(imageCount),
+                )
+              : t("View project")}
           <ArrowUpRight size={16} />
         </Link>
       </div>
