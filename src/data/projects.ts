@@ -3,6 +3,7 @@ export type Media = {
   id: string;
   type: "youtube" | "vimeo" | "instagram" | "localVideo" | "image";
   url: string; // YouTube/Vimeo URL or ID; local files start with /media/
+  sourceUrl?: string; // Original publication retained as provenance; playback uses url.
   thumbnail?: string;
   thumbnailFallback?: string;
   aspectRatio?: AspectRatio;
@@ -80,8 +81,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "Ddrq_lMufJh",
-        type: "instagram",
-        url: "https://www.instagram.com/p/Ddrq_lMufJh/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/Ddrq_lMufJh/",
+        url: "/media/portfolio/instagram-Ddrq_lMufJh.mp4",
         thumbnail: "/media/portfolio/Ddrq_lMufJh.webp",
         aspectRatio: "9/16",
       },
@@ -305,8 +307,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "Dcl2VgRsbX_",
-        type: "instagram",
-        url: "https://www.instagram.com/p/Dcl2VgRsbX_/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/Dcl2VgRsbX_/",
+        url: "/media/portfolio/instagram-Dcl2VgRsbX_.mp4",
         thumbnail: "/media/portfolio/Dcl2VgRsbX_.webp",
         aspectRatio: "9/16",
         caption: "YEPO LS-1000",
@@ -374,8 +377,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "DcJJEresebU",
-        type: "instagram",
-        url: "https://www.instagram.com/p/DcJJEresebU/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/DcJJEresebU/",
+        url: "/media/portfolio/instagram-DcJJEresebU.mp4",
         thumbnail: "/media/portfolio/DcJJEresebU.webp",
         aspectRatio: "9/16",
         caption: "YEPO LS-901",
@@ -443,8 +447,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "Db-6ST6sVZK",
-        type: "instagram",
-        url: "https://www.instagram.com/p/Db-6ST6sVZK/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/Db-6ST6sVZK/",
+        url: "/media/portfolio/instagram-Db-6ST6sVZK.mp4",
         thumbnail: "/media/portfolio/Db-6ST6sVZK.webp",
         aspectRatio: "9/16",
         caption: "YEPO LS-919",
@@ -512,8 +517,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "Dci7X5Ls9XW",
-        type: "instagram",
-        url: "https://www.instagram.com/p/Dci7X5Ls9XW/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/Dci7X5Ls9XW/",
+        url: "/media/portfolio/instagram-Dci7X5Ls9XW.mp4",
         thumbnail: "/media/portfolio/Dci7X5Ls9XW.webp",
         aspectRatio: "9/16",
         caption: "YEPO LS-999",
@@ -5329,8 +5335,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "DewujzMspFf",
-        type: "instagram",
-        url: "https://www.instagram.com/p/DewujzMspFf/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/DewujzMspFf/",
+        url: "/media/portfolio/instagram-DewujzMspFf.mp4",
         thumbnail: "/media/portfolio/DewujzMspFf.webp",
         aspectRatio: "9/16",
       },
@@ -5374,8 +5381,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "DebQOtCMSEf",
-        type: "instagram",
-        url: "https://www.instagram.com/p/DebQOtCMSEf/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/DebQOtCMSEf/",
+        url: "/media/portfolio/instagram-DebQOtCMSEf.mp4",
         thumbnail: "/media/portfolio/DebQOtCMSEf.webp",
         aspectRatio: "9/16",
       },
@@ -5414,8 +5422,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "DeOZfDCMkx5",
-        type: "instagram",
-        url: "https://www.instagram.com/p/DeOZfDCMkx5/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/DeOZfDCMkx5/",
+        url: "/media/portfolio/instagram-DeOZfDCMkx5.mp4",
         thumbnail: "/media/portfolio/DeOZfDCMkx5.webp",
         aspectRatio: "9/16",
       },
@@ -5454,8 +5463,9 @@ export const projects: Project[] = [
     media: [
       {
         id: "DdtEUPHsSxz",
-        type: "instagram",
-        url: "https://www.instagram.com/p/DdtEUPHsSxz/",
+        type: "localVideo",
+        sourceUrl: "https://www.instagram.com/p/DdtEUPHsSxz/",
+        url: "/media/portfolio/instagram-DdtEUPHsSxz.mp4",
         thumbnail: "/media/portfolio/DdtEUPHsSxz.webp",
         aspectRatio: "9/16",
       },

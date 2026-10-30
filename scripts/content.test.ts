@@ -495,3 +495,21 @@ test("studio films are independent cases and each Kaspi product has a full galle
     products.reduce((count, project) => count + project.media.length, 0) > 13,
   );
 });
+
+test("imported Instagram films use local files and retain original covers", () => {
+  const imported = publishedProjects.flatMap((p) =>
+    p.media.filter((m) =>
+      m.sourceUrl?.startsWith("https://www.instagram.com/"),
+    ),
+  );
+  assert.equal(imported.length, 9);
+  assert.ok(
+    !publishedProjects.some((p) => p.media.some((m) => m.type === "instagram")),
+  );
+  for (const media of imported) {
+    assert.equal(media.type, "localVideo");
+    assert.ok(media.url.startsWith("/media/portfolio/instagram-"));
+    assert.ok(media.thumbnail);
+    assert.equal(media.aspectRatio, "9/16");
+  }
+});
