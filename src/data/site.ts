@@ -5,7 +5,13 @@ const deploymentUrl =
 export const site = {
   brand: "FULL CORE",
   publishEmptyDisciplines: false, // Empty pages are preview-only unless deliberately enabled.
-  demoMode: true, // Set false to hide ALL temporary sample cases and sample hero.
+  demoMode: false, // Legacy flag: all temporary sample projects/media have been removed.
+  homeCovers: {
+    video: "/media/portfolio/Ddrq_lMufJh.webp",
+    "motion-vfx": "/media/portfolio/vash-product.webp",
+    design: "/media/portfolio/gta-vi-scene.webp",
+    music: "/media/portfolio/where-are-u-artwork.webp",
+  } as Record<string, string>,
   title: "Film, Motion & Music Production",
   tagline: "Visuals & sound.",
   subtitle:
@@ -59,6 +65,8 @@ export const site = {
     "Photoshop",
     "Blender",
     "Cinema 4D",
+    "Marvelous Designer",
+    "Photocraft",
     "CapCut",
     "FL Studio",
   ],

@@ -1,9 +1,10 @@
+import { Artwork } from "./Artwork";
 import { localizeMedia } from "../i18n/content";
 import { useLocale } from "../i18n";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Play, Maximize2, X } from "lucide-react";
 import type { Media } from "../data/projects";
-import { embedUrl, safeUrl } from "../lib/media";
+import { embedUrl, instagramEmbedUrl, safeUrl } from "../lib/media";
 export function MediaPlayer({
   media: sourceMedia,
   title,
@@ -15,12 +16,23 @@ export function MediaPlayer({
   const media = localizeMedia(sourceMedia, language);
   const [active, setActive] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
+  const video = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const player = video.current;
+    return () => {
+      player?.pause();
+      player?.removeAttribute("src");
+      player?.load();
+    };
+  }, [active, media.url]);
   const ratio = media.aspectRatio ?? "16/9";
   const label = t(media.caption ?? title);
+  const [width, height] = ratio.split("/").map(Number);
+  const vertical = width / height < 0.85;
   if (!media.url) return null;
   if (media.type === "image")
     return (
-      <figure className={`media-figure ${ratio === "9/16" ? "vertical" : ""}`}>
+      <figure className={`media-figure ${vertical ? "vertical" : ""}`}>
         <button
           className="image-open"
           onClick={() => dialog.current?.showModal()}
@@ -58,11 +70,13 @@ export function MediaPlayer({
   const embed =
     media.type === "youtube" || media.type === "vimeo"
       ? embedUrl(media.type, media.url)
-      : null;
+      : media.type === "instagram"
+        ? instagramEmbedUrl(media.url)
+        : null;
   return (
-    <figure className={`media-figure ${ratio === "9/16" ? "vertical" : ""}`}>
+    <figure className={`media-figure ${vertical ? "vertical" : ""}`}>
       <div
-        className="player"
+        className={`player ${media.type === "instagram" && active ? "instagram-player" : ""}`}
         style={{
           aspectRatio: ratio,
         }}
@@ -70,6 +84,7 @@ export function MediaPlayer({
         {active ? (
           media.type === "localVideo" ? (
             <video
+              ref={video}
               src={safeUrl(media.url)}
               controls
               autoPlay
@@ -90,12 +105,18 @@ export function MediaPlayer({
           )
         ) : media.type === "localVideo" || embed ? (
           <button
-            className="facade"
+            className={`facade facade-${media.type}`}
             onClick={() => setActive(true)}
             aria-label={t("Play {title}").replace("{title}", label)}
           >
             {media.thumbnail && (
-              <img src={safeUrl(media.thumbnail)} alt="" loading="lazy" />
+              <Artwork
+                key={media.thumbnail}
+                src={media.thumbnail}
+                fallbackSrc={media.thumbnailFallback}
+                alt=""
+                loading="lazy"
+              />
             )}
             <span className="play-circle">
               <Play fill="currentColor" size={22} />
@@ -107,7 +128,11 @@ export function MediaPlayer({
                   ? t("Local video")
                   : t("Loads {provider} player").replace(
                       "{provider}",
-                      media.type === "youtube" ? "YouTube" : "Vimeo",
+                      media.type === "youtube"
+                        ? "YouTube"
+                        : media.type === "instagram"
+                          ? "Instagram"
+                          : "Vimeo",
                     )}
               </span>
             </span>
@@ -121,6 +146,29 @@ export function MediaPlayer({
         )}
       </div>
       {media.caption && <figcaption>{t(media.caption)}</figcaption>}
+      {embed && (
+        <a
+          className="media-source arrow-link"
+          href={safeUrl(
+            media.url.startsWith("http")
+              ? media.url
+              : media.type === "youtube"
+                ? `https://www.youtube.com/watch?v=${media.url}`
+                : `https://vimeo.com/${media.url}`,
+          )}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t(
+            media.type === "instagram"
+              ? "Open on Instagram"
+              : media.type === "youtube"
+                ? "Watch on YouTube"
+                : "Watch on Vimeo",
+          )}{" "}
+          ↗
+        </a>
+      )}
     </figure>
   );
 }

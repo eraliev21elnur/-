@@ -1,11 +1,10 @@
+import { Artwork } from "./Artwork";
 import { localizeProject } from "../i18n/content";
 import { useLocale } from "../i18n";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { site } from "../data/site";
 import { categoryLabel, type Project } from "../data/projects";
-import { assetUrl } from "../lib/paths";
 import type { ReactNode } from "react";
 export function Reveal({
   children,
@@ -69,9 +68,7 @@ export function EmptyWork({
             : t("No published projects yet.")}
         </h3>
         <p>
-          {site.demoMode
-            ? t("Preview state. Only confirmed work will be added here.")
-            : t("Projects will appear here once selected and ready to share.")}
+          {t("Projects will appear here once selected and ready to share.")}
         </p>
       </div>
     </div>
@@ -86,9 +83,13 @@ export function ProjectCard({
 }) {
   const { t, language } = useLocale();
   const project = localizeProject(sourceProject, language);
+  const [coverWidth, coverHeight] = (project.coverAspectRatio ?? "16/9")
+    .split("/")
+    .map(Number);
+  const portrait = coverWidth / coverHeight < 0.85;
   return (
     <Reveal
-      className={`project-card ratio-${(project.coverAspectRatio ?? "16/9").replace("/", "-")}`}
+      className={`project-card ratio-${(project.coverAspectRatio ?? "16/9").replace("/", "-")} ${portrait ? "portrait-card" : ""}`}
     >
       <Link to={`/work/${project.slug}`} className="project-card-link">
         <div
@@ -98,8 +99,10 @@ export function ProjectCard({
           }}
         >
           {project.coverImage ? (
-            <img
-              src={assetUrl(project.coverImage)}
+            <Artwork
+              key={project.coverImage}
+              src={project.coverImage}
+              fallbackSrc={project.coverFallback}
               alt={project.coverAlt ?? project.title}
               loading="lazy"
             />

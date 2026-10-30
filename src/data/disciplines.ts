@@ -99,3 +99,34 @@ export const homeCategories = [
     short: "Sound / Production / Mastering",
   },
 ];
+
+// Formats are independent from disciplines; image-only 3D cases remain galleries.
+export const threeDFilters = [
+  { id: "all", label: "All 3D work" },
+  { id: "video", label: "3D videos" },
+  { id: "illustration", label: "3D illustrations" },
+] as const;
+export const motionVfxFilters = [
+  { id: "all", label: "All motion & 3D" },
+  { id: "motion", label: "Motion design" },
+  { id: "video", label: "3D videos" },
+  { id: "illustration", label: "3D illustrations" },
+] as const;
+export const isIllustrationProject = (project: Project) =>
+  project.media.length > 0 &&
+  project.media.every((media) => media.type === "image");
+export function filterVisualProjects(
+  items: Project[],
+  format: string,
+): Project[] {
+  if (format === "all") return items;
+  if (format === "motion")
+    return items.filter((project) => project.category === "motion");
+  return items.filter(
+    (project) =>
+      project.category === "3d-vfx" &&
+      (format === "illustration"
+        ? isIllustrationProject(project)
+        : !isIllustrationProject(project)),
+  );
+}

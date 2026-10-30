@@ -1,5 +1,15 @@
 // Hand-edited UTF-8 translations. Keep names, credits and licenses factual.
 export const messages: Record<string, { ru: string; kk: string }> = {
+  "Watch on Vimeo": { ru: "Смотреть на Vimeo", kk: "Vimeo-да көру" },
+  "Open on Instagram": { ru: "Открыть в Instagram", kk: "Instagram-да ашу" },
+  "All 3D work": { ru: "Все 3D-работы", kk: "Барлық 3D жұмыстар" },
+  "All motion & 3D": {
+    ru: "Все моушн- и 3D-работы",
+    kk: "Барлық моушн және 3D жұмыстар",
+  },
+  "3D videos": { ru: "3D-видео", kk: "3D бейнелер" },
+  "3D illustrations": { ru: "3D-иллюстрации", kk: "3D иллюстрациялар" },
+  "Filter 3D work": { ru: "Фильтр 3D-работ", kk: "3D жұмыстарын сүзу" },
   "Watch on YouTube": { ru: "Смотреть на YouTube", kk: "YouTube-та көру" },
   Home: {
     ru: "Главная",

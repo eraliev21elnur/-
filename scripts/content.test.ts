@@ -9,7 +9,7 @@ import {
   publishedProjects,
   filterProjects,
 } from "../src/data/projects";
-import { embedUrl } from "../src/lib/media";
+import { embedUrl, instagramEmbedUrl } from "../src/lib/media";
 import { validateProjects } from "./validate-content";
 test("drafts do not appear in public routes or listings", () => {
   validateProjects();
@@ -17,7 +17,7 @@ test("drafts do not appear in public routes or listings", () => {
   const html = renderToString(
     createElement(
       MemoryRouter,
-      { initialEntries: ["/work/premium-chair-studio"] },
+      { initialEntries: ["/work/yepo-commercial-production"] },
       createElement(App),
     ),
   );
@@ -30,11 +30,16 @@ test("drafts do not appear in public routes or listings", () => {
         createElement(App),
       ),
     ),
-    /Premium Chair Studio Campaign/,
+    /YEPO — Commercial Video Production/,
   );
 });
 test("filter uses category IDs and supports an empty category", () => {
-  assert.equal(filterProjects(projects, "commercial").length, 4);
+  assert.ok(filterProjects(projects, "commercial").length > 0);
+  assert.ok(
+    filterProjects(projects, "commercial").every(
+      (project) => project.category === "commercial",
+    ),
+  );
   assert.equal(filterProjects(projects, "empty-category").length, 0);
   assert.equal(filterProjects(projects, "all").length, projects.length);
 });
@@ -382,8 +387,16 @@ test("confirmed motion work leads the combined page and the unavailable ad stays
       .map((p) => p.id),
     ["narrative-motion-edit", "lovv66-tour"],
   );
-  assert.equal(selectedProjects[0]?.id, "narrative-motion-edit");
-  assert.equal(projectsForDiscipline("motion-vfx").length, 2);
+  assert.deepEqual(
+    selectedProjects.map((project) => project.id),
+    [
+      "full-core-introduction",
+      "narrative-motion-edit",
+      "vash-product",
+      "independent-youtube-film",
+    ],
+  );
+  assert.ok(projectsForDiscipline("motion-vfx").length > 2);
   assert.ok(
     projectsForDiscipline("motion-vfx").every((project) => !project.demo),
   );
@@ -410,5 +423,48 @@ test("confirmed motion work leads the combined page and the unavailable ad stays
   assert.doesNotMatch(
     html,
     /<iframe|<video|DESIGN PREVIEW|Sample media. Not FULL CORE portfolio credits/,
+  );
+});
+
+test("3D formats separate playable cases from illustration galleries", async () => {
+  const { filterVisualProjects, projectsForDiscipline, isIllustrationProject } =
+    await import("../src/data/disciplines");
+  const all = projectsForDiscipline("3d-vfx");
+  const videos = filterVisualProjects(all, "video");
+  const images = filterVisualProjects(all, "illustration");
+  assert.ok(videos.length && images.length);
+  assert.equal(videos.length + images.length, all.length);
+  assert.ok(videos.every((project) => !isIllustrationProject(project)));
+  assert.ok(images.every(isIllustrationProject));
+  assert.equal(
+    instagramEmbedUrl("https://www.instagram.com/reel/Ddrq_lMufJh/"),
+    "https://www.instagram.com/p/Ddrq_lMufJh/embed/",
+  );
+  assert.equal(instagramEmbedUrl("https://evil.test/p/Ddrq_lMufJh/"), null);
+});
+test("archive import contains only real published work and valid local media", async () => {
+  const { existsSync, statSync } = await import("node:fs");
+  assert.equal(publishedProjects.length, 47);
+  assert.ok(publishedProjects.every((project) => !project.demo));
+  for (const project of publishedProjects) {
+    for (const media of project.media) {
+      for (const path of [media.url, media.thumbnail])
+        if (path?.startsWith("/")) {
+          const file = new URL(`../public${path}`, import.meta.url);
+          assert.ok(existsSync(file), path);
+          assert.ok(statSync(file).size < 100 * 1024 * 1024, path);
+        }
+    }
+  }
+  const html = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/work"] },
+      createElement(App),
+    ),
+  );
+  assert.doesNotMatch(
+    html,
+    /Sample \/ Preview|Not a FULL CORE|DESIGN PREVIEW|Sample imagery/,
   );
 });

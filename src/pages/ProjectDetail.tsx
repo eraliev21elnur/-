@@ -125,17 +125,26 @@ export function ProjectDetail() {
           {t(project.credits)}
         </p>
       )}
-      {project.externalLinks?.map((l) => (
-        <a
-          className="arrow-link external-project"
-          key={l.url}
-          href={safeUrl(l.url)}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {t(l.label)} ↗
-        </a>
-      ))}
+      {project.externalLinks
+        ?.filter(
+          (link) =>
+            !project.media.some(
+              (media) =>
+                ["youtube", "vimeo", "instagram"].includes(media.type) &&
+                media.url === link.url,
+            ),
+        )
+        .map((l) => (
+          <a
+            className="arrow-link external-project"
+            key={l.url}
+            href={safeUrl(l.url)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t(l.label)} ↗
+          </a>
+        ))}
       <div className="next-project">
         {next ? (
           <>

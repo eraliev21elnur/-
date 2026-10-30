@@ -89,7 +89,7 @@ export function Home() {
             .filter((d) => d.id === "music" || disciplineVisible(d.id))
             .map((d, i) => {
               const preview = projectsForDiscipline(d.id)[0];
-              const image = preview?.coverImage;
+              const image = site.homeCovers[d.id] || preview?.coverImage;
               return (
                 <Link
                   className={`discipline-tile tile-${d.id}`}
@@ -104,7 +104,7 @@ export function Home() {
                       loading="lazy"
                     />
                   )}
-                  {d.id === "music" && (
+                  {d.id === "music" && !image && (
                     <div className="tile-music-art" aria-hidden="true">
                       <Disc3 strokeWidth={0.6} />
                     </div>

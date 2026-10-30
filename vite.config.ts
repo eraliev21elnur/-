@@ -38,5 +38,15 @@ export default defineConfig({
       },
     },
   ],
-  build: { target: "es2022" },
+  build: {
+    target: "es2022",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          framework: ["react", "react-dom", "react-router-dom"],
+          motion: ["motion/react"],
+        },
+      },
+    },
+  },
 });
