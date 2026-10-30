@@ -46,3 +46,8 @@ The owner requested a viewport-fixed bottom player on Music that stays visible d
 
 ## Owner-supplied music supersedes music demos
 The owner provided 16 MP3 files and authorized replacing the procedural examples. tracks.ts now contains exact tagged titles and artist credits (including collaborators), durations and only known years. No embedded covers were present: the numbered SVG sleeves are neutral replaceable interface placeholders. Preserve audio bytes and credits. Music demos and their assets were removed; do not restore them or the procedural-demo notice. Visual portfolio demos remain independently enabled. The global preview banner is omitted only on Music when real tracks exist. Preserve one lazy player and page-exit cleanup.
+
+## First confirmed video projects
+The owner approved YouTube 1IZ8-IW16t0 as a commissioned editing/2D-animation/illustration case, first in Selected Works and Motion & 3D / VFX, followed by LOVV66 concert-tour visuals with a two-day deadline. No project tools, years or additional roles are confirmed. YouTube fetching was network-blocked; its cover is an honest typographic case title card. LOVV66 uses an actual extracted frame and faststart remux. instagram-expert-ad remains a draft because 02-2.mp4 exceeded the 32 MiB transfer limit; never publish it without accessible media. The global DESIGN PREVIEW banner was explicitly removed; individual remaining demo labels/credits remain. Motion/3D case navigation uses the combined group.
+
+Published real work now automatically retires demo cases of the same category from the public list. The combined Motion & 3D / VFX page therefore contains exactly the two confirmed cases. Keep individual demo labels where other categories still use samples.

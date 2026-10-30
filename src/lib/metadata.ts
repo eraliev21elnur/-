@@ -1,9 +1,15 @@
 import { translate, type Language } from "../i18n";
 import { publishedProjects } from "../data/projects";
 import { site } from "../data/site";
+import { localizeProject } from "../i18n/content";
 export function metadata(path: string, language: Language = "en") {
   path = path.replace(/\/+$/, "") || "/";
-  const project = publishedProjects.find((p) => path === `/work/${p.slug}`);
+  const sourceProject = publishedProjects.find(
+    (p) => path === `/work/${p.slug}`,
+  );
+  const project = sourceProject
+    ? localizeProject(sourceProject, language)
+    : undefined;
   const titles: Record<string, string> = {
     "/": site.title,
     "/work": "All Projects — Archive",

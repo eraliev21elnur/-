@@ -4,6 +4,7 @@ import {
   projectDiscipline,
   disciplines,
   projectsForDiscipline,
+  motionVfx,
 } from "../data/disciplines";
 import { ArrowLeft } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
@@ -33,9 +34,15 @@ export function ProjectDetail() {
     : undefined;
   if (!project) return <NotFound />;
   const discipline = projectDiscipline(project);
-  const siblings = projectsForDiscipline(discipline);
-  const section = disciplines.find((d) => d.id === discipline);
-  const backTo = section ? `/${discipline}` : "/work";
+  const group = ["motion", "3d-vfx"].includes(discipline)
+    ? "motion-vfx"
+    : discipline;
+  const siblings = projectsForDiscipline(group);
+  const section =
+    group === "motion-vfx"
+      ? motionVfx
+      : disciplines.find((d) => d.id === group);
+  const backTo = section ? `/${group}` : "/work";
   const next =
     siblings.length > 1
       ? siblings[

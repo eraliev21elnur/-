@@ -13,7 +13,6 @@ import {
   type DisciplineId,
 } from "../data/disciplines";
 import type { Project } from "../data/projects";
-import { site } from "../data/site";
 import { EmptyWork, ProjectCard } from "../components/UI";
 import { MediaPlayer } from "../components/MediaPlayer";
 import { NotFound } from "./ProjectDetail";
@@ -95,13 +94,6 @@ export function Discipline({ id }: { id: DisciplineId | "motion-vfx" }) {
         </div>
         <p>{t(section.description)}</p>
       </header>
-      {site.demoMode && projects.some((p) => p.demo) && (
-        <p className="preview-note">
-          {t(
-            "Design preview \u2014 the following samples demonstrate the layout, not personal work.",
-          )}
-        </p>
-      )}
       {id === "video" && (
         <div
           className="filters"

@@ -5,7 +5,6 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { site } from "../data/site";
-import { publishedTracks } from "../data/tracks";
 import { navigation } from "../data/disciplines";
 import { metadata } from "../lib/metadata";
 import { absoluteSiteUrl } from "../lib/paths";
@@ -63,16 +62,6 @@ export function Layout() {
       <a href="#main" className="skip-link">
         {t("Skip to content")}
       </a>
-      {site.demoMode &&
-        !(
-          location.pathname.replace(/\/+$/, "") === "/music" &&
-          publishedTracks.length
-        ) && (
-          <div className="demo-banner">
-            {t("DESIGN PREVIEW")}{" "}
-            <span>{t("Sample media. Not FULL CORE portfolio credits.")}</span>
-          </div>
-        )}
       <header className="site-header">
         <div className="header-inner wrap">
           <Link

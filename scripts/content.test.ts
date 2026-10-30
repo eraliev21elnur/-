@@ -34,8 +34,8 @@ test("drafts do not appear in public routes or listings", () => {
   );
 });
 test("filter uses category IDs and supports an empty category", () => {
-  assert.equal(filterProjects(projects, "commercial").length, 3);
-  assert.equal(filterProjects(projects, "3d-vfx").length, 0);
+  assert.equal(filterProjects(projects, "commercial").length, 4);
+  assert.equal(filterProjects(projects, "empty-category").length, 0);
   assert.equal(filterProjects(projects, "all").length, projects.length);
 });
 test("provider parser accepts supported links and rejects foreign iframe hosts", () => {
@@ -176,9 +176,9 @@ test("home selection excludes samples and empty disciplines need an explicit pub
   const before = site.demoMode;
   site.demoMode = false;
   try {
-    assert.equal(disciplineVisible("3d-vfx"), false);
+    assert.equal(disciplineVisible("unfilled-discipline"), false);
     site.publishEmptyDisciplines = true;
-    assert.equal(disciplineVisible("3d-vfx"), true);
+    assert.equal(disciplineVisible("unfilled-discipline"), true);
   } finally {
     site.demoMode = before;
     site.publishEmptyDisciplines = false;
@@ -370,5 +370,45 @@ test("supplied music preserves collaborator credits, lazy playback and real asse
   assert.doesNotMatch(
     html,
     /Sample audio|Playback demo|These procedural music samples|DESIGN PREVIEW/,
+  );
+});
+
+test("confirmed motion work leads the combined page and the unavailable ad stays unpublished", async () => {
+  const { projectsForDiscipline } = await import("../src/data/disciplines");
+  const { selectedProjects } = await import("../src/data/projects");
+  assert.deepEqual(
+    projectsForDiscipline("motion-vfx")
+      .slice(0, 2)
+      .map((p) => p.id),
+    ["narrative-motion-edit", "lovv66-tour"],
+  );
+  assert.equal(selectedProjects[0]?.id, "narrative-motion-edit");
+  assert.equal(projectsForDiscipline("motion-vfx").length, 2);
+  assert.ok(
+    projectsForDiscipline("motion-vfx").every((project) => !project.demo),
+  );
+  const combined = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/motion-vfx"] },
+      createElement(App),
+    ),
+  );
+  assert.doesNotMatch(combined, /Design preview|DESIGN PREVIEW/);
+  assert.ok(!publishedProjects.some((p) => p.id === "instagram-expert-ad"));
+  const html = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/work/narrative-editing-2d-animation"] },
+      createElement(App),
+    ),
+  );
+  assert.match(html, /Video editing/);
+  assert.match(html, /2D animation/);
+  assert.match(html, /Illustration/);
+  assert.match(html, /lovv66-concert-tour-visuals/);
+  assert.doesNotMatch(
+    html,
+    /<iframe|<video|DESIGN PREVIEW|Sample media. Not FULL CORE portfolio credits/,
   );
 });
