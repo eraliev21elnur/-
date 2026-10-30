@@ -30,3 +30,6 @@ Preserve user files and confirmed content. Run typecheck, lint, tests and produc
 
 ## Product galleries and desktop sizing
 All photos from each supplied Kaspi product card must be included, not just its OG/cover image. There are currently 13 product galleries with 207 images. Preserve source ordering and original image ratios. Each product has its own case; the first product retains the former gallery URL for compatibility. Gallery links show the full photo count while catalogue previews remain limited. At 900px and wider, Motion/3D and Design use two project columns; portrait previews in the screening grid are capped at 280px. Keep mobile layout as one column.
+
+
+The owner is Eraliev Elnur (Ералиев Елнур in RU/KK); the creative name FULL CORE must always remain Latin. The accepted biography omits public age/birthdate and lives in site.ts with matching translations. Home Video uses the actual Obshaga 530 cover. Keep Reveal content visible in static HTML, respect reduced motion for scroll reveals and menu height changes, and avoid scroll interception or continuous decorative animation.

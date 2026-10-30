@@ -107,3 +107,6 @@ npm run build
 
 
 Instagram-ролики (9 шт.) воспроизводятся из `public/media/portfolio/instagram-*.mp4` обычным плеером после нажатия Play. Исходные публикации сохранены в `media.sourceUrl`, обложки — в `thumbnail`. Для замены загрузите MP4 H.264/AAC с faststart и измените `media.url`; сохраняйте оригинальное соотношение сторон. YouTube-плееры не изменены.
+
+
+Имя автора задаётся в `site.name`, подпись — в `site.aboutTagline`, биография — в `about`, `creativeBackground`, `experience`, `musicAbout`. Переводы этих английских строк находятся в `src/i18n/messages.ts`. Творческое имя FULL CORE всегда пишется латиницей. Первая обложка главной страницы теперь использует `/media/portfolio/obshaga-530.webp`.
