@@ -905,6 +905,9 @@ main:focus {
   padding: 0;
   background: radial-gradient(ellipse at 60% 20%, #2b2e36, #111114);
 }
+.facade > * {
+  pointer-events: none;
+}
 .facade > img {
   position: absolute;
   width: 100%;

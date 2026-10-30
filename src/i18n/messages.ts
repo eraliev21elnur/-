@@ -1,5 +1,6 @@
 // Hand-edited UTF-8 translations. Keep names, credits and licenses factual.
 export const messages: Record<string, { ru: string; kk: string }> = {
+  "Watch on YouTube": { ru: "Смотреть на YouTube", kk: "YouTube-та көру" },
   Home: {
     ru: "Главная",
     kk: "Басты бет",
