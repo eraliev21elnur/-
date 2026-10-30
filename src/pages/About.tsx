@@ -22,6 +22,8 @@ export function About() {
               <img
                 src={assetUrl(site.portrait)}
                 alt={site.brand}
+                width={960}
+                height={1280}
                 loading="lazy"
               />
             ) : (

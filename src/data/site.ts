@@ -79,7 +79,7 @@ export const site = {
     "Graphic design",
     "Music production",
   ],
-  portrait: "", // /media/portrait.webp
+  portrait: "/media/portrait.webp",
   cv: "", // /media/full-core-cv.pdf
   showreel: undefined as import("./projects").Media | undefined,
 };

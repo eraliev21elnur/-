@@ -1039,7 +1039,7 @@ figcaption {
 }
 .portrait {
   background: #111114;
-  aspect-ratio: 1/1;
+  aspect-ratio: 3/4;
 }
 .portrait > img {
   width: 100%;
@@ -1751,7 +1751,7 @@ figcaption {
   }
   .portrait {
     max-width: 300px;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/4;
   }
   .portrait-monogram {
     font-size: 100px;
