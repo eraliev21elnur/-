@@ -73,3 +73,5 @@ The `/music` route reads `src/data/tracks.ts`. No owner-supplied songs are prese
 Home groups Motion and 3D/VFX at `/motion-vfx`, followed by Design and Music. Existing category routes remain available. Contact icons accompany the supplied social profiles, including corrected Instagram, YouTube and TikTok.
 
 Three short procedural MP3 listening examples are enabled by demoMode. They are clearly labeled samples, not FULL CORE releases, with provenance beside the files. Original track data remains separate and can replace them without player changes. npm build uses the committed MP3 assets; Python/NumPy/FFmpeg are optional regeneration tools only.
+
+Раздел Music наполнен 16 предоставленными владельцем треками. Данные и порядок: src/data/tracks.ts; MP3 и заменяемые нейтральные обложки: public/media/music/tracks/. Исполнители взяты из тегов, включая соавторов. Музыкальные примеры удалены; примеры визуальных работ остаются в preview-режиме.

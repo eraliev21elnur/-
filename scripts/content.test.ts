@@ -267,8 +267,8 @@ test("direct contacts replace the channel link and music remains honest before t
       createElement(App),
     ),
   );
-  assert.match(music, /Playback demos for testing the music player/);
-  assert.match(music, /They are not FULL CORE releases/);
+  assert.match(music, /Original music by FULL CORE/);
+  assert.doesNotMatch(music, /They are not FULL CORE releases/);
   if (!publishedTracks.length) assert.doesNotMatch(music, /<audio/);
   assert.doesNotMatch(music, /NOT FOUND/);
 });
@@ -333,25 +333,28 @@ test("home merges animation/VFX and puts Music after Design without dropping cat
     assert.doesNotMatch(html, /NOT FOUND/);
   }
 });
-test("authorized audio demos are labeled and can all be disabled", async () => {
-  const { getPublishedTracks } = await import("../src/data/tracks");
-  const { demoTracks } = await import("../src/data/demoTracks");
-  assert.equal(demoTracks.length, 3);
+test("supplied music preserves collaborator credits, lazy playback and real assets", async () => {
+  const { getPublishedTracks, tracks } = await import("../src/data/tracks");
   const { existsSync } = await import("node:fs");
-  assert.equal(new Set(demoTracks.map((track) => track.artwork)).size, 3);
-  for (const track of demoTracks) {
-    assert.ok(track.artwork?.startsWith("/media/music/demo/"));
+  assert.equal(getPublishedTracks().length, 16);
+  assert.deepEqual(getPublishedTracks([]), []);
+  assert.ok(
+    tracks.every((track) => !track.demo && track.artist && track.duration),
+  );
+  assert.equal(
+    tracks.find((track) => track.id === "old-new-dance")?.artist,
+    "Full Core, Yann",
+  );
+  assert.equal(
+    tracks.find((track) => track.id === "whats-on-your-mind")?.title,
+    "what$0nY0urM1nd",
+  );
+  for (const track of tracks) {
+    assert.ok(existsSync(new URL(`../public${track.src}`, import.meta.url)));
     assert.ok(
       existsSync(new URL(`../public${track.artwork}`, import.meta.url)),
     );
   }
-  assert.ok(
-    demoTracks.every(
-      (track) => track.demo && track.src.startsWith("/media/music/demo/"),
-    ),
-  );
-  assert.deepEqual(getPublishedTracks([], false), []);
-  assert.equal(getPublishedTracks([], true).length, 3);
   const html = renderToString(
     createElement(
       MemoryRouter,
@@ -361,6 +364,11 @@ test("authorized audio demos are labeled and can all be disabled", async () => {
   );
   assert.equal((html.match(/<audio\b/g) ?? []).length, 1);
   assert.doesNotMatch(html, /<audio[^>]*(src=|autoplay)/i);
-  assert.match(html, /Sample audio/);
-  assert.match(html, /Playback demo/);
+  assert.equal((html.match(/class="track-row /g) ?? []).length, 16);
+  assert.match(html, /Full Core, 2denimskin/);
+  assert.match(html, /SeeЯЮ/);
+  assert.doesNotMatch(
+    html,
+    /Sample audio|Playback demo|These procedural music samples|DESIGN PREVIEW/,
+  );
 });
