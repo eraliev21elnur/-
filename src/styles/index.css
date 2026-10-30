@@ -2397,3 +2397,11 @@ html {
     top: -20%;
   }
 }
+
+.now-playing-artist {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}

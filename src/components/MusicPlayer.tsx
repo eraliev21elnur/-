@@ -124,8 +124,11 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
                 )}
                 <h2>{track.title}</h2>
                 <p>
-                  {track.demo ? t("Playback demo") : site.brand}
+                  {track.demo ? t("Playback demo") : track.artist || site.brand}
                   {track.year ? ` / ${track.year}` : ""}
+                  {track.duration
+                    ? ` · ${Math.floor(track.duration / 60)}:${String(Math.floor(track.duration % 60)).padStart(2, "0")}`
+                    : ""}
                 </p>
                 {track.description && <p>{track.description}</p>}
                 {track.credits && (
@@ -182,6 +185,9 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
               <p aria-live="polite">
                 {current?.title ?? t("Choose a track to listen")}
               </p>
+              {current?.artist && (
+                <span className="now-playing-artist">{current.artist}</span>
+              )}
             </div>
           </div>
           <audio
