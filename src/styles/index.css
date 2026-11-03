@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../pages/Home.css";
+@import "./music.css";
 @theme {
   --color-core: #09090b;
   --color-silver: #bdc5cc;
