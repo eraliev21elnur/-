@@ -1,3 +1,4 @@
+import { paydaLyrics } from "./lyrics";
 export type Track = {
   id: string;
   demo?: boolean;
@@ -10,6 +11,7 @@ export type Track = {
   year?: number;
   description?: string;
   credits?: string;
+  lyrics?: { language: "kk" | "ru" | "en"; text: string };
   translations?: Partial<
     Record<
       "ru" | "kk",
@@ -23,6 +25,7 @@ export type Track = {
 export const tracks: Track[] = [
   {
     id: "payda",
+    lyrics: { language: "kk", text: paydaLyrics },
     title: "PayDa",
     artist: "Full Core",
     status: "published",
