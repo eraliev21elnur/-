@@ -513,3 +513,40 @@ test("imported Instagram films use local files and retain original covers", () =
     assert.equal(media.aspectRatio, "9/16");
   }
 });
+
+test("music queue handles saved order, moves and repeat boundaries", async () => {
+  const { normalizeOrder, moveTrack, followingTrack, shuffleTracks } =
+    await import("../src/lib/music");
+  const ids = ["payda", "troops", "seeyau"];
+  assert.deepEqual(normalizeOrder(["seeyau", "missing", "seeyau", 12], ids), [
+    "seeyau",
+    "payda",
+    "troops",
+  ]);
+  assert.deepEqual(normalizeOrder({ invalid: true }, ids), ids);
+  const moved = moveTrack(ids, "payda", 1);
+  assert.deepEqual(ids, ["payda", "troops", "seeyau"]);
+  assert.deepEqual(moved, ["troops", "payda", "seeyau"]);
+  assert.equal(followingTrack(moved, "payda", "off"), "seeyau");
+  assert.equal(followingTrack(moved, "seeyau", "off"), null);
+  assert.equal(followingTrack(moved, "seeyau", "all"), "troops");
+  assert.equal(followingTrack(moved, "payda", "one"), "payda");
+  assert.equal(followingTrack([], "payda", "all"), null);
+  const shuffled = shuffleTracks(ids, "payda");
+  assert.equal(shuffled[0], "payda");
+  assert.deepEqual([...shuffled].sort(), [...ids].sort());
+});
+test("PayDa lyrics retain the owner's Kazakh text and stanza breaks", async () => {
+  const { paydaLyrics } = await import("../src/data/lyrics");
+  const { publishedTracks } = await import("../src/data/tracks");
+  const track = publishedTracks.find((track) => track.id === "payda")!;
+  assert.equal(track.lyrics?.language, "kk");
+  assert.equal(track.lyrics?.text, paydaLyrics);
+  assert.ok(
+    paydaLyrics.startsWith(
+      "Барлық әлем саған қарсы болған өте қиын\nАрманыммен",
+    ),
+  );
+  assert.ok(paydaLyrics.includes("\n\nЕнді бәрі\n"));
+  assert.ok(paydaLyrics.endsWith("Қалмасын іздегендер пайда жолым болсын"));
+});

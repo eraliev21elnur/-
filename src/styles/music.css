@@ -1,0 +1,373 @@
+@font-face {
+  font-family: "Noto Sans Lyrics";
+  src: url("/fonts/noto-sans-lyrics.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+.queue-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.queue-toolbar p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 9px;
+}
+.queue-toolbar-actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.queue-edit-button {
+  border: 1px solid var(--line);
+  min-height: 44px;
+  padding: 10px 18px;
+  font-size: 12px;
+}
+.queue-edit-button[aria-pressed="true"] {
+  border-color: #aab6c1;
+}
+.track-lyrics-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #b9c5cf;
+  font-size: 10px;
+}
+.music-collection .track-list.is-editing .track-row {
+  grid-template-columns: 48px 96px minmax(0, 1fr) auto;
+}
+.track-order-controls {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.track-order-controls button {
+  width: 40px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #33333c;
+}
+.track-order-controls button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.track-order-controls .drag-handle {
+  cursor: grab;
+  border-color: transparent;
+}
+.track-order-controls .drag-handle:active {
+  cursor: grabbing;
+}
+.music-collection .music-player-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 1.2fr) 44px;
+  gap: 12px 28px;
+}
+.music-collection .music-player-panel:not(.has-track) .now-playing {
+  grid-column: 1;
+}
+.music-compact-controls {
+  min-width: 0;
+  grid-column: 2;
+  grid-row: 1;
+}
+.music-player-panel .music-audio-source[hidden] {
+  display: none !important;
+}
+.music-transport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.music-transport button,
+.music-expand-button {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: #a2a2ad;
+}
+.music-transport button:hover,
+.music-expand-button:hover {
+  color: #f5f5f5;
+}
+.music-transport button[aria-pressed="true"] {
+  color: #d2e0ec;
+}
+.music-transport button[aria-pressed="true"]:after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.music-transport button:disabled,
+.music-expand-button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.music-transport .music-main-play {
+  background: #f5f5f5;
+  color: #09090b;
+  border-radius: 50%;
+  margin-inline: 5px;
+}
+.music-transport .music-main-play:hover {
+  background: #c7d1d9;
+  color: #09090b;
+}
+.repeat-control > span {
+  position: absolute;
+  font-size: 8px;
+  font-weight: 700;
+  background: #111114;
+  top: 13px;
+  left: 18px;
+  line-height: 12px;
+}
+.music-progress {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  min-width: 0;
+}
+.music-progress > span {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.music-progress > span:last-child {
+  text-align: right;
+}
+.music-progress input,
+.music-volume input {
+  width: 100%;
+  min-width: 0;
+  accent-color: #d1dce5;
+  cursor: pointer;
+  min-height: 24px;
+}
+.music-progress input:disabled {
+  cursor: default;
+}
+.music-expand-button {
+  grid-column: 3;
+  grid-row: 1;
+  border: 1px solid var(--line);
+}
+.expanded-music {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #111114;
+  color: #f5f5f5;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.expanded-music:not([open]) {
+  display: none;
+}
+.expanded-music::backdrop {
+  background: #09090b;
+}
+.expanded-music-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #111114f5;
+  padding: calc(16px + env(safe-area-inset-top, 0px))
+    max(24px, env(safe-area-inset-right, 0px)) 16px
+    max(24px, env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--line);
+}
+.expanded-music-header .eyebrow {
+  font-size: 10px;
+  color: var(--muted);
+}
+.expanded-music-header button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+}
+.expanded-music-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(40px, 7vw, 110px);
+  width: min(1100px, 100% - 64px);
+  margin: 0 auto;
+  padding: 48px 0 calc(70px + env(safe-area-inset-bottom, 0px));
+  align-items: start;
+}
+.expanded-music-card {
+  position: sticky;
+  top: 120px;
+  min-width: 0;
+}
+.expanded-artwork {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  background: #19191d;
+  width: 100%;
+  max-width: min(420px, 34vh);
+  margin-inline: auto;
+  overflow: hidden;
+}
+.expanded-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.expanded-music-card h2 {
+  font-size: clamp(28px, 3vw, 46px);
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  margin-top: 28px;
+  overflow-wrap: anywhere;
+}
+.expanded-artist {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.expanded-music-card .music-progress {
+  margin-top: 26px;
+}
+.expanded-music-card .music-transport {
+  margin-top: 12px;
+}
+.music-volume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.music-volume input {
+  max-width: 140px;
+}
+.lyrics-panel {
+  min-width: 0;
+}
+.lyrics-panel > .eyebrow {
+  color: var(--muted);
+}
+.track-lyrics {
+  font-family: "Noto Sans Lyrics", Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.55vw, 22px);
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin-top: 28px;
+}
+.lyrics-empty {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .music-collection .music-player-inner {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 8px 12px;
+    padding-block: 12px;
+  }
+  .music-compact-controls {
+    grid-row: 2;
+    grid-column: 1/-1;
+  }
+  .music-expand-button {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .music-progress {
+    margin-top: 3px;
+  }
+  .queue-toolbar {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .queue-toolbar-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .queue-toolbar p {
+    max-width: 240px;
+  }
+  .expanded-music-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    width: calc(100% - 44px);
+    padding-top: 28px;
+  }
+  .expanded-music-card {
+    position: static;
+    width: 100%;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .expanded-artwork {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+  .expanded-music-card h2,
+  .expanded-artist {
+    text-align: center;
+  }
+}
+@media (max-width: 540px) {
+  .music-collection .track-list.is-editing .track-row {
+    grid-template-columns: 42px 52px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .track-order-controls {
+    grid-column: 2/-1;
+    justify-content: flex-end;
+  }
+  .queue-toolbar {
+    flex-direction: column;
+  }
+  .queue-toolbar-actions {
+    justify-content: flex-start;
+  }
+  .queue-toolbar p {
+    max-width: none;
+  }
+}
+
+.music-collection,
+.expanded-music {
+  font-family: "Noto Sans Lyrics", Arial, sans-serif;
+}
