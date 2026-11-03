@@ -1,5 +1,37 @@
 // Hand-edited UTF-8 translations. Keep names, credits and licenses factual.
 export const messages: Record<string, { ru: string; kk: string }> = {
+  "Video Editor · Motion Designer · 3D Artist": {
+    ru: "Видеомонтажёр · Моушн-дизайнер · 3D-художник",
+    kk: "Бейнемонтажшы · Моушн-дизайнер · 3D-суретші",
+  },
+  "I create videos, motion graphics and 3D visuals for brands and artists.": {
+    ru: "Создаю видео, моушн-графику и 3D-визуалы для брендов и артистов.",
+    kk: "Брендтер мен өнерпаздарға видео, моушн-графика және 3D-визуалдар жасаймын.",
+  },
+  "Based in Kazakhstan, open to relocation & remote": {
+    ru: "Казахстан · открыт к переезду и удалённой работе",
+    kk: "Қазақстанда тұрамын, көшуге және қашықтан жұмыс істеуге дайынмын",
+  },
+  "About Me": {
+    ru: "Обо мне",
+    kk: "Мен туралы",
+  },
+  "Studio shoots, commercials and edits — from camera to final cut.": {
+    ru: "Студийная съёмка, реклама и монтаж — от камеры до финального ролика.",
+    kk: "Студиялық түсірілім, жарнама және монтаж — камерадан дайын видеоға дейін.",
+  },
+  "2D animation, 3D visuals and compositing for stories and performances.": {
+    ru: "2D-анимация, 3D-визуалы и композитинг для историй и выступлений.",
+    kk: "Оқиғалар мен сахналық қойылымдарға арналған 2D-анимация, 3D-визуалдар және композитинг.",
+  },
+  "Product infographics and advertising visuals that make things clear.": {
+    ru: "Инфографика товаров и рекламные визуалы, которые понятно объясняют продукт.",
+    kk: "Өнімді түсінікті таныстыратын инфографика және жарнамалық визуалдар.",
+  },
+  "Original tracks, from writing and production to the final master.": {
+    ru: "Авторские треки: от сочинения и продакшена до финального мастеринга.",
+    kk: "Авторлық тректер: жазу мен продакшннан соңғы мастерингке дейін.",
+  },
   "Eraliev Elnur": {
     ru: "Ералиев Елнур",
     kk: "Ералиев Елнур",

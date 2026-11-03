@@ -17,45 +17,26 @@ export function Home() {
   const [reelOpen, setReelOpen] = useState(false);
   return (
     <>
-      <section className="home-hero wrap">
-        <div className="hero-caption">
-          <span className="eyebrow">
-            {t("Filmmaker / Motion designer / Music producer")}
-          </span>
-          <span className="eyebrow">
-            {t("Independent /")} {t(site.location)}
-          </span>
-        </div>
-        <div className="hero-composition">
-          <h1>
-            {t(site.tagline)}
-            <br />
-            <span>{t("Without limits.")}</span>
-          </h1>
-          <div className="hero-mark" aria-hidden="true">
-            <span className="mark-top">{t("FULL CORE / VISUAL & SOUND")}</span>
-            <div className="aperture">
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-            <span className="mark-bottom">
-              {t("FILM \u2014 MOTION \u2014 MUSIC")}
-            </span>
+      <section className="home-intro wrap" aria-labelledby="home-title">
+        <h1 id="home-title">{site.brand}</h1>
+        <p className="home-intro-roles">{t(site.homeIntro.roles)}</p>
+        <p className="home-intro-description">
+          {t(site.homeIntro.description)}
+        </p>
+        <div className="home-intro-footer">
+          <p className="home-intro-location">
+            {t(site.homeIntro.availability)}
+          </p>
+          <div className="home-intro-actions">
+            <Link className="home-about-button" to="/about">
+              {t("About Me")}
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
+            <a className="explore-link" href="#explore">
+              {t("Explore my work")}
+              <ArrowDown size={18} aria-hidden="true" />
+            </a>
           </div>
-        </div>
-        <div className="hero-summary">
-          <div>
-            <p className="hero-disciplines">{t(site.subtitle)}</p>
-            <p className="hero-location">
-              {t("Independent creator")} · {t(site.location)}
-            </p>
-          </div>
-          <a className="explore-link" href="#explore">
-            {t("Explore my work")}
-            <ArrowDown size={18} />
-          </a>
         </div>
         {site.showreel && (
           <div className="home-showreel">
@@ -121,7 +102,12 @@ export function Home() {
                     </div>
                     <div className="tile-copy">
                       <h3>{t(d.title)}</h3>
-                      <p>{t(d.description)}</p>
+                      <p>
+                        {t(
+                          site.homeIntro.categoryDescriptions[d.id] ??
+                            d.description,
+                        )}
+                      </p>
                     </div>
                     {preview?.demo && (
                       <span className="tile-sample">{t("Sample imagery")}</span>
