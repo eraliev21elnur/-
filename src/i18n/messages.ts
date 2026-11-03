@@ -1,5 +1,9 @@
 // Hand-edited UTF-8 translations. Keep names, credits and licenses factual.
 export const messages: Record<string, { ru: string; kk: string }> = {
+  "Filmmaker / Motion designer / 3D artist / Music producer": {
+    ru: "Видеограф / Моушн-дизайнер / 3D-художник / Музыкальный продюсер",
+    kk: "Бейне авторы / Моушн-дизайнер / 3D-суретші / Музыкалық продюсер",
+  },
   "Video Editor · Motion Designer · 3D Artist": {
     ru: "Видеомонтажёр · Моушн-дизайнер · 3D-художник",
     kk: "Бейнемонтажшы · Моушн-дизайнер · 3D-суретші",

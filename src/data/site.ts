@@ -5,6 +5,8 @@ const deploymentUrl =
 export const site = {
   brand: "FULL CORE",
   name: "Eraliev Elnur",
+  homeIdentity: "Eraliev Elnur • Full Core",
+  homeRoles: "Filmmaker / Motion designer / 3D artist / Music producer",
   aboutTagline: "From the first idea to the final frame.",
   publishEmptyDisciplines: false, // Empty pages are preview-only unless deliberately enabled.
   demoMode: false, // Legacy flag: all temporary sample projects/media have been removed.

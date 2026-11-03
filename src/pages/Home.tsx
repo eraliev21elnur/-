@@ -20,7 +20,7 @@ export function Home() {
       <section className="home-hero wrap">
         <div className="hero-caption">
           <span className="eyebrow">
-            {t("Filmmaker / Motion designer / Music producer")}
+            {t(site.homeRoles)}
           </span>
           <span className="eyebrow">
             {t("Independent /")} {t(site.location)}
@@ -47,7 +47,7 @@ export function Home() {
         </div>
         <div className="hero-summary">
           <div>
-            <p className="hero-disciplines">{t(site.homeIntro.roles)}</p>
+            <p className="hero-disciplines">{site.homeIdentity}</p>
             <p className="hero-introduction">{t(site.homeIntro.description)}</p>
             <p className="hero-location">{t(site.homeIntro.availability)}</p>
           </div>
