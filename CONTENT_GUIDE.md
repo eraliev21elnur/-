@@ -8,7 +8,7 @@
 
 ## Личная информация и главная
 
-В `src/data/site.ts` редактируются бренд, заголовки, описание, About, контакты, tools, availability и homeCovers. Неизвестный email остаётся пустым и не создаёт кнопку. `homeCovers` задаёт обложки Video, Motion & 3D/VFX, Design и Music. Сейчас это соответственно обложка личного Instagram-рила, кадр Vash Product, GTA VI и обложка Where are U?.
+В `src/data/site.ts` редактируются бренд, заголовки, описание, About, контакты, tools, availability и homeCovers. Неизвестный email остаётся пустым и не создаёт кнопку. `homeCovers` задаёт обложки Video, Motion & 3D/VFX, Design и Music. Сейчас это соответственно кадр Obshaga 530, кадр Vash Product, GTA VI и обложка Where are U?.
 
 Контакты: Telegram @full_core, Instagram @fullxcore, YouTube @Full_Core, TikTok @full_core, WhatsApp с отображаемым тегом @eraliev_elnur и звонок +7 708 588 75 85. WhatsApp открывается по номеру. Дата рождения — 2005-10-21; возраст в биографии указан по сведениям октября 2026 и требует проверки при дальнейших обновлениях.
 
@@ -110,3 +110,6 @@ Instagram-ролики (9 шт.) воспроизводятся из `public/med
 
 
 Имя автора задаётся в `site.name`, подпись — в `site.aboutTagline`, биография — в `about`, `creativeBackground`, `experience`, `musicAbout`. Переводы этих английских строк находятся в `src/i18n/messages.ts`. Творческое имя FULL CORE всегда пишется латиницей. Первая обложка главной страницы теперь использует `/media/portfolio/obshaga-530.webp`.
+
+
+Первый экран главной страницы настраивается через `site.homeIntro`: `roles`, `description`, `availability`. Короткие пояснения плиток — `homeIntro.categoryDescriptions`. Эти строки используются только на главной; страницы категорий и About остаются отдельными. Переводы новых строк добавляются в `src/i18n/messages.ts`, бренд FULL CORE не переводится. Предыдущая версия сохранена как Mark01; инструкция отката — в `BACKUPS.md`.

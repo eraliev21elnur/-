@@ -14,6 +14,22 @@ export const site = {
     design: "/media/portfolio/gta-vi-scene.webp",
     music: "/media/portfolio/where-are-u-artwork.webp",
   } as Record<string, string>,
+  // Home-only copy: changing these fields does not alter category/About pages.
+  homeIntro: {
+    roles: "Video Editor · Motion Designer · 3D Artist",
+    description:
+      "I create videos, motion graphics and 3D visuals for brands and artists.",
+    availability: "Based in Kazakhstan, open to relocation & remote",
+    categoryDescriptions: {
+      video: "Studio shoots, commercials and edits — from camera to final cut.",
+      "motion-vfx":
+        "2D animation, 3D visuals and compositing for stories and performances.",
+      design:
+        "Product infographics and advertising visuals that make things clear.",
+      music:
+        "Original tracks, from writing and production to the final master.",
+    } as Record<string, string>,
+  },
   title: "Film, Motion & Music Production",
   tagline: "Visuals & sound.",
   subtitle:
