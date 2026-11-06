@@ -1,11 +1,26 @@
-import { Link } from "react-router-dom";
+import { useCallback } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowUpRight, Disc3 } from "lucide-react";
 import { useLocale } from "../i18n";
 import { publishedTracks } from "../data/tracks";
 import { MusicPlayer } from "../components/MusicPlayer";
+import { NotFound } from "./ProjectDetail";
+import { musicTrackPath } from "../lib/music";
 import { site } from "../data/site";
 export function Music() {
   const { t } = useLocale();
+  const { trackId } = useParams();
+  const navigate = useNavigate();
+  const changeTrack = useCallback(
+    (id: string) => navigate(musicTrackPath(id), { replace: true }),
+    [navigate],
+  );
+  const openTrack = useCallback(
+    (id: string) => navigate(musicTrackPath(id)),
+    [navigate],
+  );
+  if (trackId && !publishedTracks.some((track) => track.id === trackId))
+    return <NotFound />;
   return (
     <div className="discipline-page music-page wrap">
       <div className="breadcrumb">
@@ -30,7 +45,12 @@ export function Music() {
         </p>
       </header>
       {publishedTracks.length ? (
-        <MusicPlayer tracks={publishedTracks} />
+        <MusicPlayer
+          tracks={publishedTracks}
+          trackId={trackId}
+          onTrackChange={changeTrack}
+          onTrackOpen={openTrack}
+        />
       ) : (
         <section className="music-empty">
           <div className="music-disc" aria-hidden="true">

@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { site } from "../data/site";
 import { navigation } from "../data/disciplines";
+import { isMusicPath } from "../lib/music";
 import { metadata } from "../lib/metadata";
 import { absoluteSiteUrl } from "../lib/paths";
 export function Layout() {
@@ -40,10 +41,10 @@ export function Layout() {
         ?.setAttribute("content", canonical);
     }
     if (previous.current !== location.pathname) {
-      window.scrollTo(0, 0);
-      main.current?.focus({
-        preventScroll: true,
-      });
+      if (!(isMusicPath(previous.current) && isMusicPath(location.pathname))) {
+        window.scrollTo(0, 0);
+        main.current?.focus({ preventScroll: true });
+      }
       previous.current = location.pathname;
     }
   }, [location.pathname, language]);

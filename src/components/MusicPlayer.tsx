@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import {
   Disc3,
   Pause,
@@ -15,11 +22,16 @@ import {
   X,
   FileText,
   Volume2,
+  VolumeX,
+  Link2,
+  Check,
 } from "lucide-react";
 import type { Track } from "../data/tracks";
 import { site } from "../data/site";
+import { assetUrl } from "../lib/paths";
 import { safeUrl } from "../lib/media";
 import {
+  musicTrackPath,
   followingTrack,
   formatTime,
   moveTrack,
@@ -33,7 +45,17 @@ export function trackText(track: Track, language: Language): Track {
     ? track
     : { ...track, ...track.translations?.[language] };
 }
-export function MusicPlayer({ tracks }: { tracks: Track[] }) {
+export function MusicPlayer({
+  tracks,
+  trackId,
+  onTrackChange,
+  onTrackOpen,
+}: {
+  tracks: Track[];
+  trackId?: string;
+  onTrackChange?: (id: string) => void;
+  onTrackOpen?: (id: string) => void;
+}) {
   const { t, language } = useLocale();
   const audio = useRef<HTMLAudioElement>(null);
   const panel = useRef<HTMLElement>(null);
@@ -41,6 +63,9 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
   const activeId = useRef<string | null>(null);
   const request = useRef(0);
   const dragging = useRef<string | null>(null);
+  const internalRoute = useRef<string | null>(null);
+  const previousOverflow = useRef<string | null>(null);
+  const lastVolume = useRef(1);
   const defaultIds = useMemo(() => tracks.map((track) => track.id), [tracks]);
   const trackMap = useMemo(
     () => new Map(tracks.map((track) => [track.id, track])),
@@ -50,11 +75,17 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
   const [shuffled, setShuffled] = useState<string[] | null>(null);
   const [editing, setEditing] = useState(false);
   const [notice, setNotice] = useState("");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [localSelectedId, setLocalSelectedId] = useState<string | null>(null);
+  const selectedId = trackId ?? localSelectedId;
   const [repeat, setRepeat] = useState<RepeatMode>("off");
   const [playing, setPlaying] = useState(false);
-  const [failed, setFailed] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [failedId, setFailedId] = useState<string | null>(null);
+  const failed = failedId !== null && failedId === selectedId;
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [shareLink, setShareLink] = useState<{
+    id: string;
+    url: string;
+  } | null>(null);
   const [elapsed, setElapsed] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
@@ -63,6 +94,20 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
   const current = selectedTrack ? trackText(selectedTrack, language) : null;
   const selectedIndex = selectedId ? ids.indexOf(selectedId) : -1;
   const length = duration || current?.duration || 0;
+  const restoreScroll = useCallback(() => {
+    if (previousOverflow.current !== null) {
+      document.body.style.overflow = previousOverflow.current;
+      previousOverflow.current = null;
+    }
+  }, []);
+  const showDialog = useCallback(() => {
+    const element = dialog.current;
+    if (!element) return;
+    if (!element.open) element.showModal();
+    if (previousOverflow.current === null)
+      previousOverflow.current = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+  }, []);
   useEffect(() => {
     const player = audio.current;
     const root = document.documentElement;
@@ -84,61 +129,76 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
       player?.pause();
       player?.removeAttribute("src");
       player?.load();
+      restoreScroll();
     };
-  }, []);
+  }, [restoreScroll]);
   useEffect(() => {
-    if (!expanded) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previous;
-    };
-  }, [expanded]);
-  function start(id: string, forcePlay = false) {
-    const player = audio.current,
-      track = trackMap.get(id);
-    if (!player || !track) return;
-    const token = ++request.current,
-      same = activeId.current === id;
-    if (same && !player.paused && !forcePlay) {
-      player.pause();
+    if (!trackId) {
+      dialog.current?.close();
       return;
     }
-    if (!same) {
-      player.pause();
-      player.src = safeUrl(track.src);
-      player.load();
-      activeId.current = id;
-      setSelectedId(id);
-      setElapsed(0);
-      setDuration(0);
-      if (dialog.current?.open) dialog.current.scrollTop = 0;
+    const internal = internalRoute.current === trackId;
+    internalRoute.current = null;
+    if (internal || !trackMap.has(trackId)) return;
+    if (activeId.current && activeId.current !== trackId) {
+      request.current++;
+      activeId.current = null;
+      audio.current?.pause();
+      audio.current?.removeAttribute("src");
+      audio.current?.load();
     }
-    setFailed(false);
-    player.play()?.catch((error: Error) => {
-      if (
-        token === request.current &&
-        player.isConnected &&
-        error.name !== "AbortError"
-      ) {
-        setFailed(true);
-        setPlaying(false);
+    showDialog();
+  }, [trackId, trackMap, showDialog]);
+  const start = useCallback(
+    (id: string, forcePlay = false) => {
+      const player = audio.current,
+        track = trackMap.get(id);
+      if (!player || !track) return;
+      if (onTrackChange && trackId !== id) {
+        internalRoute.current = id;
+        onTrackChange(id);
       }
-    });
-  }
-  function navigate(direction: -1 | 1) {
-    if (!selectedId) return;
-    if (direction === -1 && audio.current && audio.current.currentTime > 3) {
-      audio.current.currentTime = 0;
-      setElapsed(0);
-      return;
-    }
-    const index = selectedIndex + direction;
-    const next =
-      ids[index] ??
-      (repeat === "all" ? ids[(index + ids.length) % ids.length] : null);
-    if (next) start(next, true);
-  }
+      const token = ++request.current,
+        same = activeId.current === id;
+      if (same && !player.paused && !forcePlay) {
+        player.pause();
+        return;
+      }
+      if (!same) {
+        player.pause();
+        player.src = safeUrl(track.src);
+        player.load();
+        activeId.current = id;
+        setLocalSelectedId(id);
+        setElapsed(0);
+        setDuration(0);
+        if (dialog.current?.open) dialog.current.scrollTop = 0;
+      }
+      setFailedId(null);
+      player.play()?.catch((error: Error) => {
+        if (
+          token === request.current &&
+          player.isConnected &&
+          error.name !== "AbortError"
+        ) {
+          setFailedId(id);
+          setPlaying(false);
+        }
+      });
+    },
+    [trackMap, trackId, onTrackChange],
+  );
+  const navigate = useCallback(
+    (direction: -1 | 1) => {
+      if (!selectedId) return;
+      const index = selectedIndex + direction;
+      const next =
+        ids[index] ??
+        (repeat === "all" ? ids[(index + ids.length) % ids.length] : null);
+      if (next) start(next, true);
+    },
+    [selectedId, selectedIndex, ids, repeat, start],
+  );
   function ended() {
     setPlaying(false);
     if (!selectedId) return;
@@ -160,10 +220,150 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
     );
   }
   function openExpanded() {
-    if (current) {
-      dialog.current?.showModal();
-      setExpanded(true);
+    if (current) showDialog();
+  }
+  useEffect(() => {
+    const handleKey = (event: KeyboardEvent) => {
+      const target = event.target;
+      if (
+        event.defaultPrevented ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        event.isComposing
+      )
+        return;
+      if (
+        target instanceof HTMLElement &&
+        (target.isContentEditable ||
+          target.closest("textarea,select,input:not([type='range'])"))
+      )
+        return;
+      const key =
+        event.code ||
+        { " ": "Space", a: "KeyA", d: "KeyD", i: "KeyI" }[
+          event.key.toLowerCase()
+        ];
+      if (!key || !["Space", "KeyA", "KeyD", "KeyI"].includes(key)) return;
+      event.preventDefault();
+      if (event.repeat) return;
+      if (key === "Space") {
+        const id = selectedId ?? ids[0];
+        if (id) start(id);
+      } else if (key === "KeyA") navigate(-1);
+      else if (key === "KeyD") navigate(1);
+      else if (dialog.current?.open) dialog.current.close();
+      else if (selectedId) showDialog();
+      else if (ids[0]) {
+        if (onTrackOpen) onTrackOpen(ids[0]);
+        else {
+          setLocalSelectedId(ids[0]);
+          showDialog();
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [selectedId, ids, start, navigate, showDialog, onTrackOpen]);
+  useEffect(() => {
+    if (!copiedId) return;
+    const timeout = window.setTimeout(() => setCopiedId(null), 2500);
+    return () => window.clearTimeout(timeout);
+  }, [copiedId]);
+  async function copyLink(id: string) {
+    const url = new URL(
+      assetUrl(musicTrackPath(id)) + "/",
+      window.location.origin,
+    ).href;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopiedId(id);
+      setShareLink(null);
+      setNotice(t("Link copied"));
+    } catch {
+      setCopiedId(null);
+      setShareLink({ id, url });
+      setNotice(t("Copy this track link."));
     }
+  }
+  function shareFallback(id?: string) {
+    return shareLink && (!id || shareLink.id === id) ? (
+      <div className="music-share-fallback">
+        <span>
+          {t("Copy this track link.")} {trackMap.get(shareLink.id)?.title}
+        </span>
+        <input
+          readOnly
+          aria-label={t("Track link")}
+          value={shareLink.url}
+          onFocus={(event) => event.currentTarget.select()}
+        />
+      </div>
+    ) : null;
+  }
+  function setPlayerVolume(value: number) {
+    const level = Math.max(0, Math.min(1, value));
+    if (level > 0) lastVolume.current = level;
+    setVolume(level);
+    if (audio.current) {
+      audio.current.muted = false;
+      audio.current.volume = level;
+    }
+  }
+  function volumeControl(mode: "compact" | "expanded") {
+    const percent = Math.round(volume * 100);
+    const id = `music-volume-${mode}`;
+    return (
+      <div
+        className={`music-volume-control volume-${mode}`}
+        style={{ "--volume-fill": `${percent}%` } as CSSProperties}
+      >
+        <button
+          type="button"
+          aria-label={t(volume > 0 ? "Mute" : "Unmute")}
+          title={t(volume > 0 ? "Mute" : "Unmute")}
+          onClick={() => setPlayerVolume(volume > 0 ? 0 : lastVolume.current)}
+        >
+          {volume > 0 ? <Volume2 size={18} /> : <VolumeX size={18} />}
+        </button>
+        <label htmlFor={id} className="volume-title">
+          {t("Volume")}
+        </label>
+        <input
+          id={id}
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={(event) => setPlayerVolume(Number(event.target.value))}
+          aria-valuetext={`${percent}%`}
+        />
+        <output htmlFor={id}>{percent}%</output>
+      </div>
+    );
+  }
+  function shortcutGuide() {
+    return (
+      <div className="music-shortcuts" aria-label={t("Keyboard controls")}>
+        <span>
+          <kbd>{t("Space")}</kbd>
+          {t("Play / pause")}
+        </span>
+        <span>
+          <kbd>A</kbd>
+          {t("Previous track")}
+        </span>
+        <span>
+          <kbd>D</kbd>
+          {t("Next track")}
+        </span>
+        <span>
+          <kbd>I</kbd>
+          {t("Expand / collapse")}
+        </span>
+      </div>
+    );
   }
   function seek(value: number) {
     if (!audio.current || !Number.isFinite(audio.current.duration)) return;
@@ -189,10 +389,8 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
         <button
           type="button"
           aria-label={t("Previous track")}
-          disabled={
-            !selectedId ||
-            (selectedIndex === 0 && repeat !== "all" && elapsed <= 3)
-          }
+          aria-keyshortcuts="A"
+          disabled={!selectedId || (selectedIndex === 0 && repeat !== "all")}
           onClick={() => navigate(-1)}
         >
           <SkipBack size={19} />
@@ -200,6 +398,7 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
         <button
           type="button"
           className="music-main-play"
+          aria-keyshortcuts="Space"
           aria-label={t(playing ? "Pause playback" : "Play playback")}
           onClick={() => {
             const id = selectedId ?? ids[0];
@@ -215,6 +414,7 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
         <button
           type="button"
           aria-label={t("Next track")}
+          aria-keyshortcuts="D"
           disabled={
             !selectedId ||
             (selectedIndex === ids.length - 1 && repeat !== "all")
@@ -257,7 +457,7 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
           max={length || 1}
           step={0.1}
           value={Math.min(elapsed, length || 1)}
-          disabled={!current || !length}
+          disabled={!current || !duration}
           onChange={(e) => seek(Number(e.target.value))}
           aria-label={t("Seek playback")}
           aria-valuetext={`${formatTime(elapsed)} / ${formatTime(length)}`}
@@ -280,28 +480,31 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
             )}
           </p>
         </div>
-        <div className="queue-toolbar-actions">
-          {editing && (
+        <div className="music-queue-controls">
+          {shortcutGuide()}
+          <div className="queue-toolbar-actions">
+            {editing && (
+              <button
+                type="button"
+                className="text-button"
+                onClick={() => {
+                  setOrder(defaultIds);
+                  setShuffled(null);
+                  setNotice(t("Default order restored"));
+                }}
+              >
+                {t("Reset order")}
+              </button>
+            )}
             <button
               type="button"
-              className="text-button"
-              onClick={() => {
-                setOrder(defaultIds);
-                setShuffled(null);
-                setNotice(t("Default order restored"));
-              }}
+              className="queue-edit-button"
+              aria-pressed={editing}
+              onClick={() => setEditing(!editing)}
             >
-              {t("Reset order")}
+              {t(editing ? "Done" : "Edit order")}
             </button>
-          )}
-          <button
-            type="button"
-            className="queue-edit-button"
-            aria-pressed={editing}
-            onClick={() => setEditing(!editing)}
-          >
-            {t(editing ? "Done" : "Edit order")}
-          </button>
+          </div>
         </div>
       </div>
       <p className="sr-only" role="status">
@@ -354,7 +557,28 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
                 )}
               </div>
               <div className="track-info">
-                <h2>{track.title}</h2>
+                <h2>
+                  <a
+                    className="track-title-link"
+                    href={assetUrl(musicTrackPath(id))}
+                    onClick={(event) => {
+                      if (
+                        onTrackOpen &&
+                        event.button === 0 &&
+                        !event.ctrlKey &&
+                        !event.metaKey &&
+                        !event.shiftKey &&
+                        !event.altKey
+                      ) {
+                        event.preventDefault();
+                        onTrackOpen(id);
+                        if (id === selectedId) showDialog();
+                      }
+                    }}
+                  >
+                    {track.title}
+                  </a>
+                </h2>
                 <p>
                   {track.artist || site.brand}
                   {track.year ? ` / ${track.year}` : ""}
@@ -366,12 +590,31 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
                     {t("Credits:")} {track.credits}
                   </p>
                 )}
-                {track.lyrics && (
-                  <span className="track-lyrics-badge">
-                    <FileText size={12} />
-                    {t("Lyrics available")}
-                  </span>
-                )}
+                <div className="track-meta-actions">
+                  {track.lyrics && (
+                    <span className="track-lyrics-badge">
+                      <FileText size={12} />
+                      {t("Lyrics available")}
+                    </span>
+                  )}
+                  <button
+                    type="button"
+                    className="track-share-link"
+                    onClick={() => copyLink(id)}
+                    aria-label={t("Copy link to {title}").replace(
+                      "{title}",
+                      track.title,
+                    )}
+                  >
+                    {copiedId === id ? (
+                      <Check size={13} />
+                    ) : (
+                      <Link2 size={13} />
+                    )}
+                    {t(copiedId === id ? "Link copied" : "Copy link")}
+                  </button>
+                </div>
+                {shareLink?.id === id && shareFallback(id)}
                 {!!track.externalLinks?.length && (
                   <div className="track-links">
                     {track.externalLinks.map((link) => (
@@ -476,15 +719,19 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
             {transport()}
             {progress("compact-seek")}
           </div>
-          <button
-            type="button"
-            className="music-expand-button"
-            disabled={!current}
-            onClick={openExpanded}
-            aria-label={t("Open now playing")}
-          >
-            <Maximize2 size={20} />
-          </button>
+          <div className="music-panel-tools">
+            {volumeControl("compact")}
+            <button
+              type="button"
+              className="music-expand-button"
+              disabled={!current}
+              onClick={openExpanded}
+              aria-label={t("Open now playing")}
+              aria-keyshortcuts="I"
+            >
+              <Maximize2 size={20} />
+            </button>
+          </div>
           <audio
             ref={audio}
             controls
@@ -495,18 +742,26 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
             aria-label={t("Audio player")}
             onPlay={() => {
               setPlaying(true);
-              setFailed(false);
+              setFailedId(null);
             }}
             onPause={() => setPlaying(false)}
             onEnded={ended}
             onTimeUpdate={(e) => setElapsed(e.currentTarget.currentTime)}
+            onEmptied={() => {
+              setDuration(0);
+              setElapsed(0);
+              setPlaying(false);
+            }}
+            onVolumeChange={(e) =>
+              setVolume(e.currentTarget.muted ? 0 : e.currentTarget.volume)
+            }
             onLoadedMetadata={(e) => {
               if (Number.isFinite(e.currentTarget.duration))
                 setDuration(e.currentTarget.duration);
             }}
             onError={() => {
               if (activeId.current) {
-                setFailed(true);
+                setFailedId(activeId.current);
                 setPlaying(false);
               }
             }}
@@ -522,19 +777,37 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
         ref={dialog}
         className="expanded-music"
         aria-labelledby="expanded-title"
-        onClose={() => setExpanded(false)}
+        onClose={() => {
+          if (!dialog.current?.open) restoreScroll();
+        }}
       >
         <header className="expanded-music-header">
           <span className="eyebrow">
             {t("Now playing")} / {site.brand}
           </span>
-          <button
-            type="button"
-            onClick={() => dialog.current?.close()}
-            aria-label={t("Close now playing")}
-          >
-            <X size={23} />
-          </button>
+          <div className="expanded-music-header-actions">
+            <button
+              type="button"
+              disabled={!current}
+              onClick={() => current && copyLink(current.id)}
+              aria-label={t("Copy track link")}
+              title={t("Copy track link")}
+            >
+              {copiedId === current?.id ? (
+                <Check size={19} />
+              ) : (
+                <Link2 size={19} />
+              )}
+            </button>
+            <button
+              type="button"
+              onClick={() => dialog.current?.close()}
+              aria-label={t("Close now playing")}
+            >
+              <X size={23} />
+            </button>
+          </div>
+          {shareFallback(selectedId ?? undefined)}
         </header>
         <div className="expanded-music-layout">
           <section className="expanded-music-card">
@@ -556,22 +829,7 @@ export function MusicPlayer({ tracks }: { tracks: Track[] }) {
             <p className="expanded-artist">{current?.artist}</p>
             {progress("expanded-seek")}
             {transport()}
-            <label className="music-volume">
-              <Volume2 size={17} />
-              <span>{t("Volume")}</span>
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={(e) => {
-                  const value = Number(e.target.value);
-                  setVolume(value);
-                  if (audio.current) audio.current.volume = value;
-                }}
-              />
-            </label>
+            {volumeControl("expanded")}
             {failed && (
               <p className="audio-error" role="alert">
                 {t("This track could not be played. Please try again.")}
