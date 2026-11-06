@@ -1,4 +1,21 @@
-import { paydaLyrics } from "./lyrics";
+import {
+  paydaLyrics,
+  troopsInterludeLyrics,
+  seeyauLyrics,
+  inYourLifeLyrics,
+  oldNewDanceLyrics,
+  johnGallianoLyrics,
+  overlinerLyrics,
+  stoyLyrics,
+  vraliLyrics,
+  newlightchildLyrics,
+  novyyGoatLyrics,
+  whatsOnYourMindLyrics,
+  whereAreULyrics,
+  estChtoSkazatLyrics,
+  bowlingLyrics,
+  needYouLyrics,
+} from "./lyrics";
 export type Track = {
   id: string;
   demo?: boolean;
@@ -36,6 +53,7 @@ export const tracks: Track[] = [
   },
   {
     id: "troops-interlude",
+    lyrics: { language: "en", text: troopsInterludeLyrics },
     title: "Troops Interlude",
     artist: "Full Core, 2denimskin",
     status: "published",
@@ -45,6 +63,7 @@ export const tracks: Track[] = [
   },
   {
     id: "seeyau",
+    lyrics: { language: "ru", text: seeyauLyrics },
     title: "SeeЯЮ",
     artist: "Full Core",
     status: "published",
@@ -54,6 +73,7 @@ export const tracks: Track[] = [
   },
   {
     id: "in-your-life",
+    lyrics: { language: "kk", text: inYourLifeLyrics },
     title: "In your life",
     artist: "Full Core",
     status: "published",
@@ -63,6 +83,7 @@ export const tracks: Track[] = [
   },
   {
     id: "old-new-dance",
+    lyrics: { language: "ru", text: oldNewDanceLyrics },
     title: "OLD NEW DANCE",
     artist: "Full Core, Yann",
     status: "published",
@@ -72,6 +93,7 @@ export const tracks: Track[] = [
   },
   {
     id: "john-galliano",
+    lyrics: { language: "ru", text: johnGallianoLyrics },
     title: "John Galliano",
     artist: "Full Core",
     status: "published",
@@ -81,6 +103,7 @@ export const tracks: Track[] = [
   },
   {
     id: "overliner",
+    lyrics: { language: "en", text: overlinerLyrics },
     title: "Overliner",
     artist: "Full Core",
     status: "published",
@@ -90,6 +113,7 @@ export const tracks: Track[] = [
   },
   {
     id: "stoy",
+    lyrics: { language: "ru", text: stoyLyrics },
     title: "STOY",
     artist: "Full Core",
     status: "published",
@@ -99,6 +123,7 @@ export const tracks: Track[] = [
   },
   {
     id: "vrali",
+    lyrics: { language: "ru", text: vraliLyrics },
     title: "Vrali",
     artist: "Full Core",
     status: "published",
@@ -108,6 +133,7 @@ export const tracks: Track[] = [
   },
   {
     id: "newlightchild-pepel-nahudi",
+    lyrics: { language: "ru", text: newlightchildLyrics },
     title: "шайни - newlightchild - pepel nahudi",
     artist: "Full Core",
     status: "published",
@@ -117,6 +143,7 @@ export const tracks: Track[] = [
   },
   {
     id: "novyy-goat",
+    lyrics: { language: "ru", text: novyyGoatLyrics },
     title: "Новый GOAT",
     artist: "Full Core, 2denimskin",
     status: "published",
@@ -126,6 +153,7 @@ export const tracks: Track[] = [
   },
   {
     id: "whats-on-your-mind",
+    lyrics: { language: "en", text: whatsOnYourMindLyrics },
     title: "what$0nY0urM1nd",
     artist: "2denimskin, Full Core, picasso",
     status: "published",
@@ -136,6 +164,7 @@ export const tracks: Track[] = [
   },
   {
     id: "where-are-u",
+    lyrics: { language: "ru", text: whereAreULyrics },
     title: "Where are U?",
     artist: "Full Core",
     status: "published",
@@ -146,6 +175,7 @@ export const tracks: Track[] = [
   },
   {
     id: "est-chto-skazat",
+    lyrics: { language: "ru", text: estChtoSkazatLyrics },
     title: "Есть что сказать",
     artist: "Full Core",
     status: "published",
@@ -155,6 +185,7 @@ export const tracks: Track[] = [
   },
   {
     id: "bowling",
+    lyrics: { language: "ru", text: bowlingLyrics },
     title: "Боулинг",
     artist: "Full Core",
     status: "published",
@@ -164,6 +195,7 @@ export const tracks: Track[] = [
   },
   {
     id: "need-you",
+    lyrics: { language: "ru", text: needYouLyrics },
     title: "Need you",
     artist: "Full Core",
     status: "published",
