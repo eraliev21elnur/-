@@ -550,3 +550,35 @@ test("PayDa lyrics retain the owner's Kazakh text and stanza breaks", async () =
   assert.ok(paydaLyrics.includes("\n\nЕнді бәрі\n"));
   assert.ok(paydaLyrics.endsWith("Қалмасын іздегендер пайда жолым болсын"));
 });
+
+test("each published track has a direct route and track-specific metadata without eager audio", async () => {
+  const { publishedTracks } = await import("../src/data/tracks");
+  const { musicTrackPath, isMusicPath } = await import("../src/lib/music");
+  const { metadata } = await import("../src/lib/metadata");
+  assert.equal(musicTrackPath("Pay Da"), "/music/Pay%20Da");
+  assert.equal(isMusicPath("/music/payda"), true);
+  assert.equal(isMusicPath("/musical"), false);
+  for (const track of publishedTracks) {
+    const path = musicTrackPath(track.id);
+    const html = renderToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: [path] },
+        createElement(App),
+      ),
+    );
+    assert.doesNotMatch(html, /NOT FOUND/);
+    assert.equal((html.match(/<audio\b/g) ?? []).length, 1);
+    assert.doesNotMatch(html, /<audio[^>]*(src=|autoplay)/i);
+    assert.ok(metadata(path).title.startsWith(track.title));
+    assert.ok(metadata(path).description.includes(track.title));
+  }
+  const missing = renderToString(
+    createElement(
+      MemoryRouter,
+      { initialEntries: ["/music/missing-track"] },
+      createElement(App),
+    ),
+  );
+  assert.match(missing, /NOT FOUND/);
+});

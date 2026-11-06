@@ -1,4 +1,4 @@
-import { validateTracks } from "../src/data/tracks";
+import { publishedTracks, validateTracks } from "../src/data/tracks";
 import { disciplines, disciplineVisible } from "../src/data/disciplines";
 import { absoluteSiteUrl, assetUrl, routerBase } from "../src/lib/paths";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -8,6 +8,7 @@ import { MemoryRouter } from "react-router-dom";
 import { App } from "../src/App";
 import { site } from "../src/data/site";
 import { publishedProjects } from "../src/data/projects";
+import { musicTrackPath } from "../src/lib/music";
 import { metadata } from "../src/lib/metadata";
 import { validateProjects } from "./validate-content";
 
@@ -21,6 +22,7 @@ const routes = [
   "/about",
   "/contact",
   "/music",
+  ...publishedTracks.map((track) => musicTrackPath(track.id)),
   ...(disciplineVisible("motion-vfx") ? ["/motion-vfx"] : []),
   ...disciplines.filter((d) => disciplineVisible(d.id)).map((d) => `/${d.id}`),
   ...publishedProjects.map((p) => `/work/${p.slug}`),

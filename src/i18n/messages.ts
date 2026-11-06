@@ -1,5 +1,57 @@
 // Hand-edited UTF-8 translations. Keep names, credits and licenses factual.
 export const messages: Record<string, { ru: string; kk: string }> = {
+  "Keyboard controls": {
+    ru: "Управление с клавиатуры",
+    kk: "Пернетақтамен басқару",
+  },
+  Space: {
+    ru: "Пробел",
+    kk: "Бос орын",
+  },
+  "Play / pause": {
+    ru: "Пауза / Продолжить",
+    kk: "Ойнату / Кідірту",
+  },
+  "Expand / collapse": {
+    ru: "Открыть / Свернуть",
+    kk: "Ашу / Жию",
+  },
+  "Copy link": {
+    ru: "Скопировать ссылку",
+    kk: "Сілтемені көшіру",
+  },
+  "Copy track link": {
+    ru: "Скопировать ссылку на трек",
+    kk: "Трек сілтемесін көшіру",
+  },
+  "Copy link to {title}": {
+    ru: "Скопировать ссылку на «{title}»",
+    kk: "«{title}» сілтемесін көшіру",
+  },
+  "Link copied": {
+    ru: "Ссылка скопирована",
+    kk: "Сілтеме көшірілді",
+  },
+  "Copy this track link.": {
+    ru: "Скопируйте ссылку на этот трек.",
+    kk: "Осы тректің сілтемесін көшіріңіз.",
+  },
+  "Track link": {
+    ru: "Ссылка на трек",
+    kk: "Трек сілтемесі",
+  },
+  Mute: {
+    ru: "Выключить звук",
+    kk: "Дыбысты өшіру",
+  },
+  Unmute: {
+    ru: "Включить звук",
+    kk: "Дыбысты қосу",
+  },
+  "Listen to {title} by {artist}.": {
+    ru: "Слушать {title} — {artist}.",
+    kk: "{artist} — {title} трегін тыңдаңыз.",
+  },
   Shuffle: {
     ru: "Перемешать",
     kk: "Араластыру",

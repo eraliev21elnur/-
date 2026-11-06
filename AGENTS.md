@@ -33,3 +33,6 @@ All photos from each supplied Kaspi product card must be included, not just its 
 
 
 The owner is Eraliev Elnur (Ералиев Елнур in RU/KK); the creative name FULL CORE must always remain Latin. The accepted biography omits public age/birthdate and lives in site.ts with matching translations. Home Video uses the actual Obshaga 530 cover. Keep Reveal content visible in static HTML, respect reduced motion for scroll reveals and menu height changes, and avoid scroll interception or continuous decorative animation.
+
+
+Music track links use /music/:trackId and are prerendered for every published track. Direct links open the expanded player without loading audio before a gesture. Internal track URL changes must preserve the audio element, dialog state and list scroll position. Space/A/D/I control playback/previous/next/expanded lyrics view in both modes, only on Music; preserve text-input/modifier shortcuts. Keep compact and expanded volume controls synchronized and retain the visible shortcut guide before Edit order.
